@@ -1,10 +1,10 @@
-# Project Name
+# Project Name: PCD - Partially Covered Detection
 
-Developer Names:
+Developer Names: Tarnveer Takhtar, Matthew Bradbury, Harman Bassi, Kyen So
 
 Date of project start:
 
-This project is ...
+This project purpose is for the partially covered detection of people through coloured point cloud data - towards creating smarter spacial awareness in robotics applications
 
 The folders and files for this project are as follows:
 
