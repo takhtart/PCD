@@ -29,33 +29,22 @@ September 20, 2024 & Tarnveer Takhtar, Matthew Bradbury & Initial Draft\\
 
 \newpage{}
 
-\wss{Put your introductory blurb here.  Often the blurb is a brief roadmap of
-what is contained in the report.}
-
-\wss{Additional information on the development plan can be found in the
-\href{https://gitlab.cas.mcmaster.ca/courses/capstone/-/blob/main/Lectures/L02b_POCAndDevPlan/POCAndDevPlan.pdf?ref_type=heads}
-{lecture slides}.}
+This report outlines the key aspects of our project, including our structured 
+team meeting and communication plans. It details the roles and responsibilities of team members, 
+our workflow plan, and our project decomposition and scheduling strategy. Additionally, it covers our proof of concept demonstration plan, the expected 
+technology stack, and the coding standards we will adhere to. The appendices include reflections and our
+team charter, which highlights our external goals, attendance expectations, and accountability measures.
 
 \section{Confidential Information?}
 
-\wss{State whether your project has confidential information from industry, or
-not.  If there is confidential information, point to the agreement you have in
-place.}\\
-\\
 No confidential information present at this time.
 
-\wss{For most teams this section will just state that there is no confidential
-information to protect.}
 \section{IP to Protect}
 
-\wss{State whether there is IP to protect.  If there is, point to the agreement.
-All students who are working on a project that requires an IP agreement are also
-required to sign the ``Intellectual Property Guide Acknowledgement.''}\\
-\\
 No IP to protect at this time.
 
 \section{Copyright License}
-MIT License
+Our project will be using the MIT License.
 
 \section{Team Meeting Plan}
 
@@ -75,11 +64,11 @@ Agenda will be prepared by the chair of the meeting.
 \section{Team Communication Plan}
 
 Github issues, and a regularly updated Kanban board using those issues, will be used as a means of asynchronous communication 
-between members and our advisor outside of regularly scheduled meetings.
+between members and our Advisor outside of regularly scheduled meetings hosted on Microsoft Teams. 
+Discord will be used for general communications between team members. Our Advisor will be contacted via Email or Microsoft Teams.
 
 \section{Team Member Roles}
-
-Team Lead:\\
+\noindent Team Lead:\\
 Tarnveer Takhtar\\
 \\
 Approver(s):\\
@@ -113,35 +102,33 @@ Additional workflow tests may also be present to ensure compatibility.
 
 \section{Project Decomposition and Scheduling}
 
-Our Github project will consist of a Kanban board, highlighting the tasks that still need to be done, in progress or completed.
-https://github.com/users/takhtart/projects/3\\
-
+Our Github project will consist of a Kanban board, highlighting the tasks that still need to be done, in progress or completed.\\
+\\
+\noindent Link to Kanban Board:
+\noindent\href{https://github.com/users/takhtart/projects/3}{https://github.com/users/takhtart/projects/3}\\
+\\
 The Kanban board will contain a high-level overview of the tasks that need to be done, 
 with priority based on deadlines provided by the course outline.
 
 \section{Proof of Concept Demonstration Plan}
 
-What is the main risk, or risks, for the success of your project?  What will you
-demonstrate during your proof of concept demonstration to convince yourself that
-you will be able to overcome this risk?
-
 The main risk on this project is the realization of the project itself being more difficult than first perceived. 
-Given that the project is already a proof of concept in of itself, being able to identify unobscured people or objects, will be the 
-first moment of success prior of taking on our main challenge of detecting partially obscured people
+Given that the project is already a proof of concept in of itself, a first step of overcoming this will start by reliably identifying people not obscured by anything. 
+After successfully achieving this, we can take on our main challenge of detecting partially obscured people.
 
 \section{Expected Technology}
 
-Topics to discuss include the following:
-
-We plan to use Python as our primary programming language. Python is well-suited for data processing and machine learning, which we will likely need for our project.
+We plan to use Python as our primary programming language. 
+Python is well-suited for data processing and machine learning, which we will likely need for our project.
 We anticipate utilizing libraries such as Open3D for handling point cloud data with a Kinect as our input. 
-We may also use NumPy and SciPy for numerical computations, and Scikit-learn for machine learning tasks. 
-Additionally, we may use deep learning frameworks like TensorFlow or PyTorch, especially if we decide to train our own models given that it's unlikely there are any existing models for the problem we're trying to solve.
+We may also use NumPy and SciPy for numerical computations, and Scikit-learn for machine learning tasks.\\
+
+Additionally, we may require the use of deep learning frameworks like TensorFlow or PyTorch to train our own models given that it's unlikely there are any existing models for the problem we're trying to solve.
 To maintain code quality, we will employ tools like Flake8 for linting and Pytest for unit testing. 
 For code coverage we plan use Coverage.py to ensure thorough testing.
 For CI, we will likely use GitHub Actions to automate testing and deployment.
-Collaboration and version control will be conducted through Git and GitHub.
-Performance monitoring tools such as Valgrind may be considered for optimizing critical code sections. 
+Collaboration and version control will be conducted through Git and GitHub. Github Projects will be used to manage opened issue tickets, and be our primary tracker for project progression.
+Performance monitoring tools such as Valgrind may be considered for optimizing critical code sections (optimizing real-time detection). 
 
 \section{Coding Standard}
 The coding standard we will adopt will be Pep 8. 
@@ -158,10 +145,10 @@ The coding standard we will adopt will be Pep 8.
 
 \subsection*{External Goals}
 
-The team's external goals for this project are to have an impressive project
-to talk about for interviews. Furthermore, we want an impressive project
-to show off at the capstone convention. Additionally, we want to develop 
-new skills and hone old skills while working on this project.
+The team’s external goals for this project are to create an impressive project
+to discuss during interviews. Additionally, we aim to showcase a challenging
+and noteworthy project at the capstone convention. We also want to develop new skills 
+and refine our existing ones throughout this project.
 
 \subsection*{Attendance}
 
@@ -197,7 +184,7 @@ for whoever ends up covering.
 Team members are expected to adequately prepare for team meetings. This means completing 
 agreed upon work prior to meeting times, barring a reasonable excuse. For supervisor/TA
 meetings, members are expected to adequately understand the reason for the meeting enough
-to contribute unique ideas/questions to the conversation. 
+to contribute unique ideas/questions to the conversation.\\ 
 
 Regarding quality of work, members are expected to complete work at a reasonable pace, allowing room 
 for adequate review to take place prior to deadlines. The work should also be done at a quality
@@ -216,7 +203,7 @@ We will use Github projects to ensure that we are on track. Each task to work on
 will be stored in an issue, which will have up to date deadlines attached to them, 
 as well as the assignee(s). This will give us the ability to check up and see if 
 tasks are being worked on/reviewed at a timely pace. On top of issues, we will 
-be looking at commits and team meeting attendance to gauge contributions.
+be looking at commits and team meeting attendance to gauge contributions.\\
 
 In the event that members aren't contributing their fair share, that member will have
 to purchase snacks for the next team meeting. We will also have a group meeting with 
