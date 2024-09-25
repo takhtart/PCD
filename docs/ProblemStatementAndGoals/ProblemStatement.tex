@@ -43,44 +43,77 @@ Dr Gary Bone wishes to create a solution for future mobile robots with arms to r
 \subsection{Environment}
 The software must work in conjunction with the microsoft kinect in real-time. Additionally, the software must be designed using C++ and/or Python and will be designed to work in the Windows operating system.
 
-
-\section{Goals}
+\section{Goals}   
+        \begin{tabular}{ |p{3cm}|p{3cm}|p{6cm}|  }
+        \hline
+        Goals & Explanation & Importance \\
+        \hline
+        Identifying Humans & The program needs to able to detect a human within a given environment.     & 
+        \begin{itemize}
+        \item This goal is important  as its the main function of the program
+        \item Being able to detect human helps with finding the location of the person 
+        \end{itemize}\\
+        \hline
+        Be able to outline a human & The program needs to be able to create a rough outline based on where it believes a human is.    & 
+        \begin{itemize}
+        \item Its important to understand the basic outline of the human so that the robot is able to create a basic understanding of where they are hidden
+        \end{itemize}\\
+        \hline
+        Real-time Processing & The program needs to be able to process what it sees in real time and present its data as it sees it. & 
+        \begin{itemize}
+        \item The environment is constantly changing and needs to able to output real time results
+        \item Its important that the output displays real time results because it is important that the robot is able to constantly adapt to the environment 
+        \end{itemize}\\
+        \hline
+        Be able to capture  PCD from the sensor   & The program uses PCD data to identify a human in the present environment & 
+        \begin{itemize}
+        \item This data needs to be collected properly so that it can be processed
+        \item Without this data the program/robot will not be able to properly detect the humans
+        \end{itemize}\\
+        \hline
+        Be able to analyze PCD files & The program should be able to analyze PCD files that are uploaded rather than captured in real time. & 
+        \begin{itemize}
+        \item Controlled scenarios could be easily tested to ensure proper results and also allow for specific configuration
+        \end{itemize}\\
+        \hline
+        \end{tabular}
+        
 
 \section{Stretch Goals}
+    \begin{tabular}{ |p{3cm}|p{3cm}|p{6cm}|  }
+    \hline
+    Goals & Explanation & Importance \\
+    \hline
+    Detect Humans Fully covered in clothing  & When a human is fully covered their skin color is no longer visible which would make it more difficult to detect the person.     & 
+    \begin{itemize}
+      \item In more dangerous scenarios it would be highly likely that some humans may be wearing full body suits for protection
+      \item Also this would allow for a system that isn’t solely dependent on skin color to detect humans 
+    \end{itemize}\\
+    \hline
+    Mapping the environment & Being able to identify other objects that are present within the environment    & 
+    \begin{itemize}
+      \item Being able to identify objects would allow for a better understanding of the environment and where the person is hidden 
+    \end{itemize}\\
+    \hline
+    Humanoid Outline & Creating a realistic outline that shows a humanoid figure in a 3D plane    & 
+    \begin{itemize}
+      \item Creating a more humanoid outline will give proper dimensions to the person hidden in the frame
+      \item This would allow for more accurate detection and human depiction 
+    \end{itemize}\\
+    \hline
+    \end{tabular}
 
 \section{Challenge Level and Extras}
 
-\wss{State your expected challenge level (advanced, general or basic).  The
-challenge can come through the required domain knowledge, the implementation or
-something else.  Usually the greater the novelty of a project the greater its
-challenge level.  You should include your rationale for the selected level.
-Approval of the level will be part of the discussion with the instructor for
-approving the project.  The challenge level, with the approval (or request) of
-the instructor, can be modified over the course of the term.}
-
-\wss{Teams may wish to include extras as either potential bonus grades, or to
-make up for a less advanced challenge level.  Potential extras include usability
-testing, code walkthroughs, user documentation, formal proof, GenderMag
-personas, Design Thinking, etc.  Normally the maximum number of extras will be
-two.  Approval of the extras will be part of the discussion with the instructor
-for approving the project.  The extras, with the approval (or request) of the
-instructor, can be modified over the course of the term.}
+The challenge level of the project is considered to be general. The project consists of topics 
+already covered within previous year courses. Majority of the project fits into the group's domain
+ and should be achievable. However, there is a learning curve with the computer vision aspect of 
+ the program. The two extras that the project will cover is design thinking and the user manual.
 
 \newpage{}
 
 \section*{Appendix --- Reflection}
 
-\wss{Not required for CAS 741}
-
-\input{../Reflection.tex}
-
-\begin{enumerate}
-    \item What went well while writing this deliverable? 
-    \item What pain points did you experience during this deliverable, and how
-    did you resolve them?
-    \item How did you and your team adjust the scope of your goals to ensure
-    they are suitable for a Capstone project (not overly ambitious but also of
-    appropriate complexity for a senior design project)?
-\end{enumerate}  
+\input{../Reflection.tex}   
 
 \end{document}
