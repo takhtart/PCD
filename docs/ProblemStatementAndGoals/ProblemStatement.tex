@@ -22,72 +22,65 @@
 \toprule
 \textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
 \midrule
-Date1 & Name(s) & Description of changes\\
-Date2 & Name(s) & Description of changes\\
-... & ... & ...\\
+September 24, 2024 & Harman Bassi and Kyen So & Initial Draft\\
 \bottomrule
 \end{tabularx}
 \end{table}
 
+\newpage
+
 \section{Problem Statement}
 
-\wss{You should check your problem statement with the
-\href{https://github.com/smiths/capTemplate/blob/main/docs/Checklists/ProbState-Checklist.pdf}
-{problem statement checklist}.} 
-
-\wss{You can change the section headings, as long as you include the required
-information.}
-
 \subsection{Problem}
+Our team aims to design a software that can reliably detect a person’s body from Point Cloud Data (PCD) even if they are blocked by another person or other objects, which existing solutions cannot reliably do so. This helps make future assistive robots with arms designed to help people in their daily lives much safer for the user.
 
 \subsection{Inputs and Outputs}
-
-\wss{Characterize the problem in terms of ``high level'' inputs and outputs.  
-Use abstraction so that you can avoid details.}
+The software will take in real-time data from a Kinect sensor or uploaded Point Cloud Data (PCD) files and return the location of visible parts of a person in the coloured point cloud and an estimation of the 3D space that are occupied by the head, torso and limbs.
 
 \subsection{Stakeholders}
+Dr.Gary Bone wishes to create a solution for robots to recognize their surroundings and identify the spaces that are occupied by the people around them. This way, these assistive robots can be used to help people at their homes. Our solution could be used by robotics companies to develop their robots.
 
 \subsection{Environment}
+The software must work in conjunction with the Microsoft Kinect in real-time. Additionally, the software will be designed to work in the Windows operating system.
 
-\wss{Hardware and software environment}
+\newpage
+\section{Goals}   
 
-\section{Goals}
+\subsection{Identifying a Person}
+The application should be able to identify a human within a variety of different environments. This includes detecting the human even if they are partially obscured by an object.
 
+\subsection{Model Identified Person using Shapes}
+The application should be able to provide a rough model based on where it believes the person is in 3D space. A rough shape of the head, torso, and limbs will be shown on the screen to help provide an accurate location of the human on screen.
+
+\subsection{Real-time Processing}
+The application needs to be able to process the data and constantly be updating to see if a human is detected within frame. The reading and processing of the data needs to be done with minimal latency.
+
+\subsection{Location Precision}
+The application is able to provide the spatial coordinate of the person. This would help with visualizing the human within a 3D space and provide the robot with a better understanding of where the person is from its current location.
+
+\subsection{Analyze and Process offline PCD files}
+The application should be able to take uploaded Point Cloud Data files as an input rather than analyzing captured data in real-time. This allows for the testing of various controlled scenarios to ensure that the program can successfully identify a human in different scenarios. Outputs of the application can be easily compared to the expected results of the configured scenario to determine accuracy.
+        
+\newpage
 \section{Stretch Goals}
+
+\subsection{Mapping the environment}
+The application should be able to identify other objects that are present within the environment. Having a better understanding of the environment means that the application would provide better spatial awareness by disregarding objects as being possible body parts.
+
+\subsection{Drawing a Humanoid Outline}
+The application should be able to create a realistic outline with humanoid features for the people it identifies. A more accurate outline provides greater dimension and distinction between what is and isn’t part of the human body. This would allow for a more accurate detection and human depiction.
+  
 
 \section{Challenge Level and Extras}
 
-\wss{State your expected challenge level (advanced, general or basic).  The
-challenge can come through the required domain knowledge, the implementation or
-something else.  Usually the greater the novelty of a project the greater its
-challenge level.  You should include your rationale for the selected level.
-Approval of the level will be part of the discussion with the instructor for
-approving the project.  The challenge level, with the approval (or request) of
-the instructor, can be modified over the course of the term.}
-
-\wss{Teams may wish to include extras as either potential bonus grades, or to
-make up for a less advanced challenge level.  Potential extras include usability
-testing, code walkthroughs, user documentation, formal proof, GenderMag
-personas, Design Thinking, etc.  Normally the maximum number of extras will be
-two.  Approval of the extras will be part of the discussion with the instructor
-for approving the project.  The extras, with the approval (or request) of the
-instructor, can be modified over the course of the term.}
+The challenge level of the project is currently considered to be general. However, the project consists of topics 
+that aren't covered within previous year courses and the majority of the project doesn't fits into the group's current domain knowledge on computer vision and possibly machine learning. 
+There is a learning curve with the computer vision aspect of the program and the challenge level of the project could be considered advanced for the team. The two extras that the project will cover is design thinking and the user manual.
 
 \newpage{}
 
 \section*{Appendix --- Reflection}
 
-\wss{Not required for CAS 741}
-
-\input{../Reflection.tex}
-
-\begin{enumerate}
-    \item What went well while writing this deliverable? 
-    \item What pain points did you experience during this deliverable, and how
-    did you resolve them?
-    \item How did you and your team adjust the scope of your goals to ensure
-    they are suitable for a Capstone project (not overly ambitious but also of
-    appropriate complexity for a senior design project)?
-\end{enumerate}  
+\input{../Reflection.tex}   
 
 \end{document}

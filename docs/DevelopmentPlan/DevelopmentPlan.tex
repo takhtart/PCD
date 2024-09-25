@@ -22,219 +22,217 @@
 \toprule
 \textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
 \midrule
-Date1 & Name(s) & Description of changes\\
-Date2 & Name(s) & Description of changes\\
-... & ... & ...\\
+September 24, 2024 & Tarnveer Takhtar, Matthew Bradbury & Initial Draft\\
 \bottomrule
 \end{tabularx}
 \end{table}
 
 \newpage{}
 
-\wss{Put your introductory blurb here.  Often the blurb is a brief roadmap of
-what is contained in the report.}
-
-\wss{Additional information on the development plan can be found in the
-\href{https://gitlab.cas.mcmaster.ca/courses/capstone/-/blob/main/Lectures/L02b_POCAndDevPlan/POCAndDevPlan.pdf?ref_type=heads}
-{lecture slides}.}
+This report outlines the key aspects of our project, including our structured 
+team meeting and communication plans. It details the roles and responsibilities of team members, 
+our workflow plan, and our project decomposition and scheduling strategy. Additionally, it covers our proof of concept demonstration plan, the expected 
+technology stack, and the coding standards we will adhere to. The appendices include reflections and our
+team charter, which highlights our external goals, attendance expectations, and accountability measures.
 
 \section{Confidential Information?}
 
-\wss{State whether your project has confidential information from industry, or
-not.  If there is confidential information, point to the agreement you have in
-place.}
+No confidential information present at this time.
 
-\wss{For most teams this section will just state that there is no confidential
-information to protect.}
 \section{IP to Protect}
 
-\wss{State whether there is IP to protect.  If there is, point to the agreement.
-All students who are working on a project that requires an IP agreement are also
-required to sign the ``Intellectual Property Guide Acknowledgement.''}
+No IP to protect at this time.
 
 \section{Copyright License}
-
-\wss{What copyright license is your team adopting.  Point to the license in your
-repo.}
+Our project will be using the MIT License.
 
 \section{Team Meeting Plan}
 
-\wss{How often will you meet? where?}
+We will be meeting once a week, apart from lecture times, in a physical location on 
+McMaster campus. Alternatively, the meeting can be held virtually on Discord or Microsoft Teams incase of
+unforeseen circumstances.\\
 
-\wss{If the meeting is a physical location (not virtual), out of an abundance of
-caution for safety reasons you shouldn't put the location online}
+We will provide our advisor with updates bi-weekly, scheduling an meeting
+for larger updates and sending an email for smaller updates. Meetings will
+be held virtually unless for specific reasons. Virtual meetings will be hosted on
+Microsoft Teams.\\
 
-\wss{How often will you meet with your industry advisor?  when?  where?}
-
-\wss{Will meetings be virtual?  At least some meetings should likely be
-in-person.}
-
-\wss{How will the meetings be structured?  There should be a chair for all meetings.  There should be an agenda for all meetings.}
+For each meeting the scheduler of the meeting will be the chair. 
+For recurring weekly meetings, the team lead will be the chair. 
+Agenda will be prepared by the chair of the meeting.
 
 \section{Team Communication Plan}
 
-\wss{Issues on GitHub should be part of your communication plan.}
+Github issues, and a regularly updated Kanban board using those issues, will be used as a means of asynchronous communication 
+between members and our Advisor outside of regularly scheduled meetings hosted on Microsoft Teams. 
+Discord will be used for general communications between team members. Our Advisor will be contacted via Email or Microsoft Teams.
 
 \section{Team Member Roles}
-
-\wss{You should identify the types of roles you anticipate, like notetaker,
-leader, meeting chair, reviewer.  Assigning specific people to those roles is
-not necessary at this stage.  In a student team the role of the individuals will
-likely change throughout the year.}
+\noindent Team Lead:\\
+Tarnveer Takhtar\\
+\\
+Approver:\\
+Matthew Bradbury\\
+\\
+Reviewer(s):\\
+Harman Bassi\\
+Kyen So\\
+\\
+Administrator:\\
+Kyen So\\
+\\
+Coordinator:\\
+Harman Bassi\\
 
 \section{Workflow Plan}
 
-\begin{itemize}
-	\item How will you be using git, including branches, pull request, etc.?
-	\item How will you be managing issues, including template issues, issue
-	classification, etc.?
-  \item Use of CI/CD
-\end{itemize}
+We will be using a branch for each Revision, and separate branches for each
+major code features. Pull requests will be reserved for merging feature branches,
+while documentation changes will be manually reviewed and edited.\\
+
+Github issues will be created for any tasks as per the course outline, issues will also be created for code features.
+Issue priority and classification will be designated by both deadline, and if it is a pre-requisite of other tasks.
+Issues will be assigned accordingly as discussed within our meetings. 
+If any discrepancies are found within the documentation, an issue will be made, and assigned.\\
+
+GitHub Actions will be used to handle CI/CD, triggered each time a pull request occurs for the codebase of the project. 
+A predefined linter will go over the code ensuring consistency with the chosen linter's standard. 
+Additional workflow tests may also be present to ensure compatibility.
+
 
 \section{Project Decomposition and Scheduling}
 
-\begin{itemize}
-  \item How will you be using GitHub projects?
-  \item Include a link to your GitHub project
-\end{itemize}
-
-\wss{How will the project be scheduled?  This is the big picture schedule, not
-details. You will need to reproduce information that is in the course outline
-for deadlines.}
+Our Github project will consist of a Kanban board, highlighting the tasks that still need to be done, in progress or completed.\\
+\\
+\noindent Link to Kanban Board:
+\noindent\href{https://github.com/users/takhtart/projects/3}{https://github.com/users/takhtart/projects/3}\\
+\\
+The Kanban board will contain a high-level overview of the tasks that need to be done, 
+with priority based on deadlines provided by the course outline.
 
 \section{Proof of Concept Demonstration Plan}
 
-What is the main risk, or risks, for the success of your project?  What will you
-demonstrate during your proof of concept demonstration to convince yourself that
-you will be able to overcome this risk?
+\subsection*{Significant Risks}
+\begin{enumerate}
+\item Project Complexity: The primary risk is the potential complexity of the project, which may be greater than initially anticipated. 
+Our team welcomes the challenges associated with this project however, we must understand the risks of taking on a project where we have no experience in the specific domain.
+
+\item Kinect Sensor Performance: Another critical concern is the performance of the provided Kinect sensor, both during the development phase and the demonstration. 
+Ensuring the sensor functions optimally and produces a quality real-time point cloud image is crucial for the project's success.
+
+\end{enumerate}
+
+Overall, The performance and reliability of the Kinect sensor and the implementation complexity of the detecting people when only partially visible are our main concerns regarding this project.
+
+\subsection*{Demonstration Plan}
+
+To demonstrate that these risks can be overcome, we plan on showcasing the system's ability to reliably identify people \textbf{not} obscured by any objects (base case). 
+This will be a key achievement for our team, instilling confidence within our team that we can take on the primary challenge of identifying people when obscured.
+This process will also present the Kinect sensor's performance during both development and the demo, providing more first hand knowledge on the sensor's benefits and drawbacks we should be aware of.
 
 \section{Expected Technology}
 
-\wss{What programming language or languages do you expect to use?  What external
-libraries?  What frameworks?  What technologies.  Are there major components of
-the implementation that you expect you will implement, despite the existence of
-libraries that provide the required functionality.  For projects with machine
-learning, will you use pre-trained models, or be training your own model?  }
+We plan to use Python as our primary programming language. 
+Python is well-suited for data processing and machine learning, which we will likely need for our project.
+We anticipate utilizing libraries such as Open3D for handling point cloud data with a Kinect as our input. 
+We may also use NumPy and SciPy for numerical computations, and Scikit-learn for machine learning tasks.\\
 
-\wss{The implementation decisions can, and likely will, change over the course
-of the project.  The initial documentation should be written in an abstract way;
-it should be agnostic of the implementation choices, unless the implementation
-choices are project constraints.  However, recording our initial thoughts on
-implementation helps understand the challenge level and feasibility of a
-project.  It may also help with early identification of areas where project
-members will need to augment their training.}
-
-Topics to discuss include the following:
-
-\begin{itemize}
-\item Specific programming language
-\item Specific libraries
-\item Pre-trained models
-\item Specific linter tool (if appropriate)
-\item Specific unit testing framework
-\item Investigation of code coverage measuring tools
-\item Specific plans for Continuous Integration (CI), or an explanation that CI
-  is not being done
-\item Specific performance measuring tools (like Valgrind), if
-  appropriate
-\item Tools you will likely be using?
-\end{itemize}
-
-\wss{git, GitHub and GitHub projects should be part of your technology.}
+Additionally, we may require the use of deep learning frameworks like TensorFlow or PyTorch to train our own models given that it's unlikely there are any existing models for the problem we're trying to solve.
+To maintain code quality, we will employ tools like Flake8 for linting and Pytest for unit testing. 
+For code coverage we plan use Coverage.py to ensure thorough testing.
+For CI, we will likely use GitHub Actions to automate testing and deployment.
+Collaboration and version control will be conducted through Git and GitHub. Github Projects will be used to manage opened issue tickets, and be our primary tracker for project progression.
+Performance monitoring tools such as Valgrind may be considered for optimizing critical code sections (optimizing real-time detection). 
 
 \section{Coding Standard}
-
-\wss{What coding standard will you adopt?}
+The coding standard we will adopt will be Pep 8. 
 
 \newpage{}
 
 \section*{Appendix --- Reflection}
 
-\wss{Not required for CAS 741}
-
 \input{../Reflection.tex}
-
-\begin{enumerate}
-    \item Why is it important to create a development plan prior to starting the
-    project?
-    \item In your opinion, what are the advantages and disadvantages of using
-    CI/CD?
-    \item What disagreements did your group have in this deliverable, if any,
-    and how did you resolve them?
-\end{enumerate}
 
 \newpage{}
 
 \section*{Appendix --- Team Charter}
 
-\wss{borrows from
-\href{https://engineering.up.edu/industry_partnerships/files/team-charter.pdf}
-{University of Portland Team Charter}}
-
 \subsection*{External Goals}
 
-\wss{What are your team's external goals for this project? These are not the
-goals related to the functionality or quality fo the project.  These are the
-goals on what the team wishes to achieve with the project.  Potential goals are
-to win a prize at the Capstone EXPO, or to have something to talk about in
-interviews, or to get an A+, etc.}
+The team's external goals for this project are to create an impressive project
+to discuss during interviews. Additionally, we aim to showcase a challenging
+and noteworthy project at the capstone convention. We also want to develop new skills 
+and refine our existing ones throughout this project.
 
 \subsection*{Attendance}
 
 \subsubsection*{Expectations}
 
-\wss{What are your team's expectations regarding meeting attendance (being on
-time, leaving early, missing meetings, etc.)?}
+The expectation is that members clearly communicate their availability,
+and give at least 24 hour notice when not being able to attend meetings.
+If a member needs to skip/leave early, they are expected to communicate 
+what work they will complete prior to the next meeting and ensure that
+they are up to date on any project changes. While there is no \% of
+meetings that must be attended, we will be using group consensus to
+determine if one particular group member is missing a worrying number
+of meetings.
 
 \subsubsection*{Acceptable Excuse}
 
-\wss{What constitutes an acceptable excuse for missing a meeting or a deadline?
-What types of excuses will not be considered acceptable?}
+An acceptable excuse for missing a meeting or deadline would be any truly
+unforeseen/unavoidable engagement which requires immediate attention or any engagement 
+that is properly communicated beforehand. The second type of excuse will not be 
+permitted if the rest of the group feels that an individual member has missed too 
+many meetings/deadlines.
 
 \subsubsection*{In Case of Emergency}
 
-\wss{What process will team members follow if they have an emergency and cannot
-attend a team meeting or complete their individual work promised for a team
-deliverable?}
+In case of emergency, the individual should convey exactly what they can and cannot accomplish to
+the team, and ensure that they complete an adequate amount of work at a later date 
+for whoever ends up covering.
 
 \subsection*{Accountability and Teamwork}
 
-\subsubsection*{Quality} 
+\subsubsection*{Quality}
 
-\wss{What are your team's expectations regarding the quality
-of team members' preparation for team meetings and the quality of the
-deliverables that members bring to the team?}
+Team members are expected to adequately prepare for team meetings. This means completing 
+agreed upon work prior to meeting times, barring a reasonable excuse. For supervisor/TA
+meetings, members are expected to adequately understand the reason for the meeting enough
+to contribute unique ideas/questions to the conversation.\\ 
+
+Regarding quality of work, members are expected to complete work at a reasonable pace, allowing room 
+for adequate review to take place prior to deadlines. The work should also be done at a quality
+similar to the others, i.e. everyone is contributing at a quality similar to the person of highest
+engagement/quality level.
 
 \subsubsection*{Attitude}
 
-\wss{What are your team's expectations regarding team members' ideas,
-interactions with the team, cooperation, attitudes, and anything else regarding
-team member contributions?  Do you want to introduce a code of conduct?  Do you
-want a conflict resolution plan?  Can adopt existing codes of conduct.}
+The team's expectations are that each member completes work with a level of engagement
+relatively similar to other team members. When providing ideas/interactions, it is 
+expected that each member is treated with respect.
 
 \subsubsection*{Stay on Track}
 
-\wss{What methods will be used to keep the team on track? How will your team
-ensure that members contribute as expected to the team and that the team
-performs as expected? How will your team reward members who do well and manage
-members whose performance is below expectations?  What are the consequences for
-someone not contributing their fair share?}
+We will use Github projects to ensure that we are on track. Each task to work on
+will be stored in an issue, which will have up to date deadlines attached to them, 
+as well as the assignee(s). This will give us the ability to check up and see if 
+tasks are being worked on/reviewed at a timely pace. On top of issues, we will 
+be looking at commits and team meeting attendance to gauge contributions.\\
 
-\wss{You may wish to use the project management metrics collected for the TA and
-instructor for this.}
-
-\wss{You can set target metrics for attendance, commits, etc.  What are the
-consequences if someone doesn't hit their targets?  Do they need to bring the
-coffee to the next team meeting?  Does the team need to make an appointment with
-their TA, or the instructor?  Are there incentives for reaching targets early?}
+In the event that members aren't contributing their fair share, that member will have
+to purchase snacks for the next team meeting. We will also have a group meeting with 
+them to discuss steps to improve and expectations. If the behaviour continues further, 
+we will escalate the issue to a TA/professor.
 
 \subsubsection*{Team Building}
 
-\wss{How will you build team cohesion (fun time, group rituals, etc.)? }
+Team cohesion will be built through friendly conversation/banter and engaging
+in fun/relaxing group activities.
 
 \subsubsection*{Decision Making} 
 
-\wss{How will you make decisions in your group? Consensus?  Vote? How will you
-handle disagreements? }
+We will make decisions based on group consensus, and if the vote isn't unanimous we will try to solve the dispute
+via discussion until the decision is unanimous. If disagrees propagate further, we will escalate to asking our supervisor
+or TA for advice on how to proceed.
 
 \end{document}
