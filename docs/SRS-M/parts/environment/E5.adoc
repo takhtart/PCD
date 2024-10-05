@@ -1,0 +1,9 @@
+[#e5,reftext=E.5]
+=== (E.5) Effects
+
+ifdef::env-draft[]
+TIP: _Elements and properties of the environment that the system will affect. It defines effects of the system's operations on properties of the environment. Where the previous two categories (<<e3>>, <<e4>>) defined influences of the environment on the system, effects are influences in the reverse direction._  <<BM22>>
+endif::[]
+
+
+{emptysec}

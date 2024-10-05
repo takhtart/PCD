@@ -1,0 +1,18 @@
+== (P) Project
+
+include::control.adoc[]
+
+include::P1.adoc[]
+
+include::P2.adoc[]
+
+include::P3.adoc[]
+
+include::P4.adoc[]
+
+include::P5.adoc[]
+
+include::P6.adoc[]
+
+include::P7.adoc[]
+

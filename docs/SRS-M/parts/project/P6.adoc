@@ -1,0 +1,9 @@
+[#p6,reftext=P.6]
+=== (P.6) Risk and mitigation analysis
+
+ifdef::env-draft[]
+TIP: _Potential obstacles to meeting the schedule of <<p4>>, and measures for adapting the plan if they do arise. It is essential to be on the lookout for events that could derail the project, and devise mitigation strategies. It can include a SWOT analysis (Strengths, Weaknesses, Opportunities, Threats) for the project._  <<BM22>>
+endif::[]
+
+
+{emptysec}

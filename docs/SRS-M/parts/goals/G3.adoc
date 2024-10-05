@@ -1,0 +1,8 @@
+[#g3,reftext=G.3]
+=== (G.3) Expected Benefits
+
+ifdef::env-draft[]
+TIP: _New processes, or improvement to existing processes, made possible by the project’s results. It presents the business benefits expected from the successful execution of the project. **This chapter is the core of the Goals book**, describing what the organization expects from the system. It ensures that the project remains focused: if at some stage it gets pushed in different directions, with “creeping featurism” threatening its integrity, a reminder about the original business goals stated in those chapters will help._  <<BM22>>
+endif::[]
+
+{emptysec}

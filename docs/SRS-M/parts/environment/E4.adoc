@@ -1,0 +1,10 @@
+[#e4,reftext=E.4]
+=== (E.4) Assumptions
+
+ifdef::env-draft[]
+TIP: _Properties of the environment that may be assumed, with the goal of facilitating the project and simplifying the system. It defines properties that are not imposed by the environment (like those in <<e3>>) but assumed to hold, as an explicit decision meant to facilitate the system's construction._  <<BM22>>
+endif::[]
+
+
+{emptysec}
+

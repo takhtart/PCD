@@ -1,0 +1,8 @@
+[#p7,reftext=P.7]
+=== (P.7) Requirements process and report
+
+ifdef::env-draft[]
+TIP: _Initially, description of what the requirements process will be; later, report on its steps. It starts out as a plan for conducting the requirements elicitation process, but is meant to be updated as part of that process so that it includes the key lessons of elicitation._  <<BM22>>
+endif::[]
+
+{emptysec}

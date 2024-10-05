@@ -1,0 +1,24 @@
+== (G) Goals
+
+ifdef::env-draft[]
+NOTE: _Goals are "needs of the target organization, which the system will address". While the development team is the principal user of the other books, the Goals book addresses a wider audience: essentially, all stakeholders_ <<BM22>>
+
+TIP: _It must contain enough information to provide — if read just by itself — a general sketch of the entire project. To this effect, chapter <<g3>> presents a short overview of the system and <<g1>> will typically include some key properties of the environment. As it addresses a wide readership, it should be clear and minimize the use of specialized technical terms. Together, <<g1>>, <<g2>> and <<g3>> describe the rationale for the project. It is important to state these justifications explicitly. Typically, they are well understood at the start of the project, but management and priorities can change_  <<BM22>>
+endif::[]
+
+
+include::control.adoc[]
+
+include::G1.adoc[]
+
+include::G2.adoc[]
+
+include::G3.adoc[]
+
+include::G4.adoc[]
+
+include::G5.adoc[]
+
+include::G6.adoc[]
+
+include::G7.adoc[]

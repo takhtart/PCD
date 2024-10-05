@@ -1,0 +1,65 @@
+extends: default
+page:
+  layout: portrait
+  margin: [0.75in, 0.75in, 0.75in, 0.75in]
+  size: Letter
+
+base:
+  font_size: 10
+
+link:
+  font_color: #AC1455
+
+heading:
+  font-color: #7A003C
+  font-size: 17
+  font-style: bold
+  line-height: 1.2
+  margin-bottom: 10
+  h3-font-color: #AC1455
+  h5-font-color: #AC1455
+
+
+title_page:
+  text_align: right
+  logo:
+    image: image:logo.png[align=center,scale=50%]
+  title:
+    font_color: #7A003C
+  subtitle:
+    font-color: #AC1455
+
+image:
+  caption:
+    align: inherit
+
+role:
+  red:
+    background-color: #333333
+    font-color: #FF0000
+
+footer:
+  vertical_align: top
+  recto:
+    right:
+      content: '{page-number}'
+    left:
+      content: '{course-number} -- {course-term}'
+    center:
+      content: 'image:license.png[pdfwidth=7.5%]'
+  verso:
+    right:
+      content: '{course-number} -- {course-term}'
+    left:
+      content: '{page-number}'
+    center:
+      content: 'image:license.png[pdfwidth=7.5%]'
+
+toc:
+  line-height:    1.40
+  h2-font-color:  #7A003C
+  h2-font-style:  bold
+  h3-font-color:  #AC1455
+  h3-font-style:  italic
+  
+

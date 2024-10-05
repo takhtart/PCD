@@ -1,0 +1,17 @@
+== (S) System
+
+NOTE: _the System book refines the Goal one by focusing on more detailed requirements._
+
+include::control.adoc[]
+
+include::S1.adoc[]
+
+include::S2.adoc[]
+
+include::S3.adoc[]
+
+include::S4.adoc[]
+
+include::S5.adoc[]
+
+include::S6.adoc[]

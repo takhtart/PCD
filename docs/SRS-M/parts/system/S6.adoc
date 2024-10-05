@@ -1,0 +1,8 @@
+[#s6,reftext=S.6]
+=== (S.6) Verification and acceptance criteria
+
+ifdef::env-draft[]
+TIP: _Specification of the conditions under which an implementation will be deemed satisfactory. Here, "verification" as shorthand for what is more explicitly called "Verification & Validation" (V&V), covering several levels of testing — module testing, integration testing, system testing, user acceptance testing — as well as other techniques such as static analysis and, when applicable, program proving._  <<BM22>>
+endif::[]
+
+{emptysec}

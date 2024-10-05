@@ -1,0 +1,19 @@
+= {project-title}: Requirements Standard Plan
+include::metadata.adoc[]
+:revdate: {docdate}
+:sectlinks:
+:doctype: book
+:toc: left
+:toclevels: 3
+:theme: _style/mcmaster.yml 
+:icons: font
+
+:emptysec: icon:refresh[] Nothing available at this point.
+:unknown: icon:question-circle[]
+:clock: icon:clock-o[]
+:ec: icon:square-o[]
+
+
+include::parts/core.adoc[]
+
+include::appendix/index.adoc[]

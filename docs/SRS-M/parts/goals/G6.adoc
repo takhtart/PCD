@@ -1,0 +1,8 @@
+[#g6,reftext=G.6]
+=== (G.6) Limitations and Exclusions
+
+ifdef::env-draft[]
+TIP: _Aspects that the system need not address. It states what the system will not do. This chapter addresses a key quality attribute of good requirements: the requirements must be delimited (or “scoped”). <<g6>> is not, however, the place for an analysis of risks and obstacles, which pertain to the project rather than the goals and correspondingly appears in chapter <<p6>>._  <<BM22>>
+endif::[]
+
+{emptysec}

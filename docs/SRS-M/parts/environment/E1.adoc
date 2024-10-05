@@ -1,0 +1,9 @@
+[#e1,reftext=E.1]
+=== (E.1) Glossary
+
+ifdef::env-draft[]
+TIP: _Clear and precise definitions of all the vocabulary specific to the application domain, including technical terms, words from ordinary language used in a special meaning, and acronyms. It introduces the terminology of the project; not just of the environment in the strict sense, but of all its parts._  <<BM22>>
+endif::[]
+
+
+{emptysec}

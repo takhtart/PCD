@@ -1,0 +1,8 @@
+[#p1,reftext=P.1]
+=== (P.1) Roles and personnel
+
+ifdef::env-draft[]
+TIP: _Main responsibilities in the project; required project staff and their needed qualifications. It defines the roles (as a human responsibility) involved in the project._  <<BM22>>
+endif::[]
+
+{emptysec}

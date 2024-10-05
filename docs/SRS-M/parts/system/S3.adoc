@@ -1,0 +1,8 @@
+[#s3,reftext=S.3]
+=== (S.3) Interfaces
+
+ifdef::env-draft[]
+TIP: _How the system makes the functionality of <<s2>> available to the rest of the world, particularly user interfaces and program interfaces (APIs). It specifies how that functionality will be made available to the rest of the world, including people (users) and other systems. These are interfaces provided by the system to the outside; the other way around, interfaces from other systems, which the system may use, are specified in <<e2>>._  <<BM22>>
+endif::[]
+
+{emptysec}

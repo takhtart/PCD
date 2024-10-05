@@ -1,0 +1,15 @@
+
+
+include::./integrity.adoc[]
+
+include::control.adoc[]
+
+include::./goals/index.adoc[]
+
+include::./environment/index.adoc[]
+
+include::./system/index.adoc[]
+
+include::./project/index.adoc[]
+
+include::./bibliography.adoc[]

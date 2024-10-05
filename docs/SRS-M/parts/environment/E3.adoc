@@ -1,0 +1,8 @@
+[#e3,reftext=E.3]
+=== (E.3) Constraints
+
+ifdef::env-draft[]
+TIP: _Obligations and limits imposed on the project and system by the environment. This chapter defines non-negotiable restrictions coming from the environment (business rules, physical laws, engineering decisions), which the development will have to take into account._  <<BM22>>
+endif::[]
+
+{emptysec}

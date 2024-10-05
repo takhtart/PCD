@@ -1,0 +1,8 @@
+[#s5,reftext=S.5]
+=== (S.5) Prioritization
+
+ifdef::env-draft[]
+TIP: _Classification of the behaviors, interfaces and scenarios (<<s2>>, <<s3>> and <<s4>>) by their degree of criticality. It is useful in particular if during the course of the project various pressures force the team to drop certain functions._  <<BM22>>
+endif::[]
+
+{emptysec}

@@ -1,0 +1,8 @@
+[#p3,reftext=P.3]
+=== (P.3) Schedule and milestones
+
+ifdef::env-draft[]
+TIP: _List of tasks to be carried out and their scheduling. It defines the project's key dates._  <<BM22>>
+endif::[]
+
+{emptysec}

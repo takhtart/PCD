@@ -1,0 +1,14 @@
+@startuml
+
+!include ../_style/puml.style
+  
+left to right direction
+
+actor User as U
+
+
+rectangle "System" {
+  U --> (Do Something)
+}
+@enduml
+  

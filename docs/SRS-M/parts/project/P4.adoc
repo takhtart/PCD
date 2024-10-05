@@ -1,0 +1,8 @@
+[#p4,reftext=P.4]
+=== (P.4) Tasks and deliverables
+
+ifdef::env-draft[]
+TIP: _**This is the core of the Project book**. It details the individual tasks listed under <<p3>> and their expected outcomes. It define the project's main activities and the results they must produce, associated with the milestone dates defined in <<p3>>._  <<BM22>>
+endif::[]
+
+{emptysec}

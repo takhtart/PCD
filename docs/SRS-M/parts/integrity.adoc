@@ -1,0 +1,42 @@
+[discrete]
+= Academic Integrity Disclaimer
+
+We would like to acknowledge that as a dedicated students of McMaster University, we have thoroughly read and comprehended the link:https://secretariat.mcmaster.ca/app/uploads/Academic-Integrity-Policy-1-1.pdf[Academic Integrity Policy] published by the university. We are committed to upholding the principles of academic honesty and integrity in all aspects of our educational journey. We understand the importance of acknowledging the work and ideas of others, and we pledge to ensure that all our academic endeavors are conducted with the utmost originality and compliance with the university's policy.
+
+**We affirm that the content presented in this document is entirely our own, and any external sources used have been appropriately cited and referenced.**
+
+ifdef::author_1[]
+[discrete]
+==== {author_1}
+As I submit my work, I, **{author_1}**, take full responsibility for the integrity of my work and promise to avoid any form of plagiarism, cheating, or dishonest behavior. This acknowledgment serves as a testament to my dedication to academic excellence and the fostering of a trustworthy academic community at McMaster University.
+endif::[]
+
+ifdef::author_2[]
+[discrete]
+==== {author_2}
+As I submit my work, I, **{author_2}**, take full responsibility for the integrity of my work and promise to avoid any form of plagiarism, cheating, or dishonest behavior. This acknowledgment serves as a testament to my dedication to academic excellence and the fostering of a trustworthy academic community at McMaster University.
+endif::[]
+
+ifdef::author_3[]
+[discrete]
+==== {author_3}
+As I submit my work, I, **{author_3}**, take full responsibility for the integrity of my work and promise to avoid any form of plagiarism, cheating, or dishonest behavior. This acknowledgment serves as a testament to my dedication to academic excellence and the fostering of a trustworthy academic community at McMaster University.
+endif::[]
+
+ifdef::author_4[]
+[discrete]
+==== {author_4}
+As I submit my work, I, **{author_4}**, take full responsibility for the integrity of my work and promise to avoid any form of plagiarism, cheating, or dishonest behavior. This acknowledgment serves as a testament to my dedication to academic excellence and the fostering of a trustworthy academic community at McMaster University.
+endif::[]
+
+ifdef::author_5[]
+[discrete]
+==== {author_5}
+As I submit my work, I, **{author_5}**, take full responsibility for the integrity of my work and promise to avoid any form of plagiarism, cheating, or dishonest behavior. This acknowledgment serves as a testament to my dedication to academic excellence and the fostering of a trustworthy academic community at McMaster University.
+endif::[]
+
+ifdef::author_6[]
+[discrete]
+==== {author_6}
+As I submit my work, I, **{author_6}**, take full responsibility for the integrity of my work and promise to avoid any form of plagiarism, cheating, or dishonest behavior. This acknowledgment serves as a testament to my dedication to academic excellence and the fostering of a trustworthy academic community at McMaster University.
+endif::[]

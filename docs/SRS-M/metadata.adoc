@@ -1,0 +1,7 @@
+Author 1 <a1@mcmaster.ca>; Author 2 <a2@mcmaster.ca>
+:project-title: Our Awesome Project
+:course-number: SE/CS 3RA3
+:course-term: Fall
+:revnumber: 1
+:milestone: 4
+:env-draft:

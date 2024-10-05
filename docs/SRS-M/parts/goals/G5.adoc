@@ -1,0 +1,13 @@
+[#g5,reftext=G.5]
+=== (G.5) High-level usage scenarios
+
+ifdef::env-draft[]
+TIP: _Fundamental usage paths through the system. It presents the main scenarios (use cases) that the system should cover. The scenarios chosen for appearing here, in the Goals book, should only be the **main usage patterns**, without details such as special and erroneous cases; they should be stated in user terms only, independently of the system's structure. Detailed usage scenarios, taking into account system details and special cases, will appear in the System book (<<s4>>)._  <<BM22>>
+endif::[]
+
+.High Level use cases diagram
+image::models/use_case.svg[scale=70%,align="center"]
+
+{emptysec}
+
+

@@ -1,0 +1,8 @@
+[#s1,reftext=S.1]
+=== (S.1) Components
+
+ifdef::env-draft[]
+TIP: _Overall structure expressed by the list of major software and, if applicable, hardware parts._  <<BM22>>
+endif::[]
+
+{emptysec}

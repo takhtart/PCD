@@ -1,0 +1,8 @@
+[#s2,reftext=S.2]
+=== (S.2) Functionality
+
+ifdef::env-draft[]
+TIP: _**This is the bulk of the System book, describing elements of functionality (behaviors)**. This chapter corresponds to the traditional view of requirements as defining "**what the system does**”. It is organized as one section, S.2.n, for each of the components identified in <<s1>>, describing the corresponding behaviors (functional and non-functional properties)._  <<BM22>>
+endif::[]
+
+{emptysec}

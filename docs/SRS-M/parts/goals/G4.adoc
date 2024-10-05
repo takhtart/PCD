@@ -1,0 +1,9 @@
+[#g4,reftext=G.4]
+=== (G.4) Functionality overview
+
+ifdef::env-draft[]
+TIP: _Overview of the functions (behavior) of the system. Principal properties only (details are in the System book). It is a short overview of the functions of the future system, a kind of capsule version of book S, skipping details but enabling readers to get a quick grasp of what the system will do._  <<BM22>>
+endif::[]
+
+{emptysec}
+

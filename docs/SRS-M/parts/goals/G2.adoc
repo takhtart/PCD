@@ -1,0 +1,8 @@
+[#g2,reftext=G.2]
+=== (G.2) Current situation
+
+ifdef::env-draft[]
+TIP: _Current state of processes to be addressed by the project and the resulting system. It describes the current situation, upon which the system is expected to improve_  <<BM22>>
+endif::[]
+
+{emptysec}
