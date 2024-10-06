@@ -1,19 +1,61 @@
-# Makefile
-# From https://danielkaes.wordpress.com/2009/03/14/compiling-latex-documents-using-makefiles/
+# Makefile to build requirements standard plan
+# author: Sébastien Mosser
+# /!\ Run make check_env to check that your setup is correct
 
-PROJECT=SRS #SRS or CA
-TEX=pdflatex
-BIBTEX=bibtex
-BUILDTEX=$(TEX) $(PROJECT).tex
+.DEFAULT_GOAL := pdf
+INDEX   = index.adoc          # Root file for the requirement plan
+THEME   = _style/mcmaster.yml # Location of the PDF stylesheet
 
-all:
-	$(BUILDTEX)
-	$(BIBTEX) $(PROJECT)
-	$(BUILDTEX)
-	$(BUILDTEX)
+####
+# Building PlantUML models
+####
 
-clean-all:
-	rm -f *.dvi *.log *.bak *.aux *.bbl *.blg *.idx *.ps *.eps *.pdf *.toc *.out *~
+MODELS := $(shell find * -type f -name "*.puml")
+GRAPHS := $(shell find * -type f -name "*.dot")
+
+SVGs = $(MODELS:.puml=.svg) $(GRAPHS:.dot=.svg)  
+
+# transform a puml file into it's svg representation
+%.svg: %.puml
+	plantuml -tsvg ./$<
+
+%.svg: %.dot
+	dot -Tsvg ./$< > $@
+
+####
+# Building the HTML version
+####
+
+html: $(INDEX) $(SVGs)
+	asciidoctor $(INDEX)
+
+####
+# Building the PDF version
+####
+
+pdf: $(INDEX) $(SVGs)
+	asciidoctor-pdf --theme $(THEME) $(INDEX)
+
+####
+# Cleaning (and clobbering) 
+####
 
 clean:
-	rm -f *.log *.bak *.aux *.bbl *.blg *.idx *.toc *.out *.synctex.gz *~
+	rm -rf *.html *.pdf 
+
+clobber: clean
+	rm -rf $(SVGs)
+
+####
+# Checking environment
+####
+
+check_env:
+	@which asciidoctor
+	@which asciidoctor-pdf
+	@which plantuml
+	@which dot
+	@plantuml -testdot
+
+
+
