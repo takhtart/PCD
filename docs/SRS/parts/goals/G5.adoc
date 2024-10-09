@@ -6,8 +6,21 @@ TIP: _Fundamental usage paths through the system. It presents the main scenarios
 endif::[]
 
 .High Level use cases diagram
-image::models/use_case.svg[scale=70%,align="center"]
+image::models/use_case.png[scale=70%,align="center"]
 
-{emptysec}
+* [[UC1]] *Connect Kinect Sensor for Live Feedback*
+
+** User begins detection software on device.
+** User connects Kinect to device running detection software.
+** Detection software takes the .PCD from the kinect.
+** Detection software performs calculations.
+** User observes output, a copy of the live .PCD feed with coordinates of the person and a shape mapped onto the visible body parts.
+
+* [[UC2]] *Import Raw PCD File*
+
+** User uploads .PCD files to device.
+** User begins detection software in offline mode, specifying desired .PCD files.
+** Detection software runs on the specified .PCD.
+** User observes output, a copy of the uploaded .PCD file with coordinates of the person and a shape mapped onto the visible body parts.
 
 
