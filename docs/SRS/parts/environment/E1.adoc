@@ -6,4 +6,7 @@ TIP: _Clear and precise definitions of all the vocabulary specific to the applic
 endif::[]
 
 
-{emptysec}
+[[.PCD]] .PCD::
+    Point Cloud Data, the file format that our code will be receiving and performing all computer vision calculations on.
+
+[[]]
