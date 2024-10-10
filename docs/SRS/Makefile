@@ -34,7 +34,7 @@ html: $(INDEX) $(SVGs)
 ####
 
 pdf: $(INDEX) $(SVGs)
-	asciidoctor-pdf --theme $(THEME) $(INDEX)
+	asciidoctor-pdf --theme $(THEME) -o SRS.pdf $(INDEX)
 
 ####
 # Cleaning (and clobbering) 
