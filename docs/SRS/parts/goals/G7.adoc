@@ -5,4 +5,14 @@ ifdef::env-draft[]
 TIP: _Groups of people who can affect the project or be affected by it, and other places to consider for information about the project and system. It lists stakeholders and other requirements sources. It should define stakeholders as categories of people, not individuals, even if such individuals are known at the time of writing. The main goal of chapter <<g7>> is to avoid forgetting any category of people whose input is relevant to the project. It also lists documents and other information that the project, aside from soliciting input from stakeholders, can consult for requirements information._  <<BM22>>
 endif::[]
 
-{emptysec}
+==== Stakeholders
+
+*Academic Researchers:* This category includes professors, researchers, and students in the fields of robotics, computer vision, and artificial intelligence. Their input is crucial for ensuring the project aligns with current research trends and academic standards.
+
+==== Requirements Sources
+
+*Academic Publications:* Research papers, journals, and conference proceedings in the fields of robotics, computer vision, and artificial intelligence. These documents provide valuable insights into current methodologies and technologies.
+
+*User Feedback:* Surveys, interviews, and usability studies conducted with end-users, including elderly and disabled individuals, healthcare professionals, and other stakeholders. This feedback helps identify user needs and preferences.
+
+*Technical Documentation:* Manuals, specifications, and other technical documents related to the Kinect sensor, Point Cloud Library (PCL), Eigen library, and other tools used in the project. Project Proposals and Reports: Previous project proposals, progress reports, and final reports that provide context and background information relevant to the current project.
