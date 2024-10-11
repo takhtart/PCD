@@ -5,4 +5,15 @@ ifdef::env-draft[]
 TIP: _Overall structure expressed by the list of major software and, if applicable, hardware parts._  <<BM22>>
 endif::[]
 
-{emptysec}
+The application is composed of 2 software components:
+
+- *Human Detection Algorithm*: This component reads in the data from the Kinect manager and provides the location of the human. Based on the provided data it will present the precise location of the hidden person within the environment.
+
+ - *Human Outline Manager*: The component is responsible for showcasing the Point Cloud Data 
+ alongside the human outline. The display will render the different parts of the human within 
+ the 3D environment to provide a rough estimate of the person's location on screen.
+
+ The application is composed of 1 hardware component:
+
+ - *Kinect Manager*: The kinect is the main hardware component for the P.C.D application. The Kinect MManager reads the provided Point Cloud Data of the environment. It will then filter out the noise from the data set to provide useful data. Finally sending this data to the algorithm to be processed. The Kinect manager will constantly be filtering and sending data in real time.
+
