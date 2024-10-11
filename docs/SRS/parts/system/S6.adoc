@@ -5,4 +5,34 @@ ifdef::env-draft[]
 TIP: _Specification of the conditions under which an implementation will be deemed satisfactory. Here, "verification" as shorthand for what is more explicitly called "Verification & Validation" (V&V), covering several levels of testing — module testing, integration testing, system testing, user acceptance testing — as well as other techniques such as static analysis and, when applicable, program proving._  <<BM22>>
 endif::[]
 
-{emptysec}
+*For the functional requirements*:
+
+- The form of testing that will be done is unit testing, integration testing, acceptance, and system testing for validation. The Kinect sensor compatibility will be tested in the earlier stages of development as it is the most crucial part of the application. Integration testing will be done with the Kinect to ensure the sensor is properly connected to the application. The unit test will be done to ensure that every relevant step within the application outputs correct answers. Multiple different system tests for the application will be done by setting up the application in a variety of environments. Finally, relevant stakeholders can check that all functional requirements are met by the application before it is ready for a final release.
+
+*For the non-functional requirements*:
+
+- It is important to conduct performance testing and accuracy testing. The system needs to perform in real time meaning the performance must be tested by the time outputs of the application. Testing the application in multiple environments and checking for latency will allow for a variety of performance tests to see the capabilities of the application. Accuracy testing would be done to see if the output on the display matches the correct state of the environment. For example, if a person's hand is seen as the only thing in the environment from the sensor's perspective.
+
+*For Usage Scenario S.4.1*:
+
+We have identified S.4.1 to be the most important scenario because it represents the main functionality of the software. Using Gherkin scenarios, we can outline a few tests to validate this scenario:
+
+- *1. Scenario:* Graduate Student analyzes the output of the software to aid in their research
+** Given: Graduate student uses the realtime detection feature of the software for their research
+** When: Graduate Student finishes configuring the kinect sensor and starts the live detection
+** Then: Detection software displays and outlines the humans it detects
+** And: Detection software provides the coordinates and distance to the humans it detects
+** And: Graduate Student uses the output of the software to aid in the development of their project
+** Then: Graduate Student finishes their work session
+
+
+
+
+- *2. Scenario:* Graduate Studen takes the output of the detection software and uses it as the input of their own software
+** Given: Graduate student uses the realtime detection feature of the software for their research
+** And: Graduate student has their own software ready that can work in conjunction with the detection software
+** When: Graduate Student finishes configuring the kinect sensor and starts the live detection
+** Then: Detection software displays and outlines the humans it detects
+** And: Detection software provides the coordinates and distance to the humans it detects
+** And: Graduate Student feeds the output of the detection software to the input of their robotics software
+** Then: Graduate Student finishes their work session
