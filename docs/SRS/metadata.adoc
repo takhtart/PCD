@@ -1,7 +1,7 @@
-Author 1 <a1@mcmaster.ca>; Author 2 <a2@mcmaster.ca>
-:project-title: Our Awesome Project
+Tarnveer Takhtar <takhtart@mcmaster.ca>; Matthew Bradbury <bradbm1@mcmaster.ca>; Harman Bassi <bassih3@mcmaster.ca>; Kyen So <sok13@mcmaster.ca>
+:project-title: Partially Covered Detection of Humans
 :course-number: SE/CS 3RA3
 :course-term: Fall
-:revnumber: 1
+:revnumber: 0
 :milestone: 4
 :env-draft:
