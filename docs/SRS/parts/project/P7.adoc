@@ -5,4 +5,6 @@ ifdef::env-draft[]
 TIP: _Initially, description of what the requirements process will be; later, report on its steps. It starts out as a plan for conducting the requirements elicitation process, but is meant to be updated as part of that process so that it includes the key lessons of elicitation._  <<BM22>>
 endif::[]
 
-{emptysec}
+. The initial requirements elictation process begins with reading and translating the initial project description written by Dr. Gary Bone.
+. As our only stakeholder, Dr. Gary Bone will be interviewed through a meeting with the entire development team. The objective is to find out the motivation behind the project, define specific requirements, get clarifications and ask general questions. 
+. We will communicate regularly with Dr. Bone throughout the development process and the requirements will be refined and updated. Any new requirements brought to our attention by Dr. Bone will be added to the requirements and we will communicate with Dr. Bone if we have any questions and update the requirements document accordingly.
