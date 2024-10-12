@@ -5,4 +5,6 @@ ifdef::env-draft[]
 TIP: _Properties of the environment that the system's operation must preserve, i.e., properties of the environment that operations of the system may assume to hold when they start, and must maintain_  <<BM22>>
 endif::[]
 
-{emptysec}
+*Sensor Calibration:* The Kinect sensor must be properly calibrated and positioned to ensure accurate data collection. The Kinect sensor will remain in the same place once detection has started.
+
+*Unobstructed Sensor View:* The sensor's field of view should be unobstructed during the system's operation. While the system itself will be designed to detect partially obscured people, the sensor should maintain it's full field of view and be unobstructed.

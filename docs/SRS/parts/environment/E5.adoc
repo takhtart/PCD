@@ -6,4 +6,6 @@ TIP: _Elements and properties of the environment that the system will affect. It
 endif::[]
 
 
-{emptysec}
+Some potential effects of this system are as follows:
+
+- Increase in research opportunities. This is possible due to our system providing our stakeholders with additional options and functionality for robots using kinect sensors, or other sensors that are able to produce .pcd files. The added functionality of being able to detect people, even when they are partially hidden, will allow researchers to experiment with many more scenarios and situations.
