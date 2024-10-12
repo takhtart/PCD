@@ -11,7 +11,7 @@ endif::[]
 |Requirement ID | Requirement | MoSCoW Classification | Summary 
 
 | <<F211>> | Display the human outline | Must have | It is important to be able to show on the screen where the person is hidden.
-| <<NF212>> | Speed and Latency | Must have | It must be able to present all the enviromental and camera changes in real time.
+| <<NF212>> | Speed and Latency | Must have | It must be able to present all the environmental and camera changes in real time.
 | <<NF211>> | Appearance/Style | Could have | It could have a minimalistic design to make reading the data easier. It is not necessary, but would make the output more clear.
 
 |===
@@ -21,7 +21,7 @@ endif::[]
 
 |Requirement ID | Requirement | MoSCoW Classification | Summary 
 | <<F221>> | Locate Human | Must have | It is important that the algorithm is able to locate the location of the hidden person in the environment.
-| <<F222>> | Create Human Outline | Must have | It is important that the algorithm is able to provide the coordinates to outline the part of the human that is visble. If a torso is visible it would outline that then the other parts of the body.
+| <<F222>> | Create Human Outline | Must have | It is important that the algorithm is able to provide the coordinates to outline the part of the human that is visible. If a torso is visible it would outline that then the other parts of the body.
 | <<F223>> | Adjust Human Outline | Must have | It is important that the algorithm is able to better the outline or adjust based off new information.
 | <<NF221>> | Speed and Latency | Must have | It must be able to calculate everything in real time to present the newest location and outline.
 | <<NF222>> | Accuracy | Must have | It must give an accurate location and outline.
@@ -34,7 +34,7 @@ endif::[]
 |===
 
 |Requirement ID | Requirement | MoSCoW Classification | Summary 
-| <<F231>> | Read the Point Cloud Data | Must have | It is important that the manager is able to properly read in the data from the kinect sensor and combine the two data sets togther.
+| <<F231>> | Read the Point Cloud Data | Must have | It is important that the manager is able to properly read in the data from the Kinect sensor and combine the two data sets together.
 | <<F232>> | Send Data back to Algorithm | Must have | It is important that the data sent back to the algorithm accounts for the noise in the environment and that the data being sent is the latest.
 | <<NF231>> | Speed and Latency | Must have | It must regulate the noise and send the data as fast as possible so that the application is in real time.
 | <<NF232>> | Accuracy | Must have | It must give back accurate data so that the application does not fail.

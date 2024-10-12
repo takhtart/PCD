@@ -1,8 +1,8 @@
 == (S) System
 
-NOTE: _the System book refines the Goal one by focusing on more detailed requirements._
+//NOTE: _the System book refines the Goal one by focusing on more detailed requirements._
 
-include::control.adoc[]
+//include::control.adoc[]
 
 include::S1.adoc[]
 

@@ -17,6 +17,6 @@ The project will not be focusing on the following aspects of the detection syste
 
 *Advanced Human Pose Estimation:* While the system will be able to handle a variety of body orientations, it will not focus on advanced human pose estimation techniques beyond the basic extrapolation of visible parts of the body to detect a person.
 
-*Long-Term Data Storage and Analysis:* The system will process data in real-time and offline using PCD files, but it will not include long-term data storage or analysis capabilities. Data management and storage solutions are outside the scope of this project.
+*Long-Term Data Storage and Analysis:* The system will process data in real-time and offline using .pcd files, but it will not include long-term data storage or analysis capabilities. Data management and storage solutions are outside the scope of this project.
 
 *User Interface Development:* The primary focus of the project is on the development of the detection and estimation software. The creation of a user-friendly interface for end-users beyond providing a depot of uploading a .pcd file, is not a primary focus of the project.

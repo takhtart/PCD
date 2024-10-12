@@ -5,5 +5,5 @@ ifdef::env-draft[]
 TIP: _Main responsibilities in the project; required project staff and their needed qualifications. It defines the roles (as a human responsibility) involved in the project._  <<BM22>>
 endif::[]
 
-- *Supervisor*: The supervisor of the project will provide guidance and outline the requirements of the project. The surpervisor is responsible for meeting with the software devlopment team to answer questions and provide input on design decisions. 
-- *Software Developers*: The software developers are responsible for designing and implementing the algorithm used to identify partiallty covered humans and outlining body parts for the user to see. They are also responsible for testing and ensuring the accuracy of the software.
+- *Supervisor*: The supervisor of the project will provide guidance and outline the requirements of the project. The supervisor is responsible for meeting with the software development team to answer questions and provide input on design decisions. 
+- *Software Developers*: The software developers are responsible for designing and implementing the algorithm used to identify partially covered humans and outlining body parts for the user to see. They are also responsible for testing and ensuring the accuracy of the software.

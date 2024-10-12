@@ -1,6 +1,6 @@
 = {project-title}: Requirements Standard Plan
 include::metadata.adoc[]
-:revdate: {docdate}
+:revdate: October 11, 2024
 :sectlinks:
 :doctype: book
 :toc: left

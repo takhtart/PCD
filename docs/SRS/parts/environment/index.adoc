@@ -1,8 +1,8 @@
 == (E) Environment
 
-NOTE: _The Environment book describes the application domain and external context, physical or virtual (or a mix), in which the system will operate._ <<BM22>>
+//NOTE: _The Environment book describes the application domain and external context, physical or virtual (or a mix), in which the system will operate._ <<BM22>>
 
-include::control.adoc[]
+//include::control.adoc[]
 
 include::E1.adoc[]
 

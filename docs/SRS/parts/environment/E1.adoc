@@ -6,15 +6,19 @@ TIP: _Clear and precise definitions of all the vocabulary specific to the applic
 endif::[]
 
 
-.pcd::
-    Point Cloud Data, the file format that our code will be receiving and performing all computer vision calculations on.
+*.pcd*
 
-Kinect::
-    The Kinect refers to an Xbox One Kinect Sensor, which we will be interacting with and using to gather .PCD files.
+Point Cloud Data, the file format that our code will be receiving and performing all computer vision calculations on.
 
-P.C.D.::
-    Partially Covered Detection, refers to our project title. Our project is centered around automatically detecting partially covered people using .pcd files.
+*Kinect*
 
-Person/Human::
-    Any human subject within the field of view of the Kinect sensor or within the .pcd file.
+The Kinect refers to an Xbox One Kinect Sensor, which we will be interacting with and using to gather .pcd files.
+
+*P.C.D.*
+
+Partially Covered Detection, refers to our project title. Our project is centered around automatically detecting partially covered people using .pcd files.
+
+*Person/Human*
+    
+Any human subject within the field of view of the Kinect sensor or within the .pcd file.
 

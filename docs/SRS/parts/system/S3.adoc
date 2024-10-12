@@ -5,11 +5,13 @@ ifdef::env-draft[]
 TIP: _How the system makes the functionality of <<s2>> available to the rest of the world, particularly user interfaces and program interfaces (APIs). It specifies how that functionality will be made available to the rest of the world, including people (users) and other systems. These are interfaces provided by the system to the outside; the other way around, interfaces from other systems, which the system may use, are specified in <<e2>>._  <<BM22>>
 endif::[]
 
-*(S.3.1) API*
+==== (S.3.1) API
 
 One of the main API for the application is the Kinect connection. The software takes in the real time data from the Kinect sensor and then processes that information within the algorithm. The Kinect sends this data to help the application find out where the person is hidden.
 
-*(S.3.2) Wireframe Mock-ups*
+
+
+==== (S.3.2) Wireframe Mock-ups
 
 *Display Interface*:
 

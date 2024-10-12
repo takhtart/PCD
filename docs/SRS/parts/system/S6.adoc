@@ -19,7 +19,7 @@ We have identified S.4.1 to be the most important scenario because it represents
 
 - *1. Scenario:* Graduate Student analyzes the output of the software to aid in their research
 ** Given: Graduate student uses the realtime detection feature of the software for their research
-** When: Graduate Student finishes configuring the kinect sensor and starts the live detection
+** When: Graduate Student finishes configuring the Kinect sensor and starts the live detection
 ** Then: Detection software displays and outlines the humans it detects
 ** And: Detection software provides the coordinates and distance to the humans it detects
 ** And: Graduate Student uses the output of the software to aid in the development of their project
@@ -28,10 +28,10 @@ We have identified S.4.1 to be the most important scenario because it represents
 
 
 
-- *2. Scenario:* Graduate Studen takes the output of the detection software and uses it as the input of their own software
+- *2. Scenario:* Graduate Student takes the output of the detection software and uses it as the input of their own software
 ** Given: Graduate student uses the realtime detection feature of the software for their research
 ** And: Graduate student has their own software ready that can work in conjunction with the detection software
-** When: Graduate Student finishes configuring the kinect sensor and starts the live detection
+** When: Graduate Student finishes configuring the Kinect sensor and starts the live detection
 ** Then: Detection software displays and outlines the humans it detects
 ** And: Detection software provides the coordinates and distance to the humans it detects
 ** And: Graduate Student feeds the output of the detection software to the input of their robotics software

@@ -7,7 +7,7 @@ endif::[]
 
 Key Dates:
 
-- **September 23, 2024** : Problem Statment, POC Plan, Development Plan
+- **September 23, 2024** : Problem Statement, POC Plan, Development Plan
 
 - **October 11, 2024** : Revision 0 of Requirements Document
 
@@ -15,7 +15,7 @@ Key Dates:
 
 - **November 1, 2024** : V&V Plan
 
-- **November 18, 2024** : Proof of Concept Demostration 
+- **November 18, 2024** : Proof of Concept Demonstration 
 
 - **January 15, 2025** : Revision 0 Design Document
 

@@ -5,13 +5,13 @@ ifdef::env-draft[]
 TIP: _**This is the bulk of the System book, describing elements of functionality (behaviors)**. This chapter corresponds to the traditional view of requirements as defining "**what the system does**”. It is organized as one section, S.2.n, for each of the components identified in <<s1>>, describing the corresponding behaviors (functional and non-functional properties)._  <<BM22>>
 endif::[]
 
-*(S.2.1) Human Outline Display*:
+==== (S.2.1) Human Outline Display:
 
-Functional Requirements:
+*Functional Requirements:*
 
 . [[F211]] *Display the human outline*:  The application displays the real time data as a 3D point cloud and showcases the outline of the human on top of the data set. (F211)
 
-Non-Functional Requirements:
+*Non-Functional Requirements:*
 
 . [[NF211]] *Appearance/Style of Display*: The application must have a design that is minimalistic. (NF211)
 *Rational*: The application should only display necessary items on screen such as the point cloud data and the human outline. The minimalist design will allow for easily readable data.
@@ -19,8 +19,8 @@ Non-Functional Requirements:
 . [[NF212]] *Speed and Latency of Display*: The application must update the location of the human within __ milliseconds. (NF212)
 *Rational*: The expectations of a live display is that the application presents all information seamlessly and without any noticeable delay.
 
-*(S.2.2) Human Detection Algorithm*:
-Functional Requirements:
+==== (S.2.2) Human Detection Algorithm:
+*Functional Requirements:*
 
 . [[F221]] *Locate Human*: The application must  use the data set provided and calculate the location of the person in the environment. (F221)
 
@@ -28,7 +28,7 @@ Functional Requirements:
 
 . [[F223]] *Adjust Human Outline*: The human outline must  adjust outline to make refinements based on better data. (F223)
 
-Non-Functional Requirements:
+*Non-Functional Requirements:*
 
 . [[NF221]] *Speed and Latency*: The application must process the data and find the human in every other frame. (NF221)
 *Rational*: Human detection must be processed within real time.
@@ -41,15 +41,14 @@ Non-Functional Requirements:
 . [[NF224]] *Fault Tolerance*: The application must be able to recover from error without having a loss to human detection. (NF224)
 *Rational*:  In case of error, the system should be able to go back to the previous state to reprocess the data set and continue from there.
 
-*(S.2.3) Kinect Manager*:
-Functional Requirements:
+==== (S.2.3) Kinect Manager:
+*Functional Requirements:*
 
 . [[F231]] *Read the Point Cloud Data*: The Kinect manager should be able to process the noise within the data to present a readable data set for the application. (F231)
 
 . [[F232]] *Send Data back to Algorithm*: The managed data is then sent to be computed by the detection component. (F232)
 
-
-Non-Functional Requirements:
+*Non-Functional Requirements:*
 
 . [[NF231]] *Speed and Latency*: The Kinect manager is able to send back the RGB and depth data in 60-80 ms. (NF231)
 

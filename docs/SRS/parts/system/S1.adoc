@@ -12,11 +12,11 @@ The application is composed of 2 software components:
 
 - *Human Detection Algorithm*: This component reads in the data from the Kinect manager and provides the location of the human. Based on the provided data it will present the precise location of the hidden person within the environment. The diagram above displays the logic for this detection algorithm. It will loop indefinitely as long as .pcd files are being inputted, either offline or from the Kinect. First the algorithm will attempt to detect a head, arms, or legs in parallel and then, if detected, it will attempt to detect an attached torso. If any of these are detected, the detected state will get coordinates inputted and map a shape onto the respective body part. If false, the system will direct to the undetected state and move to finish. Finish loops back to the start and attempt detection again.
 
- - *Human Outline Manager*: The component is responsible for showcasing the Point Cloud Data 
- alongside the human outline. The display will render the different parts of the human within 
- the 3D environment to provide a rough estimate of the person's location on screen.
+- *Human Outline Manager*: The component is responsible for showcasing the Point Cloud Data 
+alongside the human outline. The display will render the different parts of the human within 
+the 3D environment to provide a rough estimate of the person's location on screen.
 
- The application is composed of 1 hardware component:
+The application is composed of 1 hardware component:
 
- - *Kinect Manager*: The kinect is the main hardware component for the P.C.D application. The Kinect MManager reads the provided Point Cloud Data of the environment. It will then filter out the noise from the data set to provide useful data. Finally sending this data to the algorithm to be processed. The Kinect manager will constantly be filtering and sending data in real time.
+- *Kinect Manager*: The Kinect is the main hardware component for the P.C.D application. The Kinect MManager reads the provided Point Cloud Data of the environment. It will then filter out the noise from the data set to provide useful data. Finally sending this data to the algorithm to be processed. The Kinect manager will constantly be filtering and sending data in real time.
 

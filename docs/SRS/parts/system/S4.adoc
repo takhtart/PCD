@@ -8,20 +8,20 @@ endif::[]
 ==== (S.4.1) User starts realtime detection using the software 
 * **Use Case**: UC1
 * **Primary Actor**: Graduate Research Student
-* **Precondition**: Graduate Research Student has access to a kinect, the dectection software, a computer that can be used to connect to the kinect and the wires necessary.
+* **Precondition**: Graduate Research Student has access to a Kinect, the detection software, a computer that can be used to connect to the Kinect and the wires necessary.
 * **Trigger**: Graduate Research Student wishes to use the detection software to aid in their research
 * **Main Success Scenario:**
 
-    - 1. Graduate Student connects a kinect to their computer using a wire
+    - 1. Graduate Student connects a Kinect to their computer using a wire
     - 2. Graduate Student opens the detection software
-    - 3. Graduate Student configures the kinect sensor and chooses "realtime detection"
-    - 4. Software displays the video output of the kinect sensor and visually outlines the humans it detects
+    - 3. Graduate Student configures the Kinect sensor and chooses "realtime detection"
+    - 4. Software displays the video output of the Kinect sensor and visually outlines the humans it detects
     - 5. Graduate Student analyzes the output of the software to aid in their research
     - 6. Graduate Student finishes their work session
 
 * **Secondary Scenario:**
     
-    - 5.1 Graduate Studen takes the output of the detection software and uses it as the input of their own project
+    - 5.1 Graduate Student takes the output of the detection software and uses it as the input of their own project
     - 6.1 Graduate Student modifies and integrates the detection software to their project 
 
 * **Success Postcondition:** Graduate Student is provided accurate and reliable outputs to work with
@@ -31,7 +31,7 @@ This sceneario is important as it demonstrates the basic case of how a Graduate 
 ==== (S.4.2) User uses software to analyze offline .pcd file
 * **Use Case**: UC2
 * **Primary Actor**: Graduate Research Student
-* **Precondition**: Graduate Research Student has access to .pcd files they would like to use, the dectection software, a computer to run the software.
+* **Precondition**: Graduate Research Student has access to .pcd files they would like to use, the detection software, a computer to run the software.
 * **Trigger**: Graduate Research Student wishes to use the detection software to aid in their research
 * **Main Success Scenario:**
 

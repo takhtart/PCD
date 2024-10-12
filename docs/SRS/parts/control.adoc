@@ -2,10 +2,8 @@
 
 [cols="^1,^2,^2,^2,^2"]
 |===
-.2+| *Version* 2+| *Delivery* 2+| *Feedback*
-| _Deadline_ | _Delivered_ | _Received_ | _Integrated_ 
+.2+| *Version* 2+| *Delivery* 2+| *Updates*
+| _Deadline_ | _Delivered_ | _Change_ | _Date_ 
 
-| **V1** | | | |
-| **V2** | | | |
-| **V3** | | | |
+| **V0** | Oct 11, 2024 | Oct 11, 2024 | Initial SRS Draft | Oct 11, 2024
 |===

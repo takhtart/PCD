@@ -7,7 +7,7 @@ TIP: _It must contain enough information to provide â€” if read just by itself â
 endif::[]
 
 
-include::control.adoc[]
+//include::control.adoc[]
 
 include::G1.adoc[]
 
