@@ -1,0 +1,34 @@
+[#g4,reftext=G.4]
+=== (G.4) Functionality overview
+
+ifdef::env-draft[]
+TIP: _Overview of the functions (behavior) of the system. Principal properties only (details are in the System book). It is a short overview of the functions of the future system, a kind of capsule version of book S, skipping details but enabling readers to get a quick grasp of what the system will do._  <<BM22>>
+endif::[]
+
+==== (G.4.1) Functional Requirements
+
+*Human Detection:* The system must detect humans within the sensor's field of view, even if they are partially obscured by objects or other people.
+
+*3D Space Estimation:* The system must estimate the 3D space occupied by the detected human, identifying the head, torso, and limbs of the person within view.
+
+*Offline Processing:* The system must be able to analyze uploaded .pcd files for offline testing and validation.
+
+*Body Pose Variation Handling:* The system must handle a variety of body poses and orientations, and not be limited to just the human facing the sensor.
+
+*Integration with Kinect Sensor:* The system must integrate seamlessly with the Kinect sensor for data collection.
+
+==== (G.4.2) Top Two Most Important Functional Requirements From A Business Perspective
+
+The ability to reliably detect and model humans even when partially obscured is vital for the system's success, as it directly impacts the accuracy and reliability of human-robot interactions in real-world scenarios. 3D Space Estimation will also
+
+==== (G.4.3) Non-Functional Requirements
+
+*Real-Time Processing:* The system must process data in real-time with minimal latency to ensure timely detection and response in a live detection setting.
+
+*Reliability:* The system must provide consistent and accurate detection and modeling of humans.
+
+*Accuracy:* The system must provide accurate spatial coordinates and models of detected humans.
+
+===== Non-Functional Requirements Justification
+
+Real-time processing is essential for practical applications, ensuring timely detection and response. The system must be adaptable to different environments and varying numbers of people to be useful in diverse scenarios. Consistent and accurate detection is crucial for the system's effectiveness and user trust. Accurate detection and modeling are critical for the system's success and practical applications, ensuring that the system provides reliable and precise information for human-robot interactions.

@@ -1,0 +1,25 @@
+[#p6,reftext=P.6]
+=== (P.6) Risk and mitigation analysis
+
+ifdef::env-draft[]
+TIP: _Potential obstacles to meeting the schedule of <<p4>>, and measures for adapting the plan if they do arise. It is essential to be on the lookout for events that could derail the project, and devise mitigation strategies. It can include a SWOT analysis (Strengths, Weaknesses, Opportunities, Threats) for the project._  <<BM22>>
+endif::[]
+
+===== Some potential risks during development that can prevent certain dates in the schedule from being met are listed below: 
+
+- *Unforeseen circumstance preventing team member from completing assigned task* : In the event that an unforeseen circumstance causes a team member to not be able to complete their work on time, they should immediately inform the team and agree to take on extra responsibilities for future tasks to make up for it. The rest of the team should accommodate the team member and do their best to help meet deadlines. This risk can be minimized by setting weekly goals and having a meeting weekly to discuss progress on work. This enforces team members to work on their assigned work continuously over the whole period they are given to work on it.
+
+- *Unforeseen technical issues that prevents a working product to be demonstrated or submitted* : Not being able to create a reliable algorithm, software bugs, hardware failure or compatibility issues can all delay progress in the project and could happen before a code demonstration or submission. We must ensure to always have working builds we can rollback to in case of certain features not being completed in time before needing to demonstrate or submit our product. Additionally, we must ensure to set realistic goals and allocate enough time during our development plan for testing, debugging and integration. Testing should be done in every stage of development so that there would always be a version we of the code we can rollback on and issues are found early on.
+
+
+
+
+
+
+
+
+
+
+
+
+

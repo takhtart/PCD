@@ -1,0 +1,11 @@
+[#e5,reftext=E.5]
+=== (E.5) Effects
+
+ifdef::env-draft[]
+TIP: _Elements and properties of the environment that the system will affect. It defines effects of the system's operations on properties of the environment. Where the previous two categories (<<e3>>, <<e4>>) defined influences of the environment on the system, effects are influences in the reverse direction._  <<BM22>>
+endif::[]
+
+
+Some potential effects of this system are as follows:
+
+- Increase in research opportunities. This is possible due to our system providing our stakeholders with additional options and functionality for robots using Kinect sensors, or other sensors that are able to produce .pcd files. The added functionality of being able to detect people, even when they are partially hidden, will allow researchers to experiment with many more scenarios and situations.

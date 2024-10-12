@@ -1,0 +1,52 @@
+[#s4,reftext=S.4]
+=== (S.4) Detailed usage scenarios
+
+ifdef::env-draft[]
+TIP: _Examples of interaction between the environment (or human users) and the system, expressed as user stories. Such scenarios are not by themselves a substitute for precise descriptions of functionality (<<s3>>), but provide an important complement by specifying cases that these behavior descriptions must support; they also serve as a basis for developing test cases. The scenarios most relevant for stakeholders are given in chapter <<g5>> in the Goals book, at a general level, as use cases; in contrast, <<s4>> can refer to system components and functionality (from other chapters of the System book) as well as special and erroneous cases, and introduce more specific scenarios._  <<BM22>>
+endif::[]
+
+==== (S.4.1) User starts realtime detection using the software 
+* **Use Case**: UC1
+* **Primary Actor**: Graduate Research Student
+* **Precondition**: Graduate Research Student has access to a Kinect, the detection software, a computer that can be used to connect to the Kinect and the wires necessary.
+* **Trigger**: Graduate Research Student wishes to use the detection software to aid in their research
+* **Main Success Scenario:**
+
+    - 1. Graduate Student connects a Kinect to their computer using a wire
+    - 2. Graduate Student opens the detection software
+    - 3. Graduate Student configures the Kinect sensor and chooses "realtime detection"
+    - 4. Software displays the video output of the Kinect sensor and visually outlines the humans it detects
+    - 5. Graduate Student analyzes the output of the software to aid in their research
+    - 6. Graduate Student finishes their work session
+
+* **Secondary Scenario:**
+    
+    - 5.1 Graduate Student takes the output of the detection software and uses it as the input of their own project
+    - 6.1 Graduate Student modifies and integrates the detection software to their project 
+
+* **Success Postcondition:** Graduate Student is provided accurate and reliable outputs to work with
+
+This sceneario is important as it demonstrates the basic case of how a Graduate Student would interact with the software and use the software to aid in their research
+
+==== (S.4.2) User uses software to analyze offline .pcd file
+* **Use Case**: UC2
+* **Primary Actor**: Graduate Research Student
+* **Precondition**: Graduate Research Student has access to .pcd files they would like to use, the detection software, a computer to run the software.
+* **Trigger**: Graduate Research Student wishes to use the detection software to aid in their research
+* **Main Success Scenario:**
+
+    - 1. Graduate Student opens the detection software
+    - 2. Graduate Student chooses "offline file upload"
+    - 3. Graduate Student uploads an offline .pcd file to the software 
+    - 4. Software provides the coordinates and distance of the humans it detects
+    - 5. Graduate Student analyzes the output of the software to aid in their research
+    - 6. Graduate Student finishes their work session
+
+* **Secondary Scenario:**
+    
+    - 5.1 Graduate Studen takes the output of the detection software and uses it as the input of their own project
+    - 6.1 Graduate Student modifies and integrates the detection software to their project 
+
+* **Success Postcondition:** Graduate Student is provided accurate and reliable outputs to work with
+
+This sceneario is important as it demonstrates the other usage of the software which is another way a Graduate Student can interact with the software and use the software to aid in their research

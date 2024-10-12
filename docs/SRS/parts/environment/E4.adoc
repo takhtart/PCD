@@ -1,0 +1,16 @@
+[#e4,reftext=E.4]
+=== (E.4) Assumptions
+
+ifdef::env-draft[]
+TIP: _Properties of the environment that may be assumed, with the goal of facilitating the project and simplifying the system. It defines properties that are not imposed by the environment (like those in <<e3>>) but assumed to hold, as an explicit decision meant to facilitate the system's construction._  <<BM22>>
+endif::[]
+
+
+- *Kinect  Sensor compatibility*: It is assumed that the Kinect sensor is sending data in real time and that the data is reliable. This is to ensure that the sensor is sending data that can actually be used for the algorithm. 
+
+- *Standard Human Size*: The general size for a human is going to be assumed, so that there could be a starting point for the application. For the system to estimate where to person is hidden and their general size the algorithm will assume a general human size as default.
+
+- *Library Reliability*: Assuming that the libraries used provide the correct information. Some libraries like OpenCV and the pcd library will be used a lot and so its important to assume that the libraries do not have any errors that would affect the application.
+
+- *Consistent Lighting Conditions*: The system relies on consistent lighting conditions to accurately detect and model humans.
+

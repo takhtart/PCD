@@ -1,0 +1,15 @@
+[discrete]
+=== Control Information
+
+[cols="^1,^1,^1,2,^1,2"]
+|===
+|Section | Version | Lead | Delivered | Reviewer | Approved 
+
+| **<<p1>>** | Revision 0 | KS | 2024-10-11 | |
+| **<<p2>>** | Revision 0 | KS | 2024-10-11 | |
+| **<<p3>>** | Revision 0 | KS | 2024-10-11 | |
+| **<<p4>>** | Revision 0 | KS | 2024-10-11 | |
+| **<<p5>>** | Revision 0 | KS | 2024-10-11 | |
+| **<<p6>>** | Revision 0 | KS | 2024-10-11 | |
+| **<<p7>>** | Revision 0 | KS | 2024-10-11 | |
+|===

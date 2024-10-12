@@ -1,0 +1,22 @@
+[#g6,reftext=G.6]
+=== (G.6) Limitations and Exclusions
+
+ifdef::env-draft[]
+TIP: _Aspects that the system need not address. It states what the system will not do. This chapter addresses a key quality attribute of good requirements: the requirements must be delimited (or “scoped”). <<g6>> is not, however, the place for an analysis of risks and obstacles, which pertain to the project rather than the goals and correspondingly appears in chapter <<p6>>._  <<BM22>>
+endif::[]
+
+The project will not be focusing on the following aspects of the detection system:
+
+*Fully Obscured Handling:* The system will not address scenarios where a person is completely occluded by objects or other individuals. The focus will be on detecting and estimating the 3D space occupied by partially visible people.
+
+*Non-Human Object Detection:* The system is specifically designed to detect and estimate the space occupied by humans. It will not be responsible for identifying or tracking non-human objects or animals.
+
+*Environmental Changes:* The system will only operating indoors, with adequate lighting in the environment. The system will not be operating in complete darkness.
+
+*Multiple Sensor Integration:* The project will utilize a single Kinect sensor for data collection. Integration of multiple sensors or different types of sensors is beyond the scope of this project.
+
+*Advanced Human Pose Estimation:* While the system will be able to handle a variety of body orientations, it will not focus on advanced human pose estimation techniques beyond the basic extrapolation of visible parts of the body to detect a person.
+
+*Long-Term Data Storage and Analysis:* The system will process data in real-time and offline using .pcd files, but it will not include long-term data storage or analysis capabilities. Data management and storage solutions are outside the scope of this project.
+
+*User Interface Development:* The primary focus of the project is on the development of the detection and estimation software. The creation of a user-friendly interface for end-users beyond providing a depot of uploading a .pcd file, is not a primary focus of the project.

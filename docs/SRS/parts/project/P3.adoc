@@ -1,0 +1,31 @@
+[#p3,reftext=P.3]
+=== (P.3) Schedule and milestones
+
+ifdef::env-draft[]
+TIP: _List of tasks to be carried out and their scheduling. It defines the project's key dates._  <<BM22>>
+endif::[]
+
+Key Dates:
+
+- **September 23, 2024** : Problem Statement, POC Plan, Development Plan
+
+- **October 11, 2024** : Revision 0 of Requirements Document
+
+- **October 23, 2024** : Hazard Analysis
+
+- **November 1, 2024** : V&V Plan
+
+- **November 18, 2024** : Proof of Concept Demonstration 
+
+- **January 15, 2025** : Revision 0 Design Document
+
+- **February 3, 2025** : Revision 0 Demonstration
+
+- **March 7, 2025** : Revision 0 V&V Report
+
+- **March 24, 2025** : Revision 1 Final Demonstration
+
+- **April, 2025** : EXPO Demonstration
+
+- **April 2, 2025** : Revision 1 Final Documentation
+

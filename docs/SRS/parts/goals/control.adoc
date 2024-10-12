@@ -1,0 +1,16 @@
+[discrete]
+=== Control Information
+
+.{project-title} -- Versionning Information -- Goal Book
+[cols="^1,^1,^2,^2,^2,^2"]
+|===
+|Section | Version | Lead | Delivered on| Reviewer | Approved on
+
+| **<<g1>>** |  |  |  |  |
+| **<<g2>>** |  |  |  |  |
+| **<<g3>>** |  |  |  |  |
+| **<<g4>>** |  |  |  |  |
+| **<<g5>>** |  |  |  |  |
+| **<<g6>>** |  |  |  |  |
+| **<<g7>>** |  |  |  |  |
+|===

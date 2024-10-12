@@ -1,0 +1,60 @@
+'PlantUML style inspired by McMaster Colour Palette
+
+skinparam nodesep 75
+skinparam ranksep 75
+
+hide empty members
+hide footbox
+
+skinparam noteFontSize 10
+skinparam noteFontName Courier
+
+skinparam monochrome  false  
+skinparam shadowing   false
+skinparam roundcorner 10
+skinparam linetype polyline
+
+!$MAROON  = "#7A003C"
+!$GOLD    = "#FDBF57"
+!$GREY    = "#5E6A71"
+
+!$GOLD_BG = "#FEECCD"
+
+!$LIGHT_MAROON = "#AC1455"
+!$DARK_MAROON  = "#56002A"
+
+skinparam actor {
+  BorderColor     $MAROON
+  BorderThickness 1
+	BackgroundColor $GOLD_BG
+  FontColor       $MAROON
+}
+
+skinparam usecase {
+  BackgroundColor $GOLD_BG
+  BorderColor     $MAROON
+  BorderThickness 1
+}
+
+skinparam arrow {
+		Color         $MAROON
+}
+
+skinparam class {
+  BorderColor     $MAROON
+  BorderThickness 1
+  BackgroundColor $GOLD_BG
+}
+
+skinparam component {
+  BorderColor     $MAROON
+  BorderThickness 1
+  BackgroundColor $GOLD_BG
+}
+
+skinparam interface {
+  BorderColor     $MAROON
+  BorderThickness 1
+  BackgroundColor $MAROON
+}
+
