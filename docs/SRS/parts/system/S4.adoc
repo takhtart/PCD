@@ -6,7 +6,7 @@ TIP: _Examples of interaction between the environment (or human users) and the s
 endif::[]
 
 ==== (S.4.1) User starts realtime detection using the software 
-* **Use Case**: UC1, UC2, UC4
+* **Use Case**: UC1
 * **Primary Actor**: Graduate Research Student
 * **Precondition**: Graduate Research Student has access to a kinect, the dectection software, a computer that can be used to connect to the kinect and the wires necessary.
 * **Trigger**: Graduate Research Student wishes to use the detection software to aid in their research
@@ -29,7 +29,7 @@ endif::[]
 This sceneario is important as it demonstrates the basic case of how a Graduate Student would interact with the software and use the software to aid in their research
 
 ==== (S.4.2) User uses software to analyze offline .pcd file
-* **Use Case**: UC1, UC3, UC4
+* **Use Case**: UC2
 * **Primary Actor**: Graduate Research Student
 * **Precondition**: Graduate Research Student has access to .pcd files they would like to use, the dectection software, a computer to run the software.
 * **Trigger**: Graduate Research Student wishes to use the detection software to aid in their research
