@@ -19,7 +19,7 @@ endif::[]
 
 ==== (G.4.2) Top Two Most Important Functional Requirements From A Business Perspective
 
-The ability to reliably detect and model humans even when partially obscured is vital for the system's success, as it directly impacts the accuracy and reliability of human-robot interactions in real-world scenarios. 3D Space Estimation will also
+The ability to reliably detect and model humans even when partially obscured is vital for the system's success, as it directly impacts the accuracy and reliability of human-robot interactions in real-world scenarios. 3D Space Estimation will also ensure that the system can accurately identify and understand the spatial context of the area, allowing for more precise interactions and movement planning by assistive robots. 
 
 ==== (G.4.3) Non-Functional Requirements
 
