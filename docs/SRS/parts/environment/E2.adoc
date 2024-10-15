@@ -11,4 +11,4 @@ The system will interact with the following external component(s)
 
 *OpenCV:* This library will be used in our C++ detection algorithm to aid with image processing.
 
-*Point Cloud Library:* This library will be used in our code to process .pcd files.
+*Point Cloud Library:* This library will be used in our code to aid the processing of .pcd files.

@@ -14,9 +14,21 @@ Point Cloud Data, the file format that our code will be receiving and performing
 
 The Kinect refers to an Xbox One Kinect Sensor, which we will be interacting with and using to gather .pcd files.
 
+*Kinect SDK*
+
+The Kinect Software Development Kit (SDK) enables us to develop and deploy code/applications on the aforementioned Kinect.
+
 *P.C.D.*
 
 Partially Covered Detection, refers to our project title. Our project is centered around automatically detecting partially covered people using .pcd files.
+
+*OpenCV:* 
+
+The Open Source Computer Vision library is an open source computer vision and machine learning software library. It will be used in our C++ detection algorithm to aid with image processing.
+
+*PCL:* 
+
+The Point Cloud Library is an open-source library of algorithms for point cloud processing tasks. This library will be used in our code to aid the processing of .pcd files.
 
 *Person/Human*
     
