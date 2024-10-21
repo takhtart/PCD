@@ -15,6 +15,7 @@ image::models/use_case.png[scale=70%,align="center"]
 ** Detection software takes the .pcd from the Kinect.
 ** Detection software performs calculations.
 ** User observes output, a copy of the live .pcd feed with coordinates of the person and a shape mapped onto the visible body parts.
+Satisfies <<F411>>, <<F412>>, <<F414>>, <<F416>>
 
 * [[UC2]] *Import Raw .pcd file*
 
@@ -22,5 +23,6 @@ image::models/use_case.png[scale=70%,align="center"]
 ** User begins detection software in offline mode, specifying desired .pcd files.
 ** Detection software runs on the specified .pcd.
 ** User observes output, a copy of the uploaded .pcd file with coordinates of the person and a shape mapped onto the visible body parts.
+Satisfies <<F411>>, <<F412>>, <<F414>>, <<F416>>
 
 
