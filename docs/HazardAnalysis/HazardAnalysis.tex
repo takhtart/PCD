@@ -70,6 +70,15 @@ ones.  For projects that involve hardware, the components will typically include
 each individual piece of hardware.  If your software will have a database, or an
 important library, these are also potential components.}
 
+The application is divided into three components
+\subsection{Human Detection System}
+The application can read in data and provide the location of the human.
+The system will provide the information needed to map the head, torso, and/or limbs.
+\subsection{Human Outline System}
+The application maps out the outline of the human within the environment.
+\subsection{File Manager System}
+The application takes in information from either the offline file or the kinect sensor and filters out the noise from the files.
+
 \section{Critical Assumptions}
 
 \wss{These assumptions that are made about the software or system.  You should
@@ -93,10 +102,21 @@ documentation, and/or test cases.}
 \wss{Newly discovered requirements.  These should also be added to the SRS.  (A
 rationale design process how and why to fake it.)}
 
+The application must encrypt user entered files.\\
+\textbf{Rationale:} This is to ensure the privacy of the files uploaded by the user
+
+The application must not store any files uploaded.\\
+\textbf{Rationale:} This is to ensure that in case of any data breach the files will not be something an attacker could have access to.
+
+The application must not store the .pcd files sent from the live Kinect.\\
+\textbf{Rationale:} To ensure that the live sensor data protects the user's privacy within the environment.mak
+
 \section{Roadmap}
 
 \wss{Which safety requirements will be implemented as part of the capstone timeline?
 Which requirements will be implemented in the future?}
+
+
 
 \newpage{}
 
@@ -105,18 +125,5 @@ Which requirements will be implemented in the future?}
 \wss{Not required for CAS 741}
 
 \input{../Reflection.tex}
-
-\begin{enumerate}
-    \item What went well while writing this deliverable? 
-    \item What pain points did you experience during this deliverable, and how
-    did you resolve them?
-    \item Which of your listed risks had your team thought of before this
-    deliverable, and which did you think of while doing this deliverable? For
-    the latter ones (ones you thought of while doing the Hazard Analysis), how
-    did they come about?
-    \item Other than the risk of physical harm (some projects may not have any
-    appreciable risks of this form), list at least 2 other types of risk in
-    software products. Why are they important to consider?
-\end{enumerate}
 
 \end{document}
