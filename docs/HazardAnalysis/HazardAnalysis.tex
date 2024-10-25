@@ -36,9 +36,7 @@
 \toprule
 \textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
 \midrule
-Date1 & Name(s) & Description of changes\\
-Date2 & Name(s) & Description of changes\\
-... & ... & ...\\
+October 25, 2024 & T. Takhtar, M. Bradbury, H. Bassi, K. So & Initial Draft\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -51,16 +49,36 @@ Date2 & Name(s) & Description of changes\\
 
 \pagenumbering{arabic}
 
-\wss{You are free to modify this template.}
-
 \section{Introduction}
 
-\wss{You can include your definition of what a hazard is here.}
+This document contains details of our Hazard Analysis on our Partially Covered Detection software system. 
+A hazard will be defined as a condition or situation where privacy, security, and/or system reliability may be compromised.
 
 \section{Scope and Purpose of Hazard Analysis}
 
-\wss{You should say what \textbf{loss} could be incurred because of the
-hazards.}
+The purpose of this Hazard Analysis is to identify, evaluate, and mitigate potential risks associated with the 
+Partial Covered Detection software system. By identifying the associated hazards, we can further ensure the privacy 
+and security of users and their data, and increase the reliability of the system.
+
+The scope of this analysis includes the entire lifecycle of the detection system. This entails the planning, 
+development, deployment, and maintenance phases of the software cycle.\\
+\\
+\textbf{Potential Losses Due to Hazards}
+
+\begin{enumerate}
+
+\item \textbf{Privacy Violations:} Unauthorized capture and storage of point cloud data by the Kinect sensor, 
+without permission from parties present in the capture could lead to breaches of user privacy. 
+This may lead to potential legal repercussions due to non-compliance with data protection regulations.
+
+\item \textbf{Legal and Regulatory Consequences:} Non-compliance with data protection laws and regulations may incur fines and legal actions.
+
+
+\item \textbf{Operational Disruptions:} Any failure in system performance, such as incorrect data 
+inputs/outputs or unresponsiveness could disrupt critical operations, leading to reduced functionality in 
+real-time applications.
+
+\end{enumerate}
 
 \section{System Boundaries and Components}
 
