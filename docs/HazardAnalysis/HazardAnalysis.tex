@@ -127,12 +127,19 @@ The application must not store any files uploaded.\\
 \textbf{Rationale:} This is to ensure that in case of any data breach the files will not be something an attacker could have access to.
 
 The application must not store the .pcd files sent from the live Kinect.\\
-\textbf{Rationale:} To ensure that the live sensor data protects the user's privacy within the environment.mak
+\textbf{Rationale:} To ensure that the live sensor data protects the user's privacy within the environment.
+
+The application must reject any foreign or unexpected file formats.\\
+\textbf{Rationale:} This is to ensure that our program will not have any unexpected behaviour following improper use.
 
 \section{Roadmap}
 
 \wss{Which safety requirements will be implemented as part of the capstone timeline?
 Which requirements will be implemented in the future?}
+
+In terms of the the roadmap, we will be implementing some of the newly discovered requirements while leaving others for future plans. During this capstone,
+we will ensure that files will not be stored and that unexpected file formats will not be allowed to be uploaded. In the future, past the scope of this capstone,
+we would implement some form of data encryption on all files that go into our system, as well as output files generated.
 
 
 
