@@ -145,11 +145,30 @@ how they relate to your VnV efforts.}
 \wss{Introduce this section.  You can provide a roadmap of the sections to
   come.}
 
+This section describes the overall plan for the verification and validation of our system. It includes the work breakdown 
+of each member of the verification and validation team. This section also outlines the plans for the verification of 
+our SRS, Design, and VnV. Furthermore, it details the plans for the implementation of these verification strategies as well as 
+the implementation of the testing tools and the software validation plan.
+
 \subsection{Verification and Validation Team}
 
 \wss{Your teammates.  Maybe your supervisor.
   You should do more than list names.  You should say what each person's role is
   for the project's verification.  A table is a good way to summarize this information.}
+
+  \begin{table}[H]
+    \caption{Verification and Validation Team Members Table}
+    \centering
+    \begin{tabular}{|l|p{1.8in}|p{2.5in}|}
+    \hline
+    \textbf{Name}            & \textbf{Role(s)}                                       & \textbf{Responsibilities}                                                                                                                                             \\ \hline
+    Harman Bassi         & Lead test developer, Test developer, Manual tester               & Lead the test development process. Create automated tests for backend code. Main verification and reviewer of system/unit tests. \\ \hline
+    Matthew Bradbury             & Test developer, Manual tester, Code Verifier       & Create automated tests for backend code. Manually test human detection algorithm functionality. Ensure source code follows project coding standard. Verification reviewer for the Hazard Analysis and SRS.                                                           \\ \hline
+    Kyen So         & Test developer, Manual tester, Code Verifier                & Create automated tests for backend code. Manually test human outline manager functionality. Ensure source code follows project coding standards. Main verification reviewer for the Verification and Validation document.                                                                                               \\ \hline
+    Tarnveer Takhtar            & Test developer, Manual tester        & Create automated tests for backend code. Manually test Kinect manager and ensure proper functionality. Verification Reviewer of Hazard Analysis and SRS                                       \\ \hline
+    Dr. Gary Bone & Supervisor, SRS validator, Final reviewer &  Make sure SRS meets requirements of the project, Validate code functionality. Because Dr. Bone is the supervisor of this project, he can verify that the project is functioning as expected.\\ \hline
+    \end{tabular}
+    \end{table}
 
 \subsection{SRS Verification Plan}
 
@@ -165,6 +184,15 @@ issue tracker?}
 
 \wss{Maybe create an SRS checklist?}
 
+The current plan to verify our SRS involves incorporating both self-review and peer-review feedback, used in tandem with notes from our TA 
+and a final read-over with our supervisor. Our team will first do a quick read-through of each other's sections and provide feedback for changes
+in the form of comments on the issue. We will then incorporate the feedback we receive from our peers in another group, delivered to us via 
+separate Github issues. These issues will be assigned to a single member of the team, who will have the responsibility of finishing and closing it.
+Additionally, we will create issues related to the feedback we received from our TA and work on adding the corresponding changes to our SRS. 
+Finally, after incorporating all the feedback received, we will host a meeting with Dr. Bone. In this meeting, the team will walk Dr. Bone through
+our SRS and get his opinion on any final changes that need to be made to our requirements. Issues will be created to address the requested changes.
+
+
 \subsection{Design Verification Plan}
 
 \wss{Plans for design verification}
@@ -172,6 +200,11 @@ issue tracker?}
 \wss{The review will include reviews by your classmates}
 
 \wss{Create a checklists?}
+
+Like the SRS, the plan for design verification includes a team review, a peer review, and a TA review. Like the SRS, the 
+team review will involve team members reviewing another team member's section and commenting on changes that should be made. 
+The peer review will similarly consist of another team adding Github issues to our repository and getting assigned to a team member. 
+At that time, the specified team member will complete and close the issue. Additionally, we will incorporate issues raised by our TA. 
 
 \subsection{Verification and Validation Plan Verification Plan}
 
@@ -181,6 +214,12 @@ verified.  Techniques for this include review and mutation testing.}
 \wss{The review will include reviews by your classmates}
 
 \wss{Create a checklists?}
+
+Similarly to the previous plans, this one will consist of a team review, a peer review, and a TA review, as well as a review from our
+supervisor. Just as the previous plans, the team, peer, and TA review will be conducted in the same way as previously mentioned. Additionally,
+for this verification plan, we will also be including our supervisor, Dr. Bone. The team will schedule a meeting with him and go through
+specific parts of the document. These parts will be our plan for what automated tests we are implementing, and Dr. Bone will have the final word
+on any improvements or changes we should make before proceeding.
 
 \subsection{Implementation Verification Plan}
 
@@ -231,6 +270,13 @@ The feedback from your supervisor will be very useful for improving your project
 as a Rev 0 demo for the supervisor.}
 
 \wss{This section might reference back to the SRS verification section.}
+
+For software validation, we will be providing Dr. Bone with weekly written updates on the progress of the project. These updates
+will serve as a brief validation that our software matches the aforementioned requirements outlined in the SRS. These smaller written checkups serve
+as an iterative way to validate the software against the requirements by constantly getting input from Dr. Bone about new code.
+Larger releases, such as code milestones or demos, will be accompanied by a meeting with Dr. Bone instead of a written update. 
+These meetings will be lead by the main developers of the corresponding section and serve as the main form of software validation. 
+The team will also consider peer feedback and TA/prof feedback from the demo to determine if the software accomplishes its goals.
 
 \section{System Tests}
 
