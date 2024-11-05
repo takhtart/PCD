@@ -251,6 +251,10 @@ that document.}
 \wss{The details of this section will likely evolve as you get closer to the
   implementation.}
 
+For the automated testing, cppunit will be used as it provides a simple and portable way to unit test the system. When it comes to doing coverage testing it would be best to use GCov because it is compatible with VScode and easier to set up compared to other applications. The main coverage focus for the project would be MC/DC coverage because it is a good coverage test for complicated decisions which the PCD system will have to make.
+Linters are also a good tool to help ensure all the code meets a certain standard that is respected within the field. For this project, Clang-Tidy will be used because it is compatible with VS code and meets the standards within the industry for C++.
+
+
 \subsection{Software Validation Plan}
 
 \wss{If there is any external data that can be used for validation, you should
