@@ -161,16 +161,9 @@ on any improvements or changes we should make before proceeding.
 
 \subsection{Implementation Verification Plan}
 
-\wss{You should at least point to the tests listed in this document and the unit
-  testing plan.}
-
-\wss{In this section you would also give any details of any plans for static
-  verification of the implementation.  Potential techniques include code
-  walkthroughs, code inspection, static analyzers, etc.}
-
-\wss{The final class presentation in CAS 741 could be used as a code
-walkthrough.  There is also a possibility of using the final presentation (in
-CAS741) for a partial usability survey.}
+For our implementation verification plan, we will perform all of the tests from the corresponding set of system tests in 4.1.1, 4.1.2 and 4.1.4 with every version of the code that makes changes to either the human detection component or the 3D space estimation component. This allows us to verify that our changes continues to meet our functional requirements. 
+For major version updates, we will perform all the tests in 4.1.3 and 4.1.5, in addition to all of the previously mentioned tests so that our entire test suite of 4.1 is covered, ensuring that all of our functional requirements are met. Additionally, we will perform every test 4.2 for every major version update to ensure that out non-functional requirements are met. Performing our entire test suite for every major version update ensures that our software is working as intended. Despite most of our tests being manual, many of them aren't particularly time consuming.
+Finally, for every major version update, a code walkthrough will be performed by the developers and Dr. Gary Bone so that we can find out if there are any discrepancies between what had been implemented and the stakeholder's needs. 
 
 \subsection{Automated Testing and Verification Tools}
 
