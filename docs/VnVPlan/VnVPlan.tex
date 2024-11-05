@@ -189,265 +189,444 @@ The team will also consider peer feedback and TA/prof feedback from the demo to 
 
 \section{System Tests}
 
+System tests are divided into tests for functional and non-functional requirements. Each functional and non-functional requirement we have will be sufficiently tested to ensure that these requirements are properly implemented and integrated into our system.
+
 \subsection{Tests for Functional Requirements}
 
-\wss{Subsets of the tests may be in related, so this section is divided into
-  different areas.  If there are no identifiable subsets for the tests, this
-  level of document structure can be removed.}
+Each subsection below covers a functional requirement of the system. All functional requirements are accounted for and each have its own tests such that all functional requirements are met. 
 
-\wss{Include a blurb here to explain why the subsections below
-  cover the requirements.  References to the SRS would be good here.}
-
-\subsubsection{Area of Testing1}
-
-\wss{It would be nice to have a blurb here to explain why the subsections below
-  cover the requirements.  References to the SRS would be good here.  If a section
-  covers tests for input constraints, you should reference the data constraints
-  table in the SRS.}
+\subsubsection{Human Detection Testing}
 		
-\paragraph{Title for Test}
+\paragraph{Live Tests}
 
 \begin{enumerate}
 
-\item{test-id1\\}
+\item{Live Full body, Uncovered Test (FT11)\\}
 
-Control: Manual versus Automatic
+\textbf{Control:} Manual
 					
-Initial State: 
+\textbf{Initial State:} Kinect is properly set up whilst facing an environent without any objects that may obstuct the view of a person. Software is running in realtime and is not detecting anyone in frame. A person is ready to walk into frame.
 					
-Input: 
+\textbf{Input:} Realtime PCD from Kinect
 					
-Output: \wss{The expected result for the given inputs.  Output is not how you
-are going to return the results of the test.  The output is the expected
-result.}
+\textbf{Output:} The software recognizes that there is a human in frame in realtime.
 
-Test Case Derivation: \wss{Justify the expected value given in the Output field}
+\textbf{Test Case Derivation:} The software is expected to first not detect any humans while no one is in frame. Once the human is fully in frame, the software is expected to recognize that someone is now in frame in order to sastify the requirement of human detection.
 					
-How test will be performed: 
+\textbf{How test will be performed:} The test begins with an environment free of any objects that may obstruct the view of a person and the software running in realtime. The tester will ensure that the software doesn't detect any human while no one is in frame. Then a human will be instructed to walk into frame. The output of the software will be inspected and analyzed once the human is fully in frame. 
 					
-\item{test-id2\\}
+\item{Live Upper Body, Uncovered Test (FT12)\\}
 
-Control: Manual versus Automatic
+\textbf{Control:} Manual
 					
-Initial State: 
+\textbf{Initial State:} Kinect is properly set up whilst facing an environent without any objects that may obstuct the view of a person. Software is running in realtime and is not detecting anyone in frame. A person is ready to walk into frame close to the kinect such that only their upper body is visible.
 					
-Input: 
-					
-Output: \wss{The expected result for the given inputs}
+\textbf{Input:} Realtime PCD from Kinect
+			
+\textbf{Output:} The software recognizes that there is a human in frame in realtime.
 
-Test Case Derivation: \wss{Justify the expected value given in the Output field}
+\textbf{Test Case Derivation:} The software is expected to first not detect any humans while no one is in frame. Once the top half of the human is fully in frame, the software is expected to recognize that someone is now in frame in order to sastify the requirement of human detection.
+					
+\textbf{How test will be performed:} The test begins with an environment free of any objects that may obstruct the view of a person and the software running in realtime. The tester will ensure that the software doesn't detect any human while no one is in frame. Then a human will be instructed to walk into frame close to the kinect such that only their upper body is visible. The output of the software will be inspected and analyzed once the human is fully in frame. 
+	
+\item{Live Human Partially Covered by Another Human Test (FT13)\\}
 
-How test will be performed: 
+\textbf{Control:} Manual
+
+\textbf{Initial State:} Kinect is properly set up whilst facing an environment without any objects that may obstruct the view of a person. Software is running in realtime and is not detecting anyone in frame. Two humans are ready to walk into frame.
+
+\textbf{Input:} Realtime PCD from Kinect
+
+\textbf{Output:} The software correctly recognizes and distinguishes 2 humans separately in realtime
+
+\textbf{Test Case Derivation:} The software is expected to first not detect any humans while no one is in frame. Once both humans are fully in frame and one human is partially covering the other, the software is expected to recognize that there are two humans in frame and be able to distinguish each human in order to satisfy the requirement of human detection.
+
+\textbf{How test will be performed:} The test begins with an environment free of any objects that may obstruct the view of a person and the software running in realtime. The tester will ensure that the software doesn't detect any human while no one is in frame. Then, both humans will be instructed to walk into frame with one human partially covering the other. The output of the software will be inspected and analyzed once both humans are fully in frame and in the correct position.
+
+\item{Live Human Partially Covered by Another Object Test (FT14)\\}
+
+\textbf{Control:} Manual
+
+\textbf{Initial State:} Kinect is properly set up whilst facing an environment with an object placed that is large enough to partially obstruct the view of a person. Software is running in realtime and is not detecting anyone in frame. A person is ready to walk into frame.
+
+\textbf{Input:} Realtime PCD from Kinect
+
+\textbf{Output:} The software recognizes that there is a human in frame in realtime.
+
+\textbf{Test Case Derivation:} The software is expected to first not detect any humans while no one is in frame. Once the human is fully within the frame and is partially covered by the object, the software is expected to recognize that there is a human behind the object in order to satisfy the requirement of human detection.
+
+\textbf{How test will be performed:} The test begins in an environment that contains an object big enough to partially obstruct a person from the Kinect’s view, such as a chair or table, and with the software running in realtime. The tester will ensure that the software doesn't detect any human while no one is in frame. Then, a human will be instructed to walk into frame and stand behind the object. The output of the software will be inspected and analyzed once the human is in the correct position.
+
 
 \end{enumerate}
 
-\subsubsection{Area of Testing2}
+\paragraph{Offline Tests}
 
-...
+\begin{enumerate}
+  
+\item{Offline Full Body, Uncovered Test (FT15)\\}
+
+\textbf{Control:} Manual
+
+\textbf{Initial State:} The system is running in offline mode which allows the user to upload a .pcd file.
+
+\textbf{Input:} .pcd file containing the full-body of a human unobstructed by any objects .
+
+\textbf{Output:} The software recognizes that there is a human in frame
+
+\textbf{Test Case Derivation:} Given a .pcd file input, the software is expected to be able to analyze the data in the file. Since the .pcd file contains the full-body of a human, the software is expected to recognize that there is a human in the frame in order to satisfy the requirement of human detection.
+
+\textbf{How test will be performed:} The test begins by first obtaining a .pcd file that contains the full-body of a human unobstructed by any objects. Then, the .pcd file is uploaded to the software. The output of the software will be inspected and analyzed by the tester.
+
+\item{Offline Upper Body, Uncovered Test (FT16)\\}
+
+\textbf{Control:} Manual
+
+\textbf{Initial State:} The system is running in offline mode which allows the user to upload a .pcd file.
+
+\textbf{Input:} .pcd file containing only the upper body of a human unobstructed by any objects .
+
+\textbf{Output:} The software recognizes that there is a human in frame
+
+\textbf{Test Case Derivation:} Given a .pcd file input, the software is expected to be able to analyze the data in the file. Since the .pcd file contains the upper body of a human, the software is expected to recognize that there is a human in the frame in order to satisfy the requirement of human detection.
+
+\textbf{How test will be performed:} The test begins by first obtaining a .pcd file that contains only the upper body of a human unobstructed by any objects. Then, the .pcd file is uploaded to the software. The output of the software will be inspected and analyzed by the tester.
+
+\item{Offline Human Partially Covered by Another Human Test (FT17)\\}
+
+\textbf{Control:} Manual
+
+\textbf{Initial State:} The system is running in offline mode which allows the user to upload a .pcd file.
+
+\textbf{Input:} .pcd file containing 2 humans with one human partially covering the other.
+
+\textbf{Output:} The software correctly recognizes and distinguishes 2 humans separately
+
+\textbf{Test Case Derivation:} Given a .pcd file input, the software is expected to be able to analyze the data in the file. Since the .pcd file contains 2 humans with 1 partially covering the other, the software is expected to recognize and distinguish each human in order to satisfy the requirement of human detection.
+
+\textbf{How test will be performed:} The test begins by first obtaining a .pcd file that contains 2 humans with 1 partially covering the other. Then, the .pcd file is uploaded to the software. The output of the software will be inspected and analyzed by the tester.
+
+\item{Offline Human Partially Covered by Another Object Test (FT18)\\}
+
+\textbf{Control:} Manual
+
+\textbf{Initial State:} The system is running in offline mode which allows the user to upload a .pcd file.
+
+\textbf{Input:} .pcd file containing a human who is partially covered by an object such as a chair or a table
+
+\textbf{Output:} The software recognizes that there is a human in frame
+
+\textbf{Test Case Derivation:} Given a .pcd file input, the software is expected to be able to analyze the data in the file. Since the .pcd file contains a human partially covered by an object, the software is expected to recognize that there is a human in frame in order to satisfy the requirement of human detection.
+
+\textbf{How test will be performed:} The test begins by first obtaining a .pcd file that contains a human partially covered by an object such as a chair or table. Then, the .pcd file is uploaded to the software. The output of the software will be inspected and analyzed by the tester.
+
+\end{enumerate} 
+
+
+\subsubsection{3D Space Estimation}
+
+\paragraph{Live Tests}
+\begin{enumerate}
+  \item{Full Body, Uncovered (FT21)\\}
+
+  \textbf{Control:} Manual
+
+  \textbf{Initial State:} Kinect is properly set up whilst facing an environment without any objects that may obstruct the view of a person. Software is running in realtime and is not detecting anyone in frame. A person is ready to walk into frame.
+  
+  \textbf{Input:} Realtime PCD from Kinect
+  
+  \textbf{Output:} The software locates the human outline of the human’s head, torso, and limbs(arms and legs) within the 3D environment. 
+  
+  \textbf{Test Case Derivation:} The software would first expect to detect no one within the empty environment. Then when the human walks into frame the software is expected to determine the outline of the human and identify the three main components of the human, the head, torso, and limbs. These components would be outlined separately showing it within the 3D space.
+  
+  \textbf{How test will be performed:} The test will first have the empty  environment and then have a human fully appear in frame with nothing covering them. The tester would then ensure that the screen does not detect any humans in the frame. Then the human would walk in front of the sensor making sure that their whole body would be visible in front of the Kinect. The tester would then check the screen to see that the system outlines the human’s head, torso and limbs.
+
+  \item{Upper Body, Uncovered (FT22)\\}
+  
+  \textbf{Control:} Manual
+  
+  \textbf{Initial State:} Kinect is properly set up whilst facing an environment without any objects that may obstruct the view of a person. Software is running in realtime and is not detecting anyone in frame. A person is ready to walk into frame.
+  
+  \textbf{Input:} Realtime PCD from Kinect
+  
+  \textbf{Output:} The software locates the human outline of the human’s head, torso, and arms (if in frame) within the 3d environment. 
+  
+  \textbf{Test Case Derivation:} The software would first expect to detect no one within the empty environment. Then when the human walks into frame, but only with the upper body being visible. The software is then able to recognize that there is a human and outline only the head, torso and possibly the arms.These components would be outlined separately showing it within the 3D space.
+  
+  \textbf{How test will be performed:} The test will first have the empty  environment. The tester would then ensure that the screen does not detect any humans in the frame. Then the human would walk in front of the sensor making sure that only their upper body is shown to the Kinect. The tester would then check the screen to see if  the system outlines the human’s head, torso and possibly the arms if visible within frame.
+  
+  \item{Human Covered by Another Human (FT23)\\}
+  
+  \textbf{Control:} Manual
+
+  \textbf{Initial State:} Kinect is properly set up whilst facing an environment without any objects that may obstruct the view of a person. Software is running in realtime and is not detecting anyone in frame. Person 1  is ready to walk into frame and person 2 is ready to walk behind person 1.
+  
+  \textbf{Input:} Realtime PCD from Kinect
+
+  \textbf{Output:} The software shows the human at the front and outlines the head, torso,and limbs are visible. Also outlines the body parts of the human behind the first human. 
+
+  \textbf{Test Case Derivation:} Because two humans are visible on the screen, the system is expected to outline person 1’s head, torso, and limbs. Then it should separately outline person 2’s visible parts (the head, torso, and visible limbs).
+
+  \textbf{How test will be performed:} The two humans would be visible within the environment and the tester would make sure that person 1 is partially visible behind person 2 on screen. The system should then identify that there are two people visible on screen and outline the head, torso, and limbs of person 1. Then it would also identify the head, torso, and possibly the arms of person 2. 
+
+  \item{Human Partially covered by another object (FT24)\\}
+
+  \textbf{Control:} Manual
+
+  \textbf{Initial State:} Kinect is properly set up whilst facing an environment with objects that obstruct the view of a person. Software is running in realtime and is not detecting anyone in frame. A person is ready to walk into frame and hide behind the object.
+
+  \textbf{Input:} Realtime PCD from Kinect.
+
+  \textbf{Output:} The software outlines the visible parts of the human. The human will only show their head and part of their torso.
+
+  \textbf{Test Case Derivation:} The object within the screen does not create any separate outline. When the person has their head and torso visible it is expected that the system is able to detect the human and figure out that the head and torso are visible. These body parts are then outlined and displayed on screen.
+
+  \textbf{How test will be performed:} The object should be visible on screen by itself. Then the human goes and hides behind the object only displaying parts of themselves. The tester then is able to check the screen and be able to see that the human has their head and torso outlined.
+  
+\end{enumerate}
+
+\paragraph{Offline Tests}
+\begin{enumerate}
+  \item{Full Body, Uncovered (FT25)\\}
+  
+  \textbf{Control:} Manual
+
+  \textbf{Initial State:} The system is running in offline mode which allows the user to upload a .pcd file.
+  
+  \textbf{Input:}  A  file of a human that is in full view and is not obstructed by any object. 
+
+  \textbf{Output:} The software locates the human outline of the human’s head, torso, and limbs(arms and legs) within the 3D environment. 
+  
+  \textbf{Test Case Derivation:} The file uploaded should have the human be fully visible in the environment and so when the file is uploaded it is expected that the system is able to detect that there is a human in the frame and outline all the  body parts.This is because the system is able to see the whole body and so it should be able to outline the parts.
+  
+  \textbf{How test will be performed:} The correct file is uploaded into the system and the result should be displayed on screen. The human should have their head, torso, and limbs outlined.The screen should display this for the tester, who will check the file and match with the screen.
+  
+  \item{Upper Body, Uncovered (FT26)\\}
+
+  \textbf{Control:} Manual
+
+  \textbf{Initial State:} The system is running in offline mode which allows the user to upload a .pcd file.
+
+  \textbf{Input:} File of a human that is only showing the upper body and is not obstructed by any object.
+
+  \textbf{Output:} The software locates the human within a well outputted 3D estimation.
+
+  \textbf{Test Case Derivation:} The system reads the uploaded file and is expected to display the upper body of the human (head and torso) because that is all it is able to see in the given frame.
+
+  \textbf{How test will be performed:} The file gets uploaded in the offline mode. The system then processes the file and outputs the outline of the human's upper body on screen. The head and torso will be outlined within the 3D environment.The screen should display this for the tester, who will check the file and match with the screen.
+  
+  \item{Human Covered by Another Human (FT27)\\}
+
+  \textbf{Control:} Manual
+
+  \textbf{Initial State:} The system is running in offline mode which allows the user to upload a .pcd file.
+  
+  \textbf{Input:} File of a human that is being covered by someone else in frame.
+  
+  \textbf{Output:} The system locates the human within a well outputted 3D estimation.
+  
+  \textbf{Test Case Derivation:} The system reads the uploaded file and then the system is expected to display the two humans separately and outline the human in the front fully and the head and torso of the human in the back. This is because in the file uploaded the system is able to clearly see the human in the front while the person in the back is partially hidden.
+  
+  \textbf{How test will be performed:}  The file gets uploaded in the offline mode. The system then processes the file and outputs the outline of the human's full body on screen. It also recognizes the second person and is able to outline their head and torso. The screen should display this for the tester, who will check the file and match with the screen.
+
+  \item{Human Partially covered by another object (FT28)\\}
+
+  \textbf{Control:} Manual
+
+  \textbf{Initial State:} The system is running in offline mode which allows the user to upload a .pcd file.
+
+  \textbf{Input:} File of a human partially hidden behind an object.
+
+  \textbf{Output:} The system locates the humans visible body parts within a well outputted 3D estimation.
+
+  \textbf{Test Case Derivation:} Because the human is only partially visible (the  head and torso within the file), the system is only able to outline the head and the torso of the human on screen.
+
+  \textbf{How test will be performed:} The file gets uploaded in the offline mode. The system will process the file and outline the head and torso of the human hidden behind the object. The screen should display this for the tester, who will check the file and match with the screen.
+
+  
+  
+\end{enumerate}
+
+\subsubsection{Offline Processing}
+
+\paragraph{File Format Tests}
+\begin{enumerate}
+\item{.pcd File Test (FT31)\\}
+  
+\textbf{Control:} Manual
+
+\textbf{Initial State:} The system is running in offline mode which allows the user to upload a file.
+
+\textbf{Input:} Any .pcd file
+
+\textbf{Output:} The software is able to read and analyze the data from the uploaded .pcd file and notifies the user that the file has been successfully uploaded
+
+\textbf{Test Case Derivation:} The software should be able to analyze and read the data from any given .pcd file. It should recognize that the correct file format has been uploaded.
+
+\textbf{How test will be performed:} The system will be in offline mode and the tester will upload a .pcd file. The feedback of the software will be inspected by the tester.
+
+\item{Incorrect File Format Test (FT32)\\}
+
+\textbf{Control:} Manual
+
+\textbf{Initial State:} The system is running in offline mode which allows the user to upload a file.
+
+\textbf{Input:} Any file that isn’t a .pcd file such as a .jpg file
+
+\textbf{Output:} The software is unable to read and analyze the data from the uploaded file and notifies the user that the file upload was unsuccessful
+
+\textbf{Test Case Derivation:} The software should be not able to analyze and read the data from a file format that isn’t .pcd. It should recognize that the incorrect file format has been uploaded.
+
+\textbf{How test will be performed:} The system will be in offline mode and the tester will upload a file that isn’t a .pcd file. The feedback of the software will be inspected by the tester.
+
+\end{enumerate} 
+
+\subsubsection{Body Pose Variation Handling}
+
+\begin{enumerate}
+  \item{Person not facing the sensor (FT41)}
+
+  \textbf{Control:} Manual
+
+  \textbf{Initial State:} The system is running in real time with no object obstructing the view of the sensor. The person is facing away from the sensor.
+  
+  \textbf{Input:} Realtime PCD from Kinect
+
+  \textbf{Output:} The system should be detected and their head, torso ,and limbs will be outlined on screen.
+
+  \textbf{Test Case Derivation:} The outcome should be the same as the person looking at the sensor. It should not change the outcome and so the system is expected to behave the same as before and outline the human.
+
+  \textbf{How test will be performed:} The person would stand in the open of the environment and face away from the sensor. The system will then outline the person’s body parts and display the results on the screen. The tester can then verify if it is the correct output.
+
+  \item{Person sitting on chair (FT42)}
+
+  \textbf{Control:} Manual
+
+  \textbf{Initial State:} The system is running in real time with the chair obstructing the part of the person in the frame. The person is sitting facing away from the sensor.
+
+  \textbf{Input:} Realtime PCD from Kinect 
+
+  \textbf{Output:} The system should be detected and their head and torso will be outlined on screen.
+
+  \textbf{Test Case Derivation:} Because the person is sitting it should not affect the outcome of the human. The chair is blocking part of the human and only the head and torso would be visible so that is the only thing that the sensor should be able to pick up.
+
+  \textbf{How test will be performed:}  The person would sit in the frame facing away from the sensor. The system is then able to detect the part of the human visible and outline the head and torso. The tester is able to see this on the screen and verify the outcome.
+
+  \item{Poking Head In and Out (FT43)}
+
+  \textbf{Control:} Manual
+
+  \textbf{Initial State:} The system is running in real time with an object fully obstructing the person.
+
+  \textbf{Input:} Realtime PCD from Kinect.
+
+  \textbf{Output:} The system should be detected and their head whenever it is poked out.
+
+  \textbf{Test Case Derivation:} The system is updating in real time and so it should be able to display the head outline whenever the sensor picks it up.
+
+  \textbf{How test will be performed:} The person would be hidden behind the objects and then would repeatedly poke their head out. The system will then outline the head whenever it is in frame. The tester will observe this on the screen and see if the head is outlined at the correct times.
+\end{enumerate} 
+
+\subsubsection{Integration with Kinect Sensor}
+\paragraph{Live Tests}
+\begin{enumerate}
+\item{Live Connection Test (FT51)}
+  
+\textbf{Control:} Manual
+
+\textbf{Initial State:} Kinect is turned on and connected to the computer that the software is running from. 
+
+\textbf{Input:} Disconnection and reconnection to Kinect
+
+\textbf{Output:} When the kinect is disconnected ,the system recognizes that the Kinect is disconnected and notifies the user. Once the kinect is connected again, the system recognizes that the kinect is connected and notifies the user
+
+\textbf{Test Case Derivation:} The software should be able to integrate seamlessly with the Kinect meaning that if the connection to the Kinect is severed, the software should be aware and notify the user. Once the Kinect is reconnected, the system will immediately be aware that the Kinect is connected and notify the user making the connection seamless.
+
+\textbf{How test will be performed:} The test begins with the Kinect already connected to the system. The tester would check to see that the Kinect is connected properly and then disconnect the connection. The tester will reconnect the Kinect to the computer that the software is running from and inspect the connection status of the Kinect in the system.
+
+\item{Live Kinect Data Test (FT52)}
+
+\textbf{Control:} Manual
+
+\textbf{Initial State:} Kinect is turned on and connected to the computer that the software is running from. 
+
+\textbf{Input:} Realtime PCD from Kinect
+
+\textbf{Output:} Stable stream of realtime PCD from Kinect visible to the user in the software
+
+\textbf{Test Case Derivation:} The software should be able to read PCD from the Kinect in realtime
+
+\textbf{How test will be performed:} The test begins with the Kinect already connected to the system and facing any environment. The tester would make hand gestures in front of the kinect sensor and then inspect to see if the PCD that the software reads accurately represents what is happening inside the frame of the Kinect in realtime.
+
+\end{enumerate} 
+
 
 \subsection{Tests for Nonfunctional Requirements}
 
-\wss{The nonfunctional requirements for accuracy will likely just reference the
-  appropriate functional tests from above.  The test cases should mention
-  reporting the relative error for these tests.  Not all projects will
-  necessarily have nonfunctional requirements related to accuracy.}
+Each subsection below covers a nonfunctional requirement of the system. All nonfunctional requirements are accounted for and each have its own tests such that all nonfunctional requirements are met.
 
-\wss{For some nonfunctional tests, you won't be setting a target threshold for
-passing the test, but rather describing the experiment you will do to measure
-the quality for different inputs.  For instance, you could measure speed versus
-the problem size.  The output of the test isn't pass/fail, but rather a summary
-table or graph.}
-
-\wss{Tests related to usability could include conducting a usability test and
-  survey.  The survey will be in the Appendix.}
-
-\wss{Static tests, review, inspections, and walkthroughs, will not follow the
-format for the tests given below.}
-
-\wss{If you introduce static tests in your plan, you need to provide details.
-How will they be done?  In cases like code (or document) walkthroughs, who will
-be involved? Be specific.}
-
-\subsubsection{Area of Testing1}
-		
-\paragraph{Title for Test}
+\subsubsection{Realtime Processing}
 
 \begin{enumerate}
 
-\item{test-id1\\}
+\item{Poking Head Out Test(NFT11)\\}
 
-Type: Functional, Dynamic, Manual, Static etc.
-					
-Initial State: 
-					
-Input/Condition: 
-					
-Output/Result: 
-					
-How test will be performed: 
-					
-\item{test-id2\\}
+\textbf{Control:} Manual
 
-Type: Functional, Dynamic, Manual, Static etc.
-					
-Initial State: 
-					
-Input: 
-					
-Output: 
-					
-How test will be performed: 
+\textbf{Initial State:} The system is running with an object fully obstructing the person.
+
+\textbf{Input:} Realtime PCD from Kinect.
+
+\textbf{Output:} The system should be detected and their head whenever it is poked out within a certain amount of time.
+
+\textbf{Test Case Derivation:} The system should be updating in real time and so it should be able to display the head outline within two frames.
+
+\textbf{How test will be performed:} The person would be hidden behind the objects and then would repeatedly poke their head out. The system will then outline the head whenever it is in frame.The tester will measure the time by setting up a function to see how long the system takes to outline the person (from read input to having the coordinates for outline). If the time meets the minimal requirement to be considered a real time system.
 
 \end{enumerate}
 
-\subsubsection{Area of Testing2}
+\subsubsection{Reliability}
 
-...
+\begin{enumerate}
+
+\item{Same File Test (NFT21)\\}
+  
+\textbf{Control:} Manual
+
+\textbf{Initial State:} The system is running in offline mode. A file with an object partially obstructing the person will be uploaded.
+
+\textbf{Input:} A offline file with inputted multiple times
+
+\textbf{Output:} The system displays a similar outline to the other inputs.
+
+\textbf{Test Case Derivation:} Because the file is the same, uploading it multiple different times should result in the system outlining the human within the screen similarly. In the one file uploaded the human will be partially covered and so each time it is uploaded the coordinates for the outline should fit into a range that is only 5-10% off of previous upload.
+
+\textbf{How test will be performed:} This will be done by having a file be uploaded to the system 10 times and then copy the results into an array to then measure how off it is to its original run. 
+  
+\end{enumerate}
+
+\subsubsection{Accuracy}
+
+\begin{enumerate}
+
+\item{Live Data Test (NFT31)\\}
+
+\textbf{Control:} Manual
+
+\textbf{Initial State:} Kinect is properly set up whilst facing an environment with an object placed that is large enough to partially obstruct the view of a person. Software is running in realtime and is detecting the person in frame.
+
+\textbf{Input:} Multiple Changed Positions
+
+\textbf{Output:} The system displays the outline of the human within a certain visible range.
+
+\textbf{Test Case Derivation:} The system is expected to produce an outline for the human that is relatively close to what can be seen on screen. The system should only detect what is visible and detect it in a given area.
+
+\textbf{How test will be performed:} The person would hold a certain position and then the tester would manually check if the outlined area fits into a certain range by viewing the screen. The person would then change their position and the tester does the same process over again. This would be repeated 10 times to measure accuracy.
+  
+\end{enumerate}
+
 
 \subsection{Traceability Between Test Cases and Requirements}
-
-\wss{Provide a table that shows which test cases are supporting which
-  requirements.}
-
-\section{Unit Test Description}
-
-\wss{This section should not be filled in until after the MIS (detailed design
-  document) has been completed.}
-
-\wss{Reference your MIS (detailed design document) and explain your overall
-philosophy for test case selection.}  
-
-\wss{To save space and time, it may be an option to provide less detail in this section.  
-For the unit tests you can potentially layout your testing strategy here.  That is, you 
-can explain how tests will be selected for each module.  For instance, your test building 
-approach could be test cases for each access program, including one test for normal behaviour 
-and as many tests as needed for edge cases.  Rather than create the details of the input 
-and output here, you could point to the unit testing code.  For this to work, you code 
-needs to be well-documented, with meaningful names for all of the tests.}
-
-\subsection{Unit Testing Scope}
-
-\wss{What modules are outside of the scope.  If there are modules that are
-  developed by someone else, then you would say here if you aren't planning on
-  verifying them.  There may also be modules that are part of your software, but
-  have a lower priority for verification than others.  If this is the case,
-  explain your rationale for the ranking of module importance.}
-
-\subsection{Tests for Functional Requirements}
-
-\wss{Most of the verification will be through automated unit testing.  If
-  appropriate specific modules can be verified by a non-testing based
-  technique.  That can also be documented in this section.}
-
-\subsubsection{Module 1}
-
-\wss{Include a blurb here to explain why the subsections below cover the module.
-  References to the MIS would be good.  You will want tests from a black box
-  perspective and from a white box perspective.  Explain to the reader how the
-  tests were selected.}
-
-\begin{enumerate}
-
-\item{test-id1\\}
-
-Type: \wss{Functional, Dynamic, Manual, Automatic, Static etc. Most will
-  be automatic}
-					
-Initial State: 
-					
-Input: 
-					
-Output: \wss{The expected result for the given inputs}
-
-Test Case Derivation: \wss{Justify the expected value given in the Output field}
-
-How test will be performed: 
-					
-\item{test-id2\\}
-
-Type: \wss{Functional, Dynamic, Manual, Automatic, Static etc. Most will
-  be automatic}
-					
-Initial State: 
-					
-Input: 
-					
-Output: \wss{The expected result for the given inputs}
-
-Test Case Derivation: \wss{Justify the expected value given in the Output field}
-
-How test will be performed: 
-
-\item{...\\}
-    
-\end{enumerate}
-
-\subsubsection{Module 2}
-
-...
-
-\subsection{Tests for Nonfunctional Requirements}
-
-\wss{If there is a module that needs to be independently assessed for
-  performance, those test cases can go here.  In some projects, planning for
-  nonfunctional tests of units will not be that relevant.}
-
-\wss{These tests may involve collecting performance data from previously
-  mentioned functional tests.}
-
-\subsubsection{Module ?}
-		
-\begin{enumerate}
-
-\item{test-id1\\}
-
-Type: \wss{Functional, Dynamic, Manual, Automatic, Static etc. Most will
-  be automatic}
-					
-Initial State: 
-					
-Input/Condition: 
-					
-Output/Result: 
-					
-How test will be performed: 
-					
-\item{test-id2\\}
-
-Type: Functional, Dynamic, Manual, Static etc.
-					
-Initial State: 
-					
-Input: 
-					
-Output: 
-					
-How test will be performed: 
-
-\end{enumerate}
-
-\subsubsection{Module ?}
-
-...
-
-\subsection{Traceability Between Test Cases and Modules}
-
-\wss{Provide evidence that all of the modules have been considered.}
-				
-\bibliographystyle{plainnat}
-
-\bibliography{../../refs/References}
-
-\newpage
-
-\section{Appendix}
-
-This is where you can place additional information.
-
-\subsection{Symbolic Parameters}
-
-The definition of the test cases will call for SYMBOLIC\_CONSTANTS.
-Their values are defined in this section for easy maintenance.
 
 \begin{table}[H]
   
@@ -512,29 +691,155 @@ Their values are defined in this section for easy maintenance.
   \end{tabular}
   \end{table}
 
+
+
+\section{Unit Test Description}
+
+\wss{This section should not be filled in until after the MIS (detailed design
+  document) has been completed.}
+
+\wss{Reference your MIS (detailed design document) and explain your overall
+philosophy for test case selection.}  
+
+\wss{To save space and time, it may be an option to provide less detail in this section.  
+For the unit tests you can potentially layout your testing strategy here.  That is, you 
+can explain how tests will be selected for each module.  For instance, your test building 
+approach could be test cases for each access program, including one test for normal behaviour 
+and as many tests as needed for edge cases.  Rather than create the details of the input 
+and output here, you could point to the unit testing code.  For this to work, you code 
+needs to be well-documented, with meaningful names for all of the tests.}
+
+\subsection{Unit Testing Scope}
+
+\wss{What modules are outside of the scope.  If there are modules that are
+  developed by someone else, then you would say here if you aren't planning on
+  verifying them.  There may also be modules that are part of your software, but
+  have a lower priority for verification than others.  If this is the case,
+  explain your rationale for the ranking of module importance.}
+
+\subsection{Tests for Functional Requirements}
+
+\wss{Most of the verification will be through automated unit testing.  If
+  appropriate specific modules can be verified by a non-testing based
+  technique.  That can also be documented in this section.}
+
+\subsubsection{Module 1}
+
+\wss{Include a blurb here to explain why the subsections below cover the module.
+  References to the MIS would be good.  You will want tests from a black box
+  perspective and from a white box perspective.  Explain to the reader how the
+  tests were selected.}
+
+\begin{enumerate}
+
+\item{test-id1\\}
+
+Type: \wss{Functional, Dynamic, Manual, Automatic, Static etc. Most will
+  be automatic}
+					
+\textbf{Initial State:} 
+					
+\textbf{Input:} 
+					
+\textbf{Output:} \wss{The expected result for the given inputs}
+
+\textbf{Test Case Derivation:} \wss{Justify the expected value given in the Output field}
+
+\textbf{How test will be performed:} 
+					
+\item{test-id2\\}
+
+Type: \wss{Functional, Dynamic, Manual, Automatic, Static etc. Most will
+  be automatic}
+					
+\textbf{Initial State:} 
+					
+\textbf{Input:} 
+					
+\textbf{Output:} \wss{The expected result for the given inputs}
+
+\textbf{Test Case Derivation:} \wss{Justify the expected value given in the Output field}
+
+\textbf{How test will be performed:} 
+
+\item{...\\}
+    
+\end{enumerate}
+
+\subsubsection{Module 2}
+
+...
+
+\subsection{Tests for Nonfunctional Requirements}
+
+\wss{If there is a module that needs to be independently assessed for
+  performance, those test cases can go here.  In some projects, planning for
+  nonfunctional tests of units will not be that relevant.}
+
+\wss{These tests may involve collecting performance data from previously
+  mentioned functional tests.}
+
+\subsubsection{Module ?}
+		
+\begin{enumerate}
+
+\item{test-id1\\}
+
+Type: \wss{Functional, Dynamic, Manual, Automatic, Static etc. Most will
+  be automatic}
+					
+\textbf{Initial State:} 
+					
+Input/Condition: 
+					
+Output/Result: 
+					
+\textbf{How test will be performed:} 
+					
+\item{test-id2\\}
+
+Type: Functional, Dynamic, Manual, Static etc.
+					
+\textbf{Initial State:} 
+					
+\textbf{Input:} 
+					
+\textbf{Output:} 
+					
+\textbf{How test will be performed:} 
+
+\end{enumerate}
+
+\subsubsection{Module ?}
+
+...
+
+\subsection{Traceability Between Test Cases and Modules}
+
+\wss{Provide evidence that all of the modules have been considered.}
+				
+\bibliographystyle{plainnat}
+
+\bibliography{../../refs/References}
+
+\newpage
+
+\section{Appendix}
+
+This is where you can place additional information.
+
+\subsection{Symbolic Parameters}
+
+The definition of the test cases will call for SYMBOLIC\_CONSTANTS.
+Their values are defined in this section for easy maintenance.
+
+
 \newpage{}
 \section*{Appendix --- Reflection}
-
-\wss{This section is not required for CAS 741}
 
 The information in this section will be used to evaluate the team members on the
 graduate attribute of Lifelong Learning.
 
 \input{../Reflection.tex}
-
-\begin{enumerate}
-  \item What went well while writing this deliverable? 
-  \item What pain points did you experience during this deliverable, and how
-    did you resolve them?
-  \item What knowledge and skills will the team collectively need to acquire to
-  successfully complete the verification and validation of your project?
-  Examples of possible knowledge and skills include dynamic testing knowledge,
-  static testing knowledge, specific tool usage, Valgrind etc.  You should look to
-  identify at least one item for each team member.
-  \item For each of the knowledge areas and skills identified in the previous
-  question, what are at least two approaches to acquiring the knowledge or
-  mastering the skill?  Of the identified approaches, which will each team
-  member pursue, and why did they make this choice?
-\end{enumerate}
 
 \end{document}
