@@ -1,61 +1,126 @@
-#include <pcl/visualization/cloud_viewer.h>
-#include <iostream>
-#include <pcl/common/io.h>
+#include <pcl/point_types.h>
+#include <pcl/visualization/pcl_visualizer.h>
+#include "kinect2_grabber.h"
+#include <mutex>
+#include <thread>
 #include <pcl/io/pcd_io.h>
 
-int user_data;
+using namespace std::chrono_literals;
 
-void
-viewerOneOff(pcl::visualization::PCLVisualizer& viewer)
+typedef pcl::PointXYZRGBA PointT;
+typedef pcl::PointCloud<PointT> PointCloudT;
+
+
+std::mutex cloud_mutex;
+
+void cloud_cb_(const PointCloudT::ConstPtr& callback_cloud, PointCloudT::Ptr& cloud, bool* new_cloud_available_flag)
 {
-    viewer.setBackgroundColor(1.0, 0.5, 1.0);
-    pcl::PointXYZ o;
-    o.x = 1.0;
-    o.y = 0;
-    o.z = 0;
-    viewer.addSphere(o, 0.25, "sphere", 0);
-    std::cout << "i only run once" << std::endl;
-
+    std::lock_guard<std::mutex> lock(cloud_mutex);
+    *cloud = *callback_cloud;
+    *new_cloud_available_flag = true;
 }
 
-void
-viewerPsycho(pcl::visualization::PCLVisualizer& viewer)
-{
-    static unsigned count = 0;
-    std::stringstream ss;
-    ss << "Once per viewer loop: " << count++;
-    viewer.removeShape("text", 0);
-    viewer.addText(ss.str(), 200, 300, "text", 0);
+void live_stream()
+{   
+    pcl::visualization::PCLVisualizer viewer("PCL Viewer");
+    PointCloudT::Ptr cloud(new PointCloudT);
+    bool new_cloud_available_flag = false;
+    
 
-    //FIXME: possible race condition here:
-    user_data++;
-}
+    // Kinect2Grabber
+    boost::shared_ptr<pcl::Grabber> grabber = boost::make_shared<pcl::Kinect2Grabber>();
 
-int
-main()
-{
-    pcl::PointCloud<pcl::PointXYZRGBA>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZRGBA>);
-    pcl::io::loadPCDFile("person2689.pcd", *cloud);
+    std::function<void(const PointCloudT::ConstPtr&)> f =
+        [&cloud, &new_cloud_available_flag](const PointCloudT::ConstPtr& input_cloud)
+        {
+            cloud_cb_(input_cloud, cloud, &new_cloud_available_flag);  // Pass by reference to cloud
+        };
 
-    pcl::visualization::CloudViewer viewer("Cloud Viewer");
+    // Register Callback Function with std::function
+    boost::signals2::connection connection = grabber->registerCallback(f);
 
-    //blocks until the cloud is actually rendered
-    viewer.showCloud(cloud);
+    // Start Grabber
+    grabber->start();
 
-    //use the following functions to get access to the underlying more advanced/powerful
-    //PCLVisualizer
+    while (!new_cloud_available_flag)
+        std::this_thread::sleep_for(1ms);
+    new_cloud_available_flag = false;
 
-    //This will only get called once
-    viewer.runOnVisualizationThreadOnce(viewerOneOff);
+    {
+        std::lock_guard<std::mutex> lock(cloud_mutex);
+        pcl::visualization::PointCloudColorHandlerRGBField<PointT> rgb(cloud);
+        viewer.addPointCloud<PointT>(cloud, rgb, "input_cloud");
+        viewer.setCameraPosition(0, 0, -2, 0, 1, 0, 0);
+    }
 
-    //This will get called once per visualization iteration
-    viewer.runOnVisualizationThread(viewerPsycho);
     while (!viewer.wasStopped())
     {
-        //you can also do cool processing here
-        //FIXME: Note that this is running in a separate thread from viewerPsycho
-        //and you should guard against race conditions yourself...
-        user_data++;
+        if (new_cloud_available_flag && cloud_mutex.try_lock())
+        {
+            new_cloud_available_flag = false;
+            pcl::visualization::PointCloudColorHandlerRGBField<PointT> rgb(cloud);
+            viewer.updatePointCloud<PointT>(cloud, rgb, "input_cloud");
+            cloud_mutex.unlock();
+        }
+        viewer.spinOnce();
     }
+
+    grabber->stop();
+}
+
+void offline_view()
+{
+    PointCloudT::Ptr cloud(new PointCloudT);
+    std::string file;
+    std::cout << "Enter the path to the PCD file: ";
+    std::cin >> file;
+
+    if (pcl::io::loadPCDFile<PointT>(file, *cloud) == -1)
+    {
+        PCL_ERROR("Couldn't read file\n");
+        return;
+    }
+
+    pcl::visualization::PCLVisualizer viewer("PCL Viewer");
+    pcl::visualization::PointCloudColorHandlerRGBField<PointT> rgb(cloud);
+    viewer.addPointCloud<PointT>(cloud, rgb, "input_cloud");
+    viewer.setCameraPosition(0, 0, -2, 0, -1, 0, 0);
+
+    while (!viewer.wasStopped())
+    {
+        viewer.spinOnce();
+    }
+}
+
+int main()
+{
+    PointCloudT::Ptr cloud(new PointCloudT);
+    bool new_cloud_available_flag = false;
+
+    while (true)
+    {
+        std::cout << "Choose mode: (1) Live (2) Offline (3) Exit: ";
+        int choice;
+        std::cin >> choice;
+
+        if (choice == 1)
+        {
+            live_stream();
+        }
+        else if (choice == 2)
+        {
+            offline_view();
+        }
+        else if (choice == 3)
+        {
+            std::cout << "Exiting." << std::endl;
+            break;
+        }
+        else
+        {
+            std::cout << "Invalid choice. Please try again." << std::endl;
+        }
+    }
+
     return 0;
 }
