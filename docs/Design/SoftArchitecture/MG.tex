@@ -46,8 +46,7 @@
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+Jan 17, 2025 & 1.0 & Initial Draft\\
 \bottomrule
 \end{tabularx}
 
@@ -72,9 +71,11 @@ This section records information for easy reference.
   R & Requirement\\
   SC & Scientific Computing \\
   SRS & Software Requirements Specification\\
-  \progname & Explanation of program name\\
+  PCD & Partially Covered Detection Program \\
+  CLI & Command Line Interface \\
+  GUI & Graphical User Interface \\
   UC & Unlikely Change \\
-  \wss{etc.} & \wss{...}\\
+
   \bottomrule
 \end{tabular}\\
 
@@ -167,10 +168,6 @@ change.
   used to determine the presence of a human.
 \end{description}
 
-\wss{Anticipated changes relate to changes that would be made in requirements,
-design or implementation choices.  They are not related to changes that are made
-at run-time, like the values of parameters.}
-
 \subsection{Unlikely Changes} \label{SecUchange}
 
 The module design should be as general as possible. However, a general system is
@@ -252,13 +249,6 @@ actually be implemented.
 The design of the system is intended to satisfy the requirements developed in
 the SRS. In this stage, the system is decomposed into modules. The connection
 between requirements and modules is listed in Table~\ref{TblRT}.
-
-\wss{The intention of this section is to document decisions that are made
-  ``between'' the requirements and the design.  To satisfy some requirements,
-  design decisions need to be made.  Rather than make these decisions implicit,
-  they are explicitly recorded here.  For instance, if a program has security
-  requirements, a specific design decision may be made to satisfy those
-  requirements with a password.}
 
 \section{Module Decomposition} \label{SecMD}
 
@@ -385,7 +375,7 @@ to be implemented.
 \begin{description}
 \item[Secrets:] Applies algorithms for downsampling, noise removal, and data filtering on point cloud data.
 \item[Services:] Provides methods for preprocessing point cloud data, utilizing structures from the Point Cloud Data Structures Module \mref{mPCD}, 
-  to prepare data for analysis and visualization (used by Command Line Interface \mref{CLI} and Graphical User Interface Modules \mref{mGUI}).
+  to prepare data for analysis and visualization (used by Command Line Interface \mref{mCLI} and Graphical User Interface Modules \mref{mGUI}).
 \item[Implemented By:] PCL
 \item[Type of Module:] Library
 \end{description}
@@ -466,18 +456,9 @@ the modules. It can be seen that the graph is a directed acyclic graph
 system, and modules in the higher level of the hierarchy are essentially simpler
 because they use modules from the lower levels.
 
-\wss{The uses relation is not a data flow diagram.  In the code there will often
-be an import statement in module A when it directly uses module B.  Module B
-provides the services that module A needs.  The code for module A needs to be
-able to see these services (hence the import statement).  Since the uses
-relation is transitive, there is a use relation without an import, but the
-arrows in the diagram typically correspond to the presence of import statement.}
-
-\wss{If module A uses module B, the arrow is directed from A to B.}
-
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{UsesHierarchy.png}
+\includegraphics[width=0.7\textwidth]{ModuleHierarchy.png}
 \caption{Use hierarchy among modules}
 \label{FigUH}
 \end{figure}
@@ -486,18 +467,24 @@ arrows in the diagram typically correspond to the presence of import statement.}
 
 \section{User Interfaces}
 
-\wss{Design of user interface for software and hardware.  Attach an appendix if
-needed. Drawings, Sketches, Figma}
+\noindent \textbf{On First Run of Program:}\\
+OS CLI window appears, prompting selection of Live (1) or Offline (2) modes. (Keyboard Interactive)\\
+
+\noindent If Live (1) is selected:\\
+Interactive viewer window (GUI) provided by the Point Cloud Library (PCL) will appear providing the resulting output from the feed.\\
+\\
+
+\noindent If Offline (2) is selected:\\
+CLI window will prompt to paste in the full file path of the desired point cloud data file to be analyzed. 
+Assuming a correct path and data provided, Interactive viewer window (GUI) provided by the Point Cloud Library (PCL) will appear providing the resulting output from the file.\\
 
 \section{Design of Communication Protocols}
 
-\wss{If appropriate}
+N/A
 
 \section{Timeline}
 
-\wss{Schedule of tasks and who is responsible}
-
-\wss{You can point to GitHub if this information is included there}
+Pending and future tasks can be viewed on the Kanban board hosted on \href{https://github.com/users/takhtart/projects/3}{GitHub}.
 
 \bibliographystyle {plainnat}
 \bibliography{../../../refs/References}
