@@ -42,7 +42,7 @@ urlcolor=cyan          % color of external links
 
 \author{\authname}
 
-\date{\today}
+\date{January 17, 2025}
 
 \maketitle
 
@@ -53,8 +53,7 @@ urlcolor=cyan          % color of external links
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+Date 1 & 1.0 & Initial Draft\\
 \bottomrule
 \end{tabularx}
 
@@ -62,9 +61,18 @@ Date 2 & 1.1 & Notes\\
 
 \section{Symbols, Abbreviations and Acronyms}
 
-See SRS Documentation at \wss{give url}
-
-\wss{Also add any additional symbols, abbreviations or acronyms}
+SRS Documentation can be found on \href{https://github.com/takhtart/PCD/blob/main/docs/SRS/SRS.pdf}{GitHub}.\\
+\\
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{l l} 
+  \toprule		
+  \textbf{symbol} & \textbf{description}\\
+  \midrule 
+  SRS & Software Requirements Specification\\
+  PCD & Partially Covered Detection Program \\
+  PCL & Point Cloud Library \\
+  \bottomrule
+\end{tabular}\\
 
 \newpage
 
@@ -76,17 +84,15 @@ See SRS Documentation at \wss{give url}
 
 \section{Introduction}
 
-The following document details the Module Interface Specifications for
-\wss{Fill in your project name and description}
+The following document details the Module Interface Specifications for Partially Covered Detection (PCD) software. 
+The sections in this document describes each module in our software and how each module interacts with each other. 
+Additional information and documentation can be found in System Requirement Specifications (SRS).
 
 Complementary documents include the System Requirement Specifications
 and Module Guide.  The full documentation and implementation can be
-found at \url{...}.  \wss{provide the url for your repo}
+found at \url{https://github.com/takhtart/PCD}. 
 
 \section{Notation}
-
-\wss{You should describe your notation.  You can use what is below as
-  a starting point.}
 
 The structure of the MIS for modules comes from \citet{HoffmanAndStrooper1995},
 with the addition that template modules have been adapted from
@@ -108,15 +114,16 @@ character & char & a single symbol or digit\\
 integer & $\mathbb{Z}$ & a number without a fractional component in (-$\infty$, $\infty$) \\
 natural number & $\mathbb{N}$ & a number without a fractional component in [1, $\infty$) \\
 real & $\mathbb{R}$ & any number in (-$\infty$, $\infty$)\\
+PointXYZRGBA & $\mathbb{P}$ & point cloud data in the PCL Library\\
 \bottomrule
 \end{tabular} 
 \end{center}
 
 \noindent
-The specification of \progname \ uses some derived data types: sequences, strings, and
+The specification of PCD uses some derived data types: sequences, strings, and
 tuples. Sequences are lists filled with elements of the same data type. Strings
 are sequences of characters. Tuples contain a list of values, potentially of
-different types. In addition, \progname \ uses functions, which
+different types. In addition, PCD uses functions, which
 are defined by the data types of their inputs and outputs. Local functions are
 described by giving their type signature followed by their specification.
 
@@ -131,21 +138,20 @@ The following table is taken directly from the Module Guide document for this pr
 \textbf{Level 1} & \textbf{Level 2}\\
 \midrule
 
-{Hardware-Hiding} & ~ \\
+{Hardware-Hiding Module} & Kinect Stream \\
 \midrule
 
-\multirow{7}{0.3\textwidth}{Behaviour-Hiding} & Input Parameters\\
-& Output Format\\
-& Output Verification\\
-& Temperature ODEs\\
-& Energy Equations\\ 
-& Control Module\\
-& Specification Parameters Module\\
+\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module} & Application Control\\
+& Input Data Read\\
+& Input Classifier\\
+& Input Classifier Ranking\\
+& Bounding Box Display\\
 \midrule
 
-\multirow{3}{0.3\textwidth}{Software Decision} & {Sequence Data Structure}\\
-& ODE Solver\\
-& Plotting\\
+\multirow{3}{0.3\textwidth}{Software Decision Module} & Point Cloud Data Structures\\
+& Input Processing\\
+& Command Line Interface\\
+& Graphical User Interface\\
 \bottomrule
 
 \end{tabular}
@@ -156,32 +162,37 @@ The following table is taken directly from the Module Guide document for this pr
 \newpage
 ~\newpage
 
-\section{MIS of \wss{Module Name}} \label{Module} \wss{Use labels for
-  cross-referencing}
-
-\wss{You can reference SRS labels, such as R\ref{R_Inputs}.}
-
-\wss{It is also possible to use \LaTeX for hypperlinks to external documents.}
+\section{MIS of Kinect Stream} \label{ModuleKS} 
 
 \subsection{Module}
 
-\wss{Short name for the module}
+kinect
 
 \subsection{Uses}
 
+\begin{itemize}
+\item Input Data Read \ref{ModuleIDR}
+\item Point Cloud Data Structure \ref{ModulePCDS}
+\end{itemize}
 
 \subsection{Syntax}
 
 \subsubsection{Exported Constants}
 
+None.
+
 \subsubsection{Exported Access Programs}
 
 \begin{center}
-\begin{tabular}{p{2cm} p{4cm} p{4cm} p{2cm}}
+\begin{tabular}{p{2cm} p{4cm} p{5cm} p{2cm}}
 \hline
 \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
 \hline
-\wss{accessProg} & - & - & - \\
+kinect & video frame stream from kinect in BGRA format and depth frame stream
+& - pcl::PointXYZ & - \\
+ & & - pcl::PointXYZRGBA &  \\
+ & & - pcl::PointXYZI &  \\
+ & & - pcl::PointXYZRGB &  \\
 \hline
 \end{tabular}
 \end{center}
@@ -190,42 +201,572 @@ The following table is taken directly from the Module Guide document for this pr
 
 \subsubsection{State Variables}
 
-\wss{Not all modules will have state variables.  State variables give the module
-  a memory.}
+None
 
 \subsubsection{Environment Variables}
 
-\wss{This section is not necessary for all modules.  Its purpose is to capture
-  when the module has external interaction with the environment, such as for a
-  device driver, screen interface, keyboard, file, etc.}
+Size of the room (affects \# of points in point cloud)
 
 \subsubsection{Assumptions}
 
-\wss{Try to minimize assumptions and anticipate programmer errors via
-  exceptions, but for practical purposes assumptions are sometimes appropriate.}
+\begin{itemize}
+  \item User selects live stream rather than offline view
+  \item Kinect is connected and running without issue.
+  \item Kinect has a clear and unobstructed view of the environment (lens are not covered)
+\end{itemize}
 
 \subsubsection{Access Routine Semantics}
 
-\noindent \wss{accessProg}():
+\noindent kinect():
 \begin{itemize}
-\item transition: \wss{if appropriate} 
-\item output: \wss{if appropriate} 
-\item exception: \wss{if appropriate} 
+  \item output: PointCloudT::ConstPtr\& input\_cloud
+  \item Precondition: user calls live\_stream mode
+  \item Postcondition: user terminates program or selects exit 
 \end{itemize}
-
-\wss{A module without environment variables or state variables is unlikely to
-  have a state transition.  In this case a state transition can only occur if
-  the module is changing the state of another module.}
-
-\wss{Modules rarely have both a transition and an output.  In most cases you
-  will have one or the other.}
 
 \subsubsection{Local Functions}
 
-\wss{As appropriate} \wss{These functions are for the purpose of specification.
-  They are not necessarily something that is going to be implemented
-  explicitly.  Even if they are implemented, they are not exported; they only
-  have local scope.}
+None
+
+\newpage
+
+\section{MIS of Application Control} \label{ModuleAC} 
+
+\subsection{Module}
+
+main
+
+\subsection{Uses}
+
+\begin{itemize}
+  \item Input Data Read \ref{ModuleIDR}
+  \item Input Classifier Module \ref{ModuleIC}
+  \item Command Line Interface \ref{ModuleCLI}
+  \item Graphical User Interface \ref{ModuleGUI}
+  \item Bounding Box Display \ref{ModuleBBD}
+\end{itemize}
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+None.
+
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{p{2cm} p{4cm} p{4cm} p{2cm}}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+main & None & None & - \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+None.
+
+\subsubsection{Environment Variables}
+
+\begin{itemize}
+\item Processing speed of device
+\end{itemize}
+
+\subsubsection{Assumptions}
+
+Device has the processing power needed.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent main():
+\begin{itemize}
+\item transition:  connects the input data read module to input processing
+\end{itemize}
+
+
+\subsubsection{Local Functions}
+
+None.
+
+\newpage
+
+\section{MIS of Input Data Read} \label{ModuleIDR} 
+
+\subsection{Module}
+reader
+\subsection{Uses}
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+None.
+
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{p{2cm} p{4cm} p{4cm} p{2cm}}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+reader & - & - & - \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+\begin{itemize}
+  \item Choice (Integer): Choice that the user made on what mode to run the program in.
+\end{itemize}
+
+\subsubsection{Environment Variables}
+
+\begin{itemize}
+  \item std::cin: Used to get the users input on what choice they want to make.
+\end{itemize}
+
+\subsubsection{Assumptions}
+
+The user provides a valid input ($\mathbb{Z}$) corresponding with the correct option
+
+\subsubsection{Access Routine Semantics}
+
+\noindent main():
+\begin{itemize}
+  \item transition: Converts the input data into the data structure used by the Input Processing Module \ref{}
+\end{itemize}
+
+\subsubsection{Local Functions}
+
+None.
+
+\newpage
+
+\section{MIS of Input Classifier} \label{ModuleIC} 
+
+\subsection{Module}
+
+classify
+
+\subsection{Uses}
+
+
+\begin{itemize}
+  \item Bounding Box Display \ref{ModuleBBD}
+  \item Point Cloud Data Structures \ref{ModulePCDS}
+\end{itemize}
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+None.
+
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{p{2cm} p{4cm} p{4cm} p{2cm}}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+clssify & (PointCloudT::Ptr)cloud, (PointCloudT::Ptr) cloudfiltered & - & - \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+\begin{itemize}
+  \item *cloudFiltered = *personCloud : updated cloud value for the data set
+  \item personCloud (PointCloudT::Ptr) : the cliuster that is being identified as a human within the frame.
+\end{itemize}
+
+\subsubsection{Environment Variables}
+
+None.
+
+\subsubsection{Assumptions}
+
+\begin{itemize}
+  \item The cloud has been properly filtered to allow for a good reading to quickly identify the human on screen.
+\end{itemize}
+
+\subsubsection{Access Routine Semantics}
+
+\noindent classify(cloud, cloudfiltered )():
+transition: This module will take the the filtered values and filter down further to just identify the human within the frame and only leave the data points connected to that person.
+\subsubsection{Local Functions}
+
+None.
+\newpage
+
+\section{MIS of Input Classifier Ranking} \label{ModuleICR} 
+
+\subsection{Module}
+
+ranking
+
+\subsection{Uses}
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+None.
+
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{p{2cm} p{4cm} p{4cm} p{2cm}}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+ranking & dataPoint($\mathbb{P}$)  & - & - \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+\begin{itemize}
+  \item weights ($\mathbf{P}^{n}$): An array of size n containing the ordered weights of the pcd points
+\end{itemize}
+
+\subsubsection{Environment Variables}
+
+None.
+
+\subsubsection{Assumptions}
+
+\begin{itemize}
+  \item The input point cloud data is valid.
+  \item The classification strategy is implemented correctly to be able to order the weights
+\end{itemize}
+
+\subsubsection{Access Routine Semantics}
+
+\noindent ranking(dataPoint)():
+\begin{itemize}
+  \item transition: This module will take in the dataPoint and add it to the list and order it into the array.
+\end{itemize}
+
+\subsubsection{Local Functions}
+
+None.
+\newpage
+
+
+\section{MIS of Bounding Box Display} \label{ModuleBBD} 
+
+\subsection{Module}
+
+boundingBox
+
+\subsection{Uses}
+
+\begin{itemize}
+  \item Input Classifier Module
+\end{itemize}
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+None.
+
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{p{2cm} p{4cm} p{2cm} p{2cm}}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+boundingBox & humancloud($\mathbb{P}$),
+              minpt($\mathbb{P}$),
+              maxpt($\mathbb{P}$) & - & - \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+\begin{itemize}
+  \item thickness ($\mathbf{R}$): An float with the thickness of the box
+  \item $scale_factor$ ($\mathbf{R}$): Factor that adjusts the box size.
+\end{itemize}
+
+\subsubsection{Environment Variables}
+
+None.
+
+\subsubsection{Assumptions}
+
+\begin{itemize}
+  \item The input cloud points are valid to provide an accurate drawing of the box.
+\end{itemize}
+
+\subsubsection{Access Routine Semantics}
+
+\noindent boundingBox(humancloud,minpt,maxpt)():
+transition: This module will take in inputed data points and add draw out a box using the max and pin points provided.
+\subsubsection{Local Functions}
+
+None.
+\newpage
+
+\section{MIS of Point Cloud Data Structures} \label{ModulePCDS} 
+
+\subsection{Module}
+
+struct
+
+\subsection{Uses}
+
+\begin{itemize}
+  \item Input Processing \ref{ModuleIP}
+  \item Graphical User Interface \ref{ModuleGUI}
+\end{itemize}
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+None.
+
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{p{2cm} p{4cm} p{4cm} p{2cm}}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+struct & None & None & - \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+\begin{itemize}
+\item typedef pcl::PointXYZRGBA PointT : Data structure designed to store each individual point in a point cloud 
+\item typedef pcl::PointCloud\textless PointT\textgreater PointCloudT : Data Structure designed to store an entire point cloud
+\end{itemize}
+
+\subsubsection{Environment Variables}
+
+None.
+
+\subsubsection{Assumptions}
+
+The point cloud data from kinect stream is valid
+
+\subsubsection{Access Routine Semantics}
+
+\noindent struct():
+\begin{itemize}
+\item transition: This module is the point cloud data structure for storing point cloud data such as ones captured from the kinect and ones processed by our cloud processing algorithm
+\end{itemize}
+
+
+\subsubsection{Local Functions}
+
+None.
+
+\newpage
+
+\section{MIS of Input Processing} \label{ModuleIP} 
+
+
+\subsection{Module}
+
+processing
+
+\subsection{Uses}
+
+\begin{itemize}
+\item Command Line Interface \ref{ModuleCLI}
+\item Graphical User Interface \ref{ModuleGUI}
+\end{itemize}
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+None.
+
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{p{2cm} p{4cm} p{4cm} p{2cm}}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+processing & PointCloudT::Ptr\& cloud & PointCloudT::Ptr\& cloud\_filtered & - \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+None.
+
+\subsubsection{Environment Variables}
+
+None.
+
+\subsubsection{Assumptions}
+
+Data captured by the kinect are correctly processed and stored in the point cloud data structure
+
+\subsubsection{Access Routine Semantics}
+
+\noindent process\_cloud(cloud,cloud\_filtered):
+\begin{itemize}
+\item output: performs voxel downsampling, remove noise, and perform euclidean cluster extraction of the input cloud and return a filtered version of the point cloud 
+\end{itemize}
+
+
+\subsubsection{Local Functions}
+
+None.
+
+\newpage
+
+\section{MIS of Command Line Interface} \label{ModuleCLI} 
+
+\subsection{Module}
+
+cmd
+
+\subsection{Uses}
+
+\begin{itemize}
+  \item Input Processing Module \ref{ModuleIP}
+  \item Graphical User Interface \ref{ModuleGUI}
+\end{itemize}
+
+
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+None.
+
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{p{2cm} p{4cm} p{4cm} p{2cm}}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+cmd & None. & None. & - \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+None.
+
+\subsubsection{Environment Variables}
+
+\begin{itemize}
+  \item Keyboard (Used to select modes)
+  \item Mouse (Interacts with command prompt)
+\end{itemize}
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent cmd():
+\begin{itemize}
+\item transition: Provides the interface that allows the user to select between live stream and offline mode 
+\end{itemize}
+
+\subsubsection{Local Functions}
+
+None.
+
+\newpage
+
+\section{MIS of Graphical User Interface} \label{ModuleGUI} 
+
+\subsection{Module}
+
+gui
+
+\subsection{Uses}
+
+None.
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+None.
+
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{p{2cm} p{4cm} p{4cm} p{2cm}}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+gui & None. & None. & - \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+None.
+
+\subsubsection{Environment Variables}
+
+\begin{itemize}
+  \item Mouse (To move around within the visualized point cloud)
+\end{itemize}
+
+\subsubsection{Assumptions}
+
+Point cloud was correctly processed and stored with the point cloud data structure
+
+
+\subsubsection{Access Routine Semantics}
+
+\noindent gui():
+\begin{itemize}
+\item transition: Uses the visualizer to deploy a GUI which displays the 3D point cloud
+\end{itemize}
+
+\subsubsection{Local Functions}
+
+None.
 
 \newpage
 
@@ -236,35 +777,12 @@ The following table is taken directly from the Module Guide document for this pr
 
 \section{Appendix} \label{Appendix}
 
-\wss{Extra information if required}
+N/A
 
 \newpage{}
 
 \section*{Appendix --- Reflection}
 
-\wss{Not required for CAS 741 projects}
-
-The information in this section will be used to evaluate the team members on the
-graduate attribute of Problem Analysis and Design.
-
 \input{../../Reflection.tex}
-
-\begin{enumerate}
-  \item What went well while writing this deliverable? 
-  \item What pain points did you experience during this deliverable, and how
-    did you resolve them?
-  \item Which of your design decisions stemmed from speaking to your client(s)
-  or a proxy (e.g. your peers, stakeholders, potential users)? For those that
-  were not, why, and where did they come from?
-  \item While creating the design doc, what parts of your other documents (e.g.
-  requirements, hazard analysis, etc), it any, needed to be changed, and why?
-  \item What are the limitations of your solution?  Put another way, given
-  unlimited resources, what could you do to make the project better? (LO\_ProbSolutions)
-  \item Give a brief overview of other design solutions you considered.  What
-  are the benefits and tradeoffs of those other designs compared with the chosen
-  design?  From all the potential options, why did you select the documented design?
-  (LO\_Explores)
-\end{enumerate}
-
 
 \end{document}

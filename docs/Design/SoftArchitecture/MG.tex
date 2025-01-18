@@ -46,8 +46,7 @@
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+Jan 17, 2025 & 1.0 & Initial Draft\\
 \bottomrule
 \end{tabularx}
 
@@ -72,9 +71,12 @@ This section records information for easy reference.
   R & Requirement\\
   SC & Scientific Computing \\
   SRS & Software Requirements Specification\\
-  \progname & Explanation of program name\\
+  PCD & Partially Covered Detection Program \\
+  PCL & Point Cloud Library \\
+  CLI & Command Line Interface \\
+  GUI & Graphical User Interface \\
   UC & Unlikely Change \\
-  \wss{etc.} & \wss{...}\\
+
   \bottomrule
 \end{tabular}\\
 
@@ -159,14 +161,13 @@ change.
 \begin{description}
 \item[\refstepcounter{acnum} \actheacnum \label{acHardware}:] The specific
   hardware on which the software is running.
-\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] The format of the
-  initial input data.
-\item ...
+\item[\refstepcounter{acnum} \actheacnum \label{acConstraintIn}:] The constraints on
+  the input parameters.
+\item[\refstepcounter{acnum} \actheacnum \label{acConstraintOut}:] The constraints on
+  the output results.
+\item[\refstepcounter{acnum} \actheacnum \label{acProcess}:] The classification model 
+  used to determine the presence of a human.
 \end{description}
-
-\wss{Anticipated changes relate to changes that would be made in requirements,
-design or implementation choices.  They are not related to changes that are made
-at run-time, like the values of parameters.}
 
 \subsection{Unlikely Changes} \label{SecUchange}
 
@@ -179,8 +180,19 @@ decisions will be changed.
 
 \begin{description}
 \item[\refstepcounter{ucnum} \uctheucnum \label{ucIO}:] Input/Output devices
-  (Input: File and/or Keyboard, Output: File, Memory, and/or Screen).
-\item ...
+  (Input: File, Kinect, and Keyboard, Output: File, Screen).
+\item[\refstepcounter{ucnum} \uctheucnum \label{ucInput}:] There will always
+  be a source of input data external to the software.
+\item[\refstepcounter{ucnum} \uctheucnum \label{ucOutput}:] Output data will
+  always be displayed to the output device.
+\item[\refstepcounter{ucnum} \uctheucnum \label{ucGoal}:] The goal of the system
+  is to accurately detect and identify presence of a human.
+\item[\refstepcounter{ucnum} \uctheucnum \label{ucFormatIn}:] The format of the 
+  initial input data.
+\item[\refstepcounter{ucnum} \uctheucnum \label{ucFormatParam}:] The format of the 
+  input parameters.
+\item[\refstepcounter{ucnum} \uctheucnum \label{ucFormatOut}:] The format of the
+  final output data.
 \end{description}
 
 \section{Module Hierarchy} \label{SecMH}
@@ -191,8 +203,17 @@ below, which are leaves in the hierarchy tree, are the modules that will
 actually be implemented.
 
 \begin{description}
-\item [\refstepcounter{mnum} \mthemnum \label{mHH}:] Hardware-Hiding Module
-\item ...
+\item [\refstepcounter{mnum} \mthemnum \label{mHH}:] Hardware-Hiding
+\item [\refstepcounter{mnum} \mthemnum \label{mKS}:] Kinect Stream
+\item [\refstepcounter{mnum} \mthemnum \label{mAC}:] Application Control
+\item [\refstepcounter{mnum} \mthemnum \label{mIDR}:] Input Data Read
+\item [\refstepcounter{mnum} \mthemnum \label{mIC}:] Input Classifier
+\item [\refstepcounter{mnum} \mthemnum \label{mICR}:] Input Classifier Ranking
+\item [\refstepcounter{mnum} \mthemnum \label{mBB}:] Bounding Box Display
+\item [\refstepcounter{mnum} \mthemnum \label{mPCD}:] Point Cloud Data Structures
+\item [\refstepcounter{mnum} \mthemnum \label{mIP}:] Input Processing
+\item [\refstepcounter{mnum} \mthemnum \label{mCLI}:] Command Line Interface
+\item [\refstepcounter{mnum} \mthemnum \label{mGUI}:] Graphical User Interface
 \end{description}
 
 
@@ -203,22 +224,20 @@ actually be implemented.
 \textbf{Level 1} & \textbf{Level 2}\\
 \midrule
 
-{Hardware-Hiding Module} & ~ \\
+{Hardware-Hiding Module} & Kinect Stream \\
 \midrule
 
-\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module} & ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\ 
-& ?\\
+\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module} & Application Control\\
+& Input Data Read\\
+& Input Classifier\\
+& Input Classifier Ranking\\
+& Bounding Box Display\\
 \midrule
 
-\multirow{3}{0.3\textwidth}{Software Decision Module} & {?}\\
-& ?\\
-& ?\\
+\multirow{3}{0.3\textwidth}{Software Decision Module} & Point Cloud Data Structures\\
+& Input Processing\\
+& Command Line Interface\\
+& Graphical User Interface\\
 \bottomrule
 
 \end{tabular}
@@ -231,13 +250,6 @@ actually be implemented.
 The design of the system is intended to satisfy the requirements developed in
 the SRS. In this stage, the system is decomposed into modules. The connection
 between requirements and modules is listed in Table~\ref{TblRT}.
-
-\wss{The intention of this section is to document decisions that are made
-  ``between'' the requirements and the design.  To satisfy some requirements,
-  design decisions need to be made.  Rather than make these decisions implicit,
-  they are explicitly recorded here.  For instance, if a program has security
-  requirements, a specific design decision may be made to satisfy those
-  requirements with a password.}
 
 \section{Module Decomposition} \label{SecMD}
 
@@ -266,6 +278,15 @@ to be implemented.
 \item[Implemented By:] OS
 \end{description}
 
+\subsubsection{Kinect Stream Module (\mref{mKS})}
+
+\begin{description}
+\item[Secrets:]The data structure and algorithm used to implement the hardware.
+\item[Services:]Sets up the connection needed for the Kinect and handles providing
+  our other modules with the continuous output of the Kinect.
+\item[Implemented By:] kinect2\_grabber
+\end{description}
+
 \subsection{Behaviour-Hiding Module}
 
 \begin{description}
@@ -278,19 +299,54 @@ to be implemented.
 \item[Implemented By:] --
 \end{description}
 
-\subsubsection{Input Format Module (\mref{mInput})}
+\subsubsection{Application Control Module (\mref{mAC})}
 
 \begin{description}
-\item[Secrets:]The format and structure of the input data.
-\item[Services:]Converts the input data into the data structure used by the
-  input parameters module.
-\item[Implemented By:] [Your Program Name Here]
-\item[Type of Module:] [Record, Library, Abstract Object, or Abstract Data Type]
-  [Information to include for leaf modules in the decomposition by secrets tree.]
+\item[Secrets:]The algorithm for the overall flow of the program.
+\item[Services:]Provides the main program.
+\item[Implemented By:]PCD
+\item[Type of Module:]Abstract Data Type
 \end{description}
 
-\subsubsection{Etc.}
+\subsubsection{Input Data Read Module (\mref{mIDR})}
 
+\begin{description}
+\item[Secrets:]The format, constraint, and structure of the input data.
+\item[Services:]Prompts the user to select between offline and live input types. Then reads 
+  in either the offline file or live Kinect stream and checks that it is valid.
+  Converts the input data into the data structure used by the Input Processing Module \mref{mIP}.
+\item[Implemented By:]PCD
+\item[Type of Module:]Abstract Data Type
+\end{description}
+
+\subsubsection{Input Classifier Module (\mref{mIC})}
+
+\begin{description}
+\item[Secrets:]The model used for classification given the input point cloud.
+\item[Services:]Defines the strategies that make up the model used to determine human(s) on the pre-processed point 
+  cloud given by the Input Processing Module\mref{mIP}.
+\item[Implemented By:]PCD
+\item[Type of Module:]Abstract Data Type
+\end{description}
+
+\subsubsection{Input Classifier Ranking Module (\mref{mICR})}
+
+\begin{description}
+\item[Secrets:]The weights and biases that provide the decision of the classification strategy.
+\item[Services:]Stores data of the highest performing classification strategy for the given point cloud.
+  This is to be used by the Input Classifier Module \mref{mIC}
+\item[Implemented By:]PCD
+\item[Type Of Model:]Abstract Data Type
+\end{description}
+
+\subsubsection{Bounding Box Display (\mref{mBB})}
+
+\begin{description}
+\item[Secrets:]Derives cluster calculated vertices to draw bounding box
+\item[Services:]Draws a bounding box around a detected human, classified by the Input Classification Module \mref{mIC}
+\item[Implemented By:]PCD
+\item[Type Of Model:]Abstract Data Type
+\end{description}
 
 \subsection{Software Decision Module}
 
@@ -305,7 +361,45 @@ to be implemented.
 \item[Implemented By:] --
 \end{description}
 
-\subsubsection{Etc.}
+\subsubsection{Point Cloud Data Structures (\mref{mPCD})}
+
+\begin{description}
+\item[Secrets:] Uses data structures for storing and organizing various forms of point cloud data.
+\item[Services:] Provides point cloud data structures for use in other modules, such as 
+  Input Processing \mref{mIP} and Graphical User Interface \mref{mGUI}.
+\item[Implemented By:] PCL
+\item[Type of Module:] Library
+\end{description}
+
+\subsubsection{Input Processing (\mref{mIP})}
+
+\begin{description}
+\item[Secrets:] Applies algorithms for downsampling, noise removal, and data filtering on point cloud data.
+\item[Services:] Provides methods for preprocessing point cloud data, utilizing structures from the Point Cloud Data Structures Module \mref{mPCD}, 
+  to prepare data for analysis and visualization (used by Command Line Interface \mref{mCLI} and Graphical User Interface Modules \mref{mGUI}).
+\item[Implemented By:] PCL
+\item[Type of Module:] Library
+\end{description}
+
+\subsubsection{Command Line Interface (\mref{mCLI})}
+
+\begin{description}
+\item[Secrets:] Handles user input through command-line text-based commands.
+\item[Services:] Processes command-line input, triggering actions in the Input Processing Module \mref{mIP}
+  and Graphical User Interface Module \mref{mGUI}.
+\item[Implemented By:] OS
+\item[Type of Module:] Interface
+\end{description}
+
+\subsubsection{Graphical User Interface (\mref{mGUI})}
+
+\begin{description}
+\item[Secrets:] Provides methods for rendering and interacting with 3D point cloud data in a visual interface.
+\item[Services:] Displays 3D point cloud data and allows user interaction, using structures from the Point Cloud Data Module \mref{mPCD} 
+  and processed data from the Input Processing Module \mref{mIP}.
+\item[Implemented By:] PCL
+\item[Type of Module:] Library
+\end{description}
 
 \section{Traceability Matrix} \label{SecTM}
 
@@ -320,17 +414,14 @@ requirements and between the modules and the anticipated changes.
 \toprule
 \textbf{Req.} & \textbf{Modules}\\
 \midrule
-R1 & \mref{mHH}, \mref{mInput}, \mref{mParams}, \mref{mControl}\\
-R2 & \mref{mInput}, \mref{mParams}\\
-R3 & \mref{mVerify}\\
-R4 & \mref{mOutput}, \mref{mControl}\\
-R5 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}, \mref{mSeqDS}, \mref{mSolver}, \mref{mPlot}\\
-R6 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}, \mref{mSeqDS}, \mref{mSolver}, \mref{mPlot}\\
-R7 & \mref{mOutput}, \mref{mEnergy}, \mref{mControl}, \mref{mSeqDS}, \mref{mPlot}\\
-R8 & \mref{mOutput}, \mref{mEnergy}, \mref{mControl}, \mref{mSeqDS}, \mref{mPlot}\\
-R9 & \mref{mVerifyOut}\\
-R10 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}\\
-R11 & \mref{mOutput}, \mref{mODEs}, \mref{mEnergy}, \mref{mControl}\\
+F411 & \mref{mIDR}, \mref{mIC}, \mref{mICR}, \mref{mIP}, \mref{mPCD}\\
+F412 & \mref{mBB}, \mref{mGUI}\\
+F413 & \mref{mIDR}, \mref{mCLI}, \mref{mGUI}, \mref{mIC}, \mref{mICR}, \mref{mIP}, \mref{mPCD}\\
+F414 & \mref{mIDR}, \mref{mIC}, \mref{mICR}, \mref{mIP}, \mref{mPCD}\\
+F415 & \mref{mHH}, \mref{mKS}\\
+NF431 & \mref{mHH}, \mref{mKS}, \mref{mIP}\\
+NF432 & \mref{mIP}, \mref{mIC}, \mref{mICR}, \mref{mBB}\\
+NF433 & \mref{mIC}, \mref{mICR}, \mref{mBB}\\
 \bottomrule
 \end{tabular}
 \caption{Trace Between Requirements and Modules}
@@ -344,17 +435,9 @@ R11 & \mref{mOutput}, \mref{mODEs}, \mref{mEnergy}, \mref{mControl}\\
 \textbf{AC} & \textbf{Modules}\\
 \midrule
 \acref{acHardware} & \mref{mHH}\\
-\acref{acInput} & \mref{mInput}\\
-\acref{acParams} & \mref{mParams}\\
-\acref{acVerify} & \mref{mVerify}\\
-\acref{acOutput} & \mref{mOutput}\\
-\acref{acVerifyOut} & \mref{mVerifyOut}\\
-\acref{acODEs} & \mref{mODEs}\\
-\acref{acEnergy} & \mref{mEnergy}\\
-\acref{acControl} & \mref{mControl}\\
-\acref{acSeqDS} & \mref{mSeqDS}\\
-\acref{acSolver} & \mref{mSolver}\\
-\acref{acPlot} & \mref{mPlot}\\
+\acref{acConstraintIn} & \mref{mIDR}\\
+\acref{acConstraintOut} & \mref{mBB}\\
+\acref{acProcess} & \mref{mIC}\\
 \bottomrule
 \end{tabular}
 \caption{Trace Between Anticipated Changes and Modules}
@@ -374,18 +457,9 @@ the modules. It can be seen that the graph is a directed acyclic graph
 system, and modules in the higher level of the hierarchy are essentially simpler
 because they use modules from the lower levels.
 
-\wss{The uses relation is not a data flow diagram.  In the code there will often
-be an import statement in module A when it directly uses module B.  Module B
-provides the services that module A needs.  The code for module A needs to be
-able to see these services (hence the import statement).  Since the uses
-relation is transitive, there is a use relation without an import, but the
-arrows in the diagram typically correspond to the presence of import statement.}
-
-\wss{If module A uses module B, the arrow is directed from A to B.}
-
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{UsesHierarchy.png}
+\includegraphics[width=0.7\textwidth]{ModuleHierarchy.png}
 \caption{Use hierarchy among modules}
 \label{FigUH}
 \end{figure}
@@ -394,18 +468,24 @@ arrows in the diagram typically correspond to the presence of import statement.}
 
 \section{User Interfaces}
 
-\wss{Design of user interface for software and hardware.  Attach an appendix if
-needed. Drawings, Sketches, Figma}
+\noindent \textbf{On First Run of Program:}\\
+OS CLI window appears, prompting selection of Live (1) or Offline (2) modes. (Keyboard Interactive)\\
+
+\noindent If Live (1) is selected:\\
+Interactive viewer window (GUI) provided by the Point Cloud Library (PCL) will appear providing the resulting output from the feed.\\
+\\
+
+\noindent If Offline (2) is selected:\\
+CLI window will prompt to paste in the full file path of the desired point cloud data file to be analyzed. 
+Assuming a correct path and data provided, Interactive viewer window (GUI) provided by the Point Cloud Library (PCL) will appear providing the resulting output from the file.\\
 
 \section{Design of Communication Protocols}
 
-\wss{If appropriate}
+N/A
 
 \section{Timeline}
 
-\wss{Schedule of tasks and who is responsible}
-
-\wss{You can point to GitHub if this information is included there}
+Pending and future tasks can be viewed on the Kanban board hosted on \href{https://github.com/users/takhtart/projects/3}{GitHub}.
 
 \bibliographystyle {plainnat}
 \bibliography{../../../refs/References}
