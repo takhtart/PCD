@@ -42,7 +42,7 @@ urlcolor=cyan          % color of external links
 
 \author{\authname}
 
-\date{\today}
+\date{January 17, 2025}
 
 \maketitle
 
@@ -53,8 +53,7 @@ urlcolor=cyan          % color of external links
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+Date 1 & 1.0 & Initial Draft\\
 \bottomrule
 \end{tabularx}
 
@@ -62,9 +61,18 @@ Date 2 & 1.1 & Notes\\
 
 \section{Symbols, Abbreviations and Acronyms}
 
-See SRS Documentation at \wss{give url}
-
-\wss{Also add any additional symbols, abbreviations or acronyms}
+SRS Documentation can be found on \href{https://github.com/takhtart/PCD/blob/main/docs/SRS/SRS.pdf}{GitHub}.\\
+\\
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{l l} 
+  \toprule		
+  \textbf{symbol} & \textbf{description}\\
+  \midrule 
+  SRS & Software Requirements Specification\\
+  PCD & Partially Covered Detection Program \\
+  PCL & Point Cloud Library \\
+  \bottomrule
+\end{tabular}\\
 
 \newpage
 
@@ -443,7 +451,7 @@ None.
 
 \begin{itemize}
   \item The input point cloud data is valid.
-  \item The classification strategy is implemenented correctly to be able to order the weights
+  \item The classification strategy is implemented correctly to be able to order the weights
 \end{itemize}
 
 \subsubsection{Access Routine Semantics}
@@ -468,7 +476,7 @@ boundingBox
 \subsection{Uses}
 
 \begin{itemize}
-  \item Input Classifer Module
+  \item Input Classifier Module
 \end{itemize}
 
 \subsection{Syntax}
@@ -507,7 +515,7 @@ None.
 \subsubsection{Assumptions}
 
 \begin{itemize}
-  \item The input cloud points are valid to provide an accuurate drawing of the box.
+  \item The input cloud points are valid to provide an accurate drawing of the box.
 \end{itemize}
 
 \subsubsection{Access Routine Semantics}
@@ -769,7 +777,7 @@ None.
 
 \section{Appendix} \label{Appendix}
 
-\wss{Extra information if required}
+N/A
 
 \newpage{}
 
