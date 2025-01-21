@@ -46,7 +46,7 @@ Follow the guide to install PCL: [PCL Installation Guide](https://github.com/Poi
 
 ---
 
-## 2. Install OpenCV Library
+## 3. Install OpenCV Library
 
 > **Note:** The version of OpenCV being installed is **OpenCV 4.11.0** (latest release).
 Link to Github Releases Page: [OpenCV Releases](https://github.com/opencv/opencv/releases)
