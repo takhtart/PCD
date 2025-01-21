@@ -46,6 +46,29 @@ Follow the guide to install PCL: [PCL Installation Guide](https://github.com/Poi
 
 ---
 
+## 2. Install OpenCV Library
+
+> **Note:** The version of OpenCV being installed is **OpenCV 4.11.0** (latest release).
+Link to Github Releases Page: [OpenCV Releases](https://github.com/opencv/opencv/releases)
+
+### Installation:
+- Download the `opencv-4.11.0-windows.exe` under Assets
+
+- Run the exe, Under **Extract to** set path to be `C:\`
+- Press `Extract`, window will close automatically upon extraction
+- Verify that the folder exists at path `C:\opencv`
+
+### Add the following User Environment Variables:
+- **OpenCV_DIR**
+  - Value: `C:\opencv\build\`
+
+- **Path**
+  - Add the following paths to the system's PATH variable:
+    - `C:\opencv\build\x64\vc16\bin`
+    - `C:\opencv\build\x64\vc16\lib`
+
+---
+
 ## 3. Install Kinect for Windows SDK 2.0
 
 1. Download and install the Kinect for Windows SDK 2.0 from the following link:  
