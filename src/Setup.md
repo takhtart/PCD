@@ -69,7 +69,7 @@ Link to Github Releases Page: [OpenCV Releases](https://github.com/opencv/opencv
 
 ---
 
-## 3. Install Kinect for Windows SDK 2.0
+## 4. Install Kinect for Windows SDK 2.0
 
 1. Download and install the Kinect for Windows SDK 2.0 from the following link:  
    [Kinect for Windows SDK 2.0 Download](https://www.microsoft.com/en-ca/download/details.aspx?id=44561)
@@ -80,7 +80,7 @@ Link to Github Releases Page: [OpenCV Releases](https://github.com/opencv/opencv
 
 ---
 
-## 4. Compile and Run `cloud_viewer.cpp`
+## 5. Compile and Run `cloud_viewer.cpp`
 
 1. Navigate to the **src** folder of the GitHub PCD Repository
 2. Compile and run the `cloud_viewer.cpp` file to test the setup
