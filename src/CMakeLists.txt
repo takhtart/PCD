@@ -7,7 +7,9 @@ find_package(PCL 1.7 REQUIRED)
 find_package(KinectSDK2 REQUIRED)
 find_package(CUDA)
 
-#find_package(OpenCV REQUIRED)
+find_package( OpenCV REQUIRED )
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+target_link_libraries( cloud_viewer ${OpenCV_LIBS})
 
 if( PCL_FOUND AND KinectSDK2_FOUND )
   # Additional Include Directories
