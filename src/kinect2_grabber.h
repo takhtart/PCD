@@ -1,10 +1,3 @@
-// Kinect2Grabber is pcl::Grabber to retrieve the point cloud data from Kinect v2 using Kinect for Windows SDK 2.x.
-// This source code is licensed under the MIT license. Please see the License in License.txt.
-
-//Modified:
-// Switched from boost::threads to std::thread
-// Removed the use of boost::shared_ptr for compatibility with PCL 1.11.0+
-
 #ifndef KINECT2_GRABBER
 #define KINECT2_GRABBER
 
@@ -16,9 +9,6 @@
 #include <mutex>
 #include <thread>
 #include <pcl/io/grabber.h>
-//#include <pcl/point_cloud.h>
-//#include <pcl/point_types.h>
-
 
 namespace pcl
 {
@@ -47,6 +37,10 @@ namespace pcl
         virtual bool isRunning() const;
         virtual std::string getName() const;
         virtual float getFramesPerSecond() const;
+
+        // Getter functions for color and depth frames
+        std::vector<RGBQUAD> getColorFrame() const;
+        std::vector<UINT16> getDepthFrame() const;
 
         using signal_Kinect2_PointXYZ = void(const typename pcl::PointCloud<pcl::PointXYZ>::ConstPtr&);
         using signal_Kinect2_PointXYZRGB = void(const typename pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr&);
@@ -93,6 +87,12 @@ namespace pcl
         int infraredWidth;
         int infraredHeight;
         std::vector<UINT16> infraredBuffer;
+
+    private:
+        // Member variables to store the latest frames
+        std::vector<RGBQUAD> latestColorFrame;
+        std::vector<UINT16> latestDepthFrame;
+        mutable std::mutex frameMutex; // Mutex to protect frame data
     };
 
     pcl::Kinect2Grabber::Kinect2Grabber()
@@ -308,6 +308,18 @@ namespace pcl
         return 30.0f;
     }
 
+    std::vector<RGBQUAD> pcl::Kinect2Grabber::getColorFrame() const
+    {
+        std::lock_guard<std::mutex> lock(frameMutex);
+        return latestColorFrame;
+    }
+
+    std::vector<UINT16> pcl::Kinect2Grabber::getDepthFrame() const
+    {
+        std::lock_guard<std::mutex> lock(frameMutex);
+        return latestDepthFrame;
+    }
+
     void pcl::Kinect2Grabber::threadFunction()
     {
         while (!quit) {
@@ -322,6 +334,12 @@ namespace pcl
                 if (FAILED(result)) {
                     throw std::exception("Exception : IColorFrame::CopyConvertedFrameDataToArray()");
                 }
+
+                // Store the latest color frame
+                {
+                    std::lock_guard<std::mutex> lock(frameMutex);
+                    latestColorFrame = colorBuffer;
+                }
             }
             SafeRelease(colorFrame);
 
@@ -333,6 +351,12 @@ namespace pcl
                 result = depthFrame->CopyFrameDataToArray(depthBuffer.size(), &depthBuffer[0]);
                 if (FAILED(result)) {
                     throw std::exception("Exception : IDepthFrame::CopyFrameDataToArray()");
+                }
+
+                // Store the latest depth frame
+                {
+                    std::lock_guard<std::mutex> lock(frameMutex);
+                    latestDepthFrame = depthBuffer;
                 }
             }
             SafeRelease(depthFrame);
@@ -530,4 +554,4 @@ namespace pcl
     }
 }
 
-#endif KINECT2_GRABBER
+#endif // KINECT2_GRABBER
