@@ -1,10 +1,14 @@
 name: C/C++ Linter
 on:
   pull_request:
-    branches: [main, POC]
+    branches:
+      - main
+      - 'POC/**'
     paths: ['**.c', '**.cpp', '**.h', '**.hpp', '**.cxx', '**.hxx', '**.cc', '**.hh', '**CMakeLists.txt', 'meson.build', '**.cmake']
   push:
-    branches: [main, POC]
+    branches:
+      - main
+      - 'POC/**'
     paths: ['**.c', '**.cpp', '**.h', '**.hpp', '**.cxx', '**.hxx', '**.cc', '**.hh', '**CMakeLists.txt', 'meson.build', '**.cmake']
 
 jobs:
