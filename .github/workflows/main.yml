@@ -20,7 +20,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          style: 'file'  # Use .clang-format config file. 
+          style: 'google.clang-format'  # Use .clang-format config file. 
           tidy-checks: '-*' # disable clang-tidy checks. 
 
       - name: Fail fast?!
