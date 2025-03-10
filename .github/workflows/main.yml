@@ -3,12 +3,12 @@ on:
   pull_request:
     branches:
       - main
-      - 'POC/**'
+      - 'POC'
     paths: ['**.c', '**.cpp', '**.h', '**.hpp', '**.cxx', '**.hxx', '**.cc', '**.hh', '**CMakeLists.txt', 'meson.build', '**.cmake']
   push:
     branches:
       - main
-      - 'POC/**'
+      - 'POC'
     paths: ['**.c', '**.cpp', '**.h', '**.hpp', '**.cxx', '**.hxx', '**.cc', '**.hh', '**CMakeLists.txt', 'meson.build', '**.cmake']
 
 jobs:
