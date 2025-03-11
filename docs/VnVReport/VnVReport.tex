@@ -12,6 +12,10 @@
 }
 \usepackage[round]{natbib}
 \usepackage{float}
+\usepackage{graphicx} 
+\usepackage{array}
+\usepackage{booktabs} 
+\usepackage{longtable}
 
 \input{../Comments}
 \input{../Common}
@@ -95,6 +99,27 @@ The following section covers the non-functional tests related to accuracy requir
 
 \section{Unit Testing}
 
+\begin{table}[H] % Force table to stay here
+  \centering
+  \renewcommand{\arraystretch}{1.4} % Adjust row height for better readability
+  \resizebox{\textwidth}{!}{ % Ensures table fits within text width
+  \begin{tabular}{|p{1.5cm}|p{2.5cm}|p{3cm}|p{4cm}|p{4cm}|p{1.8cm}|}
+      \hline
+      \textbf{ID} & \textbf{Type} & \textbf{Input} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/Fail} \\
+      \hline
+      UT1 & Automated & \raggedright Sample PCL Point Cloud \par & \raggedright The RGB values, Depth Values, and Cloud Size are mapped correctly between file types. \par & \raggedright The RGB values, Depth Values, and Cloud Size are mapped correctly between file types. \par & Pass \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} ConvertPCLtoOpenCV: Converts a PCL Point Cloud to OpenCV Mat type for point cloud analysis using OpenCV. A pass means that the function correctly maps the Point Cloud values to OpenCV Mat type. The unit test passed successfully, verifying that the mapped values matched between the two types. \par} \\
+      \hline
+      UT2 & Automated & \raggedright OpenCV Mat, Min Depth, Max Depth \par & \raggedright Returns an OpenCV Mat Type that includes only points within the desired depth range. \par & \raggedright Returns an OpenCV Mat Type that includes only points within the desired depth range. \par & Pass \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} segmentDepth: This function takes an OpenCV Mat cloud and removes points outside the specified depth range. A pass indicates that only points within the given depth range remain in the returned Mat. The unit test passed, confirming correct depth segmentation. \par} \\
+      \hline
+  \end{tabular}
+  }
+\end{table}
+
+
 \section{Changes Due to Testing}
 
 \wss{This section should highlight how feedback from the users and from 
@@ -103,6 +128,8 @@ the feedback from the Rev 0 demo to the supervisor (or to potential users)
 should be highlighted.}
 
 \section{Automated Testing}
+
+The only automated testing present is the Unit Tests, which are run using CTest and GTest Suites.
 		
 \section{Trace to Requirements and Modules}		
 See section G.4 in the \href{https://github.com/takhtart/PCD/blob/main/docs/SRS/SRS.pdf}{SRS report} for more information on the requirements. See section 7 in the \href{https://github.com/takhtart/PCD/blob/main/docs/Design/SoftArchitecture/MG.pdf}{Module Guide} for more information on the modules.
@@ -163,6 +190,17 @@ See section G.4 in the \href{https://github.com/takhtart/PCD/blob/main/docs/SRS/
 \end{table}
 
 \section{Code Coverage Metrics}
+
+The automated unit testing achieves 6\% line coverage. This is checked using CTest and OpenCPPCoverage Suites to acquire coverage results.\\
+\\
+OpenCPPCoverage Result:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{Coverage.png} % Adjust width as needed
+    \caption{OpenCPPCoverage Result}
+    \label{fig:coverage}
+\end{figure}
 
 \bibliographystyle{plainnat}
 \bibliography{../../refs/References}
