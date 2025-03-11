@@ -35,7 +35,7 @@
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
+2025-03-10 & 1.0 & Notes\\
 Date 2 & 1.1 & Notes\\
 \bottomrule
 \end{tabularx}
@@ -50,10 +50,9 @@ Date 2 & 1.1 & Notes\\
   \textbf{symbol} & \textbf{description}\\
   \midrule 
   T & Test\\
+  N/I & Not Implemented\\
   \bottomrule
 \end{tabular}\\
-
-\wss{symbols, abbreviations or acronyms -- you can reference the SRS tables if needed}
 
 \newpage
 
@@ -73,29 +72,216 @@ This document outlines the results and analysis of executing our VnV plan. Inclu
 
 \subsection{Human Detection Testing}
 The following section covers the functional tests related to human detection given different coverage levels.
+\begin{table}[H] % Force table to stay here
+  \centering
+  \renewcommand{\arraystretch}{1.4} % Adjust row height for better readability
+  \resizebox{\textwidth}{!}{ % Ensures table fits within text width
+  \begin{tabular}{|p{1.5cm}|p{2.5cm}|p{3cm}|p{4cm}|p{4cm}|p{1.8cm}|}
+      \hline
+      \textbf{ID} & \textbf{Type} & \textbf{Input} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/Fail} \\
+      \hline
+      FT11 & Manual & \raggedright Realtime PCD from Kinect & \raggedright Software recognizes that there is a human in frame in real-time & \raggedright Software recognizes that there is a human in frame in real-time & Pass \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test case would mean that our software has a strong enough foundation such that we can continue to refine towards more complicated test cases in the real-time environment. During our actual test, our software was able to first recognize that there was no human in frame. Then, once a human enters the frame, our software is able to cluster the human in real-time. This aligns with our expected results, thus, we consider this test a pass.} \\
+      \hline
+      FT12 & Manual & \raggedright Realtime PCD from Kinect & \raggedright Software recognizes that the human upper body is in frame in real-time & \raggedright Software recognizes that the human upper body is in frame in real-time & Pass \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test case would mean that the software has been able to recognize a human just by the upper body. In the actual test, the software was first able to recognize no one in frame. Then, when the human enters the frame, the software is able to pick up the upper body of the human. This aligns with the expected results, thus, we consider this a passing result.} \\
+      \hline
+      FT13 & Manual & \raggedright Realtime PCD from Kinect & \raggedright Software recognizes that there are two humans in frame in real time & \raggedright Software recognizes that there is 1 human in frame despite 2 people being in frame & Fail \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test case would mean that our software has the capability of detecting multiple people at once and distinguishing them between each other. This is very important for future use cases of our product where more than one person can appear in frame. During our actual test, our software was able to create two separate clusters for the two people in frame while they have some distance between them. However, as two people got closer together, our software began to cluster both people together. This does not align with our expected results, thus, we consider this test a fail.} \\
+      \hline
+      FT14 & Manual & \raggedright Realtime PCD from Kinect & \raggedright Software recognizes that there is a human within frame behind the object & \raggedright Software recognizes that there is a human within frame behind the object & Pass \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test case would mean that the software is able to determine that it is able to accomplish partially covered human detection. This is very important for future use cases of our product where a person is hidden behind an object in frame. During the actual test, when the human stands up from behind the object the software is able to outline the human cluster that it is able to detect within the frame. Thus, this test is a success showing that human detection of hidden objects is possible.} \\
+      \hline
+  \end{tabular}
+  }
+\end{table}
 
-\subsection{Offline Processing}
-The following section covers the functional tests related to the offline processing of files.
-
-\subsection{Body Pose Variation Handling}
-The following section covers the functional tests related to human detection give a dynamic set of poses.
-
-\subsection{Integration with Kinect Sensor}
-The following section covers the functional tests related to the connection and data transfer of the Kinect Sensor.
+\begin{table}[H] % Force table to stay here
+  \centering
+  \renewcommand{\arraystretch}{1.4} % Adjust row height for better readability
+  \resizebox{\textwidth}{!}{ % Ensures table fits within text width
+  \begin{tabular}{|p{1.5cm}|p{2.5cm}|p{3cm}|p{4cm}|p{4cm}|p{1.8cm}|}
+    \hline
+      FT15 & Manual & \raggedright .pcd file containing the full-body of a human unobstructed by any objects & \raggedright Software recognizes that there is a human & \raggedright Software recognizes that there is a human & Pass \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test case would mean that our software has a strong enough foundation such that we can continue to refine towards more complicated test cases in an offline environment. During our actual test, we uploaded the test .pcd file and observed that our software correctly clustered the expected areas in the point cloud correctly which is where the human is located. Since our test aligns with our expected results, we consider this test a pass.} \\
+      \hline
+      FT16 & Manual & \raggedright .pcd file containing only the upper body of a human unobstructed by any objects & \raggedright Software recognizes that the human upper body is in frame & \raggedright Software recognizes that the human upper body is in frame & Pass \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test case would mean that the software has been able to recognize a human just by the upper body in an offline file. In the actual test, when the .pcd file is submitted the software is able to pick up the upper body of the human. This aligns with the expected results, thus, we consider this a passing result.} \\
+      \hline
+      FT17 & Manual & \raggedright .pcd file containing 2 humans with one human partially covering the other. & \raggedright Software recognizes that there are two humans in frame & \raggedright Software recognizes that there is 1 human in frame despite 2 people being in frame & Fail \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test would mean that our software has the capability of detecting multiple people at once and distinguishing them between each other in an offline environment. During our actual test, we uploaded the test .pcd file and observed that our software incorrectly clustered our two humans together as one cluster due to them being positioned too close together. This does not align with the expected results, thus, we consider this test a fail.} \\
+      \hline
+      FT18 & Manual & \raggedright .pcd file containing a human who is partially covered by an Object (table) & \raggedright Software recognizes that there is a human within frame behind the object & \raggedright Software recognizes that there is a human within frame behind the object & Pass \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test case would mean that the software is able to determine that it is able to accomplish partially covered human detection within a given .pcd file. This is very important for future use cases of our product where a person is hidden behind an object in frame. During the actual test, the file is uploaded and the software is able to detect the human standing behind the object. Thus, this test is a success showing that human detection of hidden objects is possible.} \\
+      \hline
+    \end{tabular}
+    }
+  \end{table}
 
 \subsection{Location Prediction Test}
 The following section covers the functional tests related to predicting the location of obscured segments.
+\begin{table}[H] % Force table to stay here
+  \centering
+  \renewcommand{\arraystretch}{1.4} % Adjust row height for better readability
+  \resizebox{\textwidth}{!}{ % Ensures table fits within text width
+  \begin{tabular}{|p{1.5cm}|p{2.5cm}|p{3cm}|p{4cm}|p{4cm}|p{1.8cm}|} 
+      \hline
+      \textbf{ID} & \textbf{Type} & \textbf{Input} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/Fail} \\
+      \hline
+      FT21 & Manual & \raggedright Realtime PCD from Kinect \par & \raggedright An arrow pointing outwards to where the person is standing \par & N/A & N/I \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} Actual function not implemented yet because the functional requirements were updated after a Dr. Bone meeting. So, testing at this time is not possible. \par} \\
+      \hline
+      FT22 & Manual & \raggedright Realtime PCD from Kinect \par & \raggedright A box showing where the human's legs would be. \par & N/A & N/I \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} Actual function not implemented yet because the functional requirements were updated after a Dr. Bone meeting. So, testing at this time is not possible. \par} \\
+      \hline
+      FT23 & Manual & \raggedright .pcd file containing a hand of a human outside the frame \par & \raggedright An arrow pointing outwards to where the person is standing \par & N/A & N/I \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} Actual function not implemented yet because the functional requirements were updated after a Dr. Bone meeting. So, testing at this time is not possible. \par} \\
+      \hline
+      FT24 & Manual & \raggedright .pcd file containing a human who’s upper body is only visible \par & \raggedright A box showing where the human's legs would be. \par & N/A & N/I \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} Actual function not implemented yet because the functional requirements were updated after a Dr. Bone meeting. So, testing at this time is not possible. \par} \\
+      \hline
+  \end{tabular}
+  }
+\end{table}
+
+
+\subsection{Offline Processing}
+The following section covers the functional tests related to the offline processing of files.
+\begin{table}[H] % Force table to stay here
+  \centering
+  \renewcommand{\arraystretch}{1.4} % Adjust row height for better readability
+  \resizebox{\textwidth}{!}{ % Ensures table fits within text width
+  \begin{tabular}{|p{1.5cm}|p{2.5cm}|p{3cm}|p{4cm}|p{4cm}|p{1.8cm}|} 
+      \hline
+      \textbf{ID} & \textbf{Type} & \textbf{Input} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/Fail} \\
+      \hline
+      FT31 & Automated & \raggedright Four not valid .pcd file and one valid .pcd file \par & \raggedright Software returns that the .pcd file is not valid \par & \raggedright Software returns that the .pcd file is not valid \par & Pass \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test would mean that our software is able to detect and run only the valid .pcd file. The actual results of this test were a pass because the software was able to return a catch error on the invalid files and run the valid file. Thus, the test is a pass meaning offline files can be properly handled by the offline .pcd reader. \par} \\
+      \hline
+      FT32 & Automated & \raggedright .jpg file \par & \raggedright Software returns incorrect format message for 4 / 5 files and accepts the 1 .pcd file \par & \raggedright Software returns incorrect format message for 4 / 5 files and accepts the 1 .pcd file \par & Pass \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test would mean that our software is able to identify if the user uploaded a file with the incorrect file format (one that isn’t .pcd) and notify the user accordingly. In the actual test, we ran our automated test which is set up to automatically upload 5 files (4 .jpg files and 1 .pcd). The software was able to identify that 4 of the 5 files were invalid meaning that it is able to reliably check for incorrect file formats. Since the test results align with the expected results, we consider this test a pass. \par} \\
+      \hline
+  \end{tabular}
+  }
+\end{table}
+
+
+\subsection{Body Pose Variation Handling}
+The following section covers the functional tests related to human detection give a dynamic set of poses.
+\begin{table}[H] % Force table to stay here
+  \centering
+  \renewcommand{\arraystretch}{1.4} % Adjust row height for better readability
+  \resizebox{\textwidth}{!}{ % Ensures table fits within text width
+  \begin{tabular}{|p{1.5cm}|p{2.5cm}|p{3cm}|p{4cm}|p{4cm}|p{1.8cm}|} 
+      \hline
+      \textbf{ID} & \textbf{Type} & \textbf{Input} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/Fail} \\
+      \hline
+      FT41 & Manual & \raggedright Realtime PCD from Kinect \par & \raggedright The outline of the human should be relatively the same when the face away from the camera \par & \raggedright The software is able to still detect the human based off the hand skin points \par & Pass \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} The test is a pass when the software is able to detect a person even if their face is hidden, but hands still visible. When running this test, when the human turned away from the sensor the software was still able to detect the human. Thus, the test was a pass showing that even if the face of the person is not in frame it is still able to detect the human. \par} \\
+      \hline
+      FT42 & Manual & \raggedright Realtime PCD from Kinect \par & \raggedright The software is able to identify the human even if they are sitting. \par & \raggedright When the software was run, the software outlined the human sitting. \par & Fail \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test would mean that our software is able to identify people in a variety of poses rather than just standing. In the actual test, we position a person sitting in a chair whilst facing the camera. Although the software was able to correctly cluster the person while they are sitting, it incorrectly clusters the chair along with the person in the same cluster. This does not align with the expected results, thus, we consider this test a fail. \par} \\
+      \hline
+      FT43 & Manual & \raggedright Realtime PCD from Kinect \par & \raggedright The software is able to identify the human every time the face comes into frame. \par & \raggedright When ran, the software is able to identify the human when the face comes in frame. \par & Pass \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} The test is a pass if the system is able to detect and outline a human if it is able to see the skin points from the face and detect the partial human. During the actual test, the software was able to notice the head bobbing in and out and was able to detect a human when the head was in frame. Therefore, proving the test to be a success shows that when the system is able to see a skin point it is able to successfully detect a human in frame. \par} \\
+      \hline
+  \end{tabular}
+  }
+\end{table}
+
+\subsection{Integration with Kinect Sensor}
+The following section covers the functional tests related to the connection and data transfer of the Kinect Sensor.
+\begin{table}[H] % Force table to stay here
+  \centering
+  \renewcommand{\arraystretch}{1.4} % Adjust row height for better readability
+  \resizebox{\textwidth}{!}{ % Ensures table fits within text width
+  \begin{tabular}{|p{1.5cm}|p{2.5cm}|p{3cm}|p{4cm}|p{4cm}|p{1.8cm}|} 
+      \hline
+      \textbf{ID} & \textbf{Type} & \textbf{Input} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/Fail} \\
+      \hline
+      FT51 & Manual & \raggedright Disconnection and reconnection of Kinect \par & \raggedright The software does not crash, but freezes. \par & \raggedright When Kinect is disconnected the output freezes. \par & Pass \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test would mean that the software is able to properly determine if the Kinect sensor is no longer connected. During the actual test, the Kinect is disconnected and the software does not crash. Therefore, this is a successful test making sure that the software won’t crash. \par} \\
+      \hline
+      FT52 & Manual & \raggedright Realtime PCD from Kinect \par & \raggedright Our software visualizes a point cloud that is accurate to what the Kinect is capturing in real-time. \par & \raggedright Our software visualizes a point cloud that is accurate to what the Kinect is capturing in real-time. \par & Pass \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test would mean that our software is able to accurately convert the data that it receives from the Kinect to the point cloud format. During our actual test, we observed that the gestures we make in front of the Kinect sensor are accurately portrayed when visualizing the point cloud despite a slight time delay. Since the test results align with the expected results, we consider this test a pass. \par} \\
+      \hline
+  \end{tabular}
+  }
+\end{table}
+
 
 \section{Non-Functional Requirements Evaluation}
 
 \subsection{Realtime Processing}
 The following section covers the non-functional tests related to performance metrics.
+\begin{table}[H] % Force table to stay here
+  \centering
+  \renewcommand{\arraystretch}{1.4} % Adjust row height for better readability
+  \resizebox{\textwidth}{!}{ % Ensures table fits within text width
+  \begin{tabular}{|p{1.5cm}|p{2.5cm}|p{3cm}|p{4cm}|p{4cm}|p{1.8cm}|} 
+      \hline
+      \textbf{ID} & \textbf{Type} & \textbf{Input} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/Fail} \\
+      \hline
+      NFT11 & Manual & \raggedright Realtime PCD from Kinect \par & \raggedright Software is able to update and produce an outline of the head within 1s each time the head pokes out \par & \raggedright Software is able to update and produce an outline of the head after approximately 642 ms (averaged out of 10 runs) \par & Pass \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test means that our software meets the non-functional requirement of being a real-time system. During our test, our tester was able to measure a less than a second delay for each of the ten attempts we did. The measurement of the time delay averaged out to around 642ms. Since the test results align with the expected results, we consider this test a pass. \par} \\
+      \hline
+  \end{tabular}
+  }
+\end{table}
 		
 \subsection{Reliability}
 The following section covers the non-functional tests related to reliability requirements.
+\begin{table}[H] % Force table to stay here
+  \centering
+  \renewcommand{\arraystretch}{1.4} % Adjust row height for better readability
+  \resizebox{\textwidth}{!}{ % Ensures table fits within text width
+  \begin{tabular}{|p{1.5cm}|p{2.5cm}|p{3cm}|p{4cm}|p{4cm}|p{1.8cm}|} 
+      \hline
+      \textbf{ID} & \textbf{Type} & \textbf{Input} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/Fail} \\
+      \hline
+      NFT21 & Automated & \raggedright .pcd file with an object partially obstructing a human \par & \raggedright Software is able to reliably produce a very similar cluster each time it runs and the difference should be less than 5-10\% compared to the original run. \par & \raggedright Software is able to reliably produce the same cluster each time it runs and the difference is 0\% compared to the original run. \par & Pass \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test means that our software meets the non-functional requirement of being reliable. During our test, our software was able to produce the exact same result for all 10 times the same file was uploaded to the software. Therefore, the difference between the original run and each subsequent run is 0\%. Since the test results align with the expected results, we consider this test a pass. \par} \\
+      \hline
+  \end{tabular}
+  }
+\end{table}
 
 \subsection{Accuracy}
 The following section covers the non-functional tests related to accuracy requirements.
+\begin{table}[H] % Force table to stay here
+  \centering
+  \renewcommand{\arraystretch}{1.4} % Adjust row height for better readability
+  \resizebox{\textwidth}{!}{ % Ensures table fits within text width
+  \begin{tabular}{|p{1.5cm}|p{2.5cm}|p{3cm}|p{4cm}|p{4cm}|p{1.8cm}|} 
+      \hline
+      NFT31 & Manual & \raggedright Realtime PCD from Kinect \par & \raggedright An average score of 80 percent \par & \raggedright An average score of 86 percent \par & Pass \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test would be if the human outlined is outlined within a reasonable range to be considered part of the human (i.e., clothes or object being held). An average rating of 80 percent determines how accurate the software is from 1-10. When the test was run, the view deemed the test to pass at 86 percent. The main issues arose with holding a big object. The test is deemed a success. \par} \\
+      \hline
+  \end{tabular}
+  }
+\end{table}
 
 \section{Unit Testing}
 
@@ -122,10 +308,10 @@ The following section covers the non-functional tests related to accuracy requir
 
 \section{Changes Due to Testing}
 
-\wss{This section should highlight how feedback from the users and from 
-the supervisor (when one exists) shaped the final product.  In particular 
-the feedback from the Rev 0 demo to the supervisor (or to potential users) 
-should be highlighted.}
+After the Dr. Bone meeting, it was established that the human body parts would not need to be identified, which made the 3D Space Estimation testing unnecessary. This would mean that this test section would no longer be needed. But, the addition of a new functional requirement of location prediction would require some tests. The location prediction is meant to predict where the human should be located based on the skin points detected. This now has four new tests, two for live and two for offline. The function has not yet been implemented for testing to occur.
+
+Some of the body pose variation detection was altered slightly to match closer to the detection algorithm. After the Dr. Bone meeting, it was determined to be a good idea to use skin points to determine a human in frame. These tests are now accounting for different body poses, but with human skin points being in frame.
+
 
 \section{Automated Testing}
 
