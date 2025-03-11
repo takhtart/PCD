@@ -66,8 +66,6 @@ This document outlines the results and analysis of executing our VnV plan. Inclu
 
 \section{Functional Requirements Evaluation}
 
-\subsection{}
-
 \subsection{Human Detection Testing}
 The following section covers the functional tests related to human detection given different coverage levels.
 
@@ -83,7 +81,7 @@ The following section covers the functional tests related to the connection and 
 \subsection{Location Prediction Test}
 The following section covers the functional tests related to predicting the location of obscured segments.
 
-\section{Nonfunctional Requirements Evaluation}
+\section{Non-Functional Requirements Evaluation}
 
 \subsection{Realtime Processing}
 The following section covers the non-functional tests related to performance metrics.
@@ -108,11 +106,13 @@ should be highlighted.}
 \section{Trace to Requirements and Modules}		
 See section G.4 in the \href{https://github.com/takhtart/PCD/blob/main/docs/SRS/SRS.pdf}{SRS report} for more information on the requirements. See section 7 in the \href{https://github.com/takhtart/PCD/blob/main/docs/Design/SoftArchitecture/MG.pdf}{Module Guide} for more information on the modules.
 
-\begin{table}[H]
-  \caption{\bf Module and Requirement Tracing}
-  \resizebox{6in}{!}{\begin{tabular}{|l|p{0.15\linewidth}|p{0.3\linewidth}|p{0.3\linewidth}|p{0.3\linewidth}|p{0.1\linewidth}|}
+\begin{table}[]
+
+  \centering
+  \caption{Module and Requirement Tracing}
+  \begin{tabular}{|l|l|l|}
   \hline
-  \multicolumn{1}{|l|}{\bfseries Test Id} & \multicolumn{1}{|l|}{\bfseries Requirement ID} & \multicolumn{1}{l|}{\bfseries Module\(s\)}\\
+  \textbf{Test ID} & \textbf{Requirement ID} & \textbf{Modules}\\
   \hline
   FT11 & F411 & M5, M6, M7, M8, M9\\
   \hline
@@ -158,9 +158,8 @@ See section G.4 in the \href{https://github.com/takhtart/PCD/blob/main/docs/SRS/
   \hline
   NFT13 & NF433 & M5, M6, M7\\
   \hline
-  \end{tabular}}
-  \label{table:Trace}
-  \end{table}
+  \end{tabular}
+\end{table}
 
 \section{Code Coverage Metrics}
 
