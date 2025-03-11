@@ -11,6 +11,7 @@
     urlcolor=blue
 }
 \usepackage[round]{natbib}
+\usepackage{float}
 
 \input{../Comments}
 \input{../Common}
@@ -106,7 +107,7 @@ should be highlighted.}
 \section{Trace to Requirements and Modules}		
 See section G.4 in the \href{https://github.com/takhtart/PCD/blob/main/docs/SRS/SRS.pdf}{SRS report} for more information on the requirements. See section 7 in the \href{https://github.com/takhtart/PCD/blob/main/docs/Design/SoftArchitecture/MG.pdf}{Module Guide} for more information on the modules.
 
-\begin{table}[]
+\begin{table}[H]
 
   \centering
   \caption{Module and Requirement Tracing}
@@ -172,14 +173,18 @@ See section G.4 in the \href{https://github.com/takhtart/PCD/blob/main/docs/SRS/
 The information in this section will be used to evaluate the team members on the
 graduate attribute of Reflection.
 
-\input{../Reflection.tex}
-
 \begin{enumerate}
-  \item What went well while writing this deliverable? 
+  \item What went well while writing this deliverable? \\
+  \\
+  When writing this deliverable, the sections that were very smooth were the ones that stemmed directly from the VnV plan. Those sections that went exactly as planned as the VnV Plan were very easy to translate to this report.
   \item What pain points did you experience during this deliverable, and how
-    did you resolve them?
+    did you resolve them? \\
+  \\
+  A slight pain point that we did run into had to do with a change we received from Dr. Bone after Rev0. He proposed a change clarifying his vision for the project. This change caused one of our requirements to be completely reworked, changing the associated tests as well. We resolved this by simply moving back and rewriting the requirement, planned tests, and report tests that related to this requirement.
   \item Which parts of this document stemmed from speaking to your client(s) or
-  a proxy (e.g. your peers)? Which ones were not, and why?
+  a proxy (e.g. your peers)? Which ones were not, and why?\\
+  \\
+  The parts of the document that stemmed from speaking to our supervisor were the ones relating to the requirement mentioned in the above question. The rest of the requirements we generated previously based on the initial specification from Dr. Bone, which he checked and approved. The only new tests, that weren't described in the VnV Plan, were those related to the new reworked requirement stemming from Dr. Bone's feedback.
   \item In what ways was the Verification and Validation (VnV) Plan different
   from the activities that were actually conducted for VnV?  If there were
   differences, what changes required the modification in the plan?  Why did
@@ -187,7 +192,9 @@ graduate attribute of Reflection.
   projects?  If there weren't any differences, how was your team able to clearly
   predict a feasible amount of effort and the right tasks needed to build the
   evidence that demonstrates the required quality?  (It is expected that most
-  teams will have had to deviate from their original VnV Plan.)
+  teams will have had to deviate from their original VnV Plan.) \\
+  \\
+  Aside from the changes mentioned in the previous question, we had to slightly tweak some of the test procedures initially proposed in the VnV Plan. In the beginning we weren't set on what method we were using for human detection and ended up trying a few different ways. The test procedures were initially written without any specific method in mind. Later on, after many meetings with Dr. Bone, we settled on a method that mainly uses skin point detection and region growing. Because of this method some of the test procedures didn't really make sense, namely any one that caused the person to maneuver into a position that hid all skin from the camera. The changes that this required was simply to move back to the VnV plan and tweak the procedure in such a way that kept the original intent of the test but made it feasible to test with our method of detection. Regarding these issues, I don't think we would be able to predict roadblocks like this in the future. The nature of these issues stem from explorations during development and would be difficult to account for prior.
 \end{enumerate}
 
 \end{document}
