@@ -11,9 +11,9 @@ endif::[]
 Satisfies <<NF431>>, <<NF432>>
 
 . [[F412]] *Location Estimation:* The system must be able to estimate the current space occupied by the detected human and provide a visual representation of that space estimation. (F412)
-Satisfies <<NF431>>, <<NF432>>
+Satisfies <<NF432>>
 
-. [[F413]] *Offline Processing:* The system must be able to analyze uploaded .pcd files for offline testing and validation. (F413)
+. [[F413]] *Offline Processing:* The system must be able to analyze uploaded .pcd files for offline testing and validation. (F413) Satisfies <<NF431>>
 
 . [[F414]] *Body Pose Variation Handling:* The system must handle a variety of body poses and orientations, and not be limited to just the human facing the sensor. (F414)
 Satisfies <<NF432>>
@@ -28,7 +28,7 @@ The ability to reliably detect and model humans even when partially obscured is 
 
 ==== (G.4.3) Non-Functional Requirements
 
-. [[NF432]] *Usability:* The system must provide an intuitive and easy to use interface. (NF432)
+. [[NF431]] *Usability:* The system must provide an intuitive and easy to use interface. (NF431)
 Depends on <<F411>>,<<F413>>
 
 . [[NF432]] *Reliability:* The system must provide consistent and accurate detection and modeling of humans. (NF432)
