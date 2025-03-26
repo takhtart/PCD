@@ -146,14 +146,12 @@ This process will also present the Kinect sensor's performance during both devel
 
 \section{Expected Technology}
 
-We plan to use Python as our primary programming language. 
-Python is well-suited for data processing and machine learning, which we will likely need for our project.
-We anticipate utilizing libraries such as Open3D for handling point cloud data with a Kinect as our input. 
-We may also use NumPy and SciPy for numerical computations, and Scikit-learn for machine learning tasks.\\
+We plan to use C++ as our primary programming language. 
+C++ is well-suited for data processing and is low-level, which we will likely need for our project to keep processing time fast.
+We anticipate utilizing libraries such as OpenCV and PCL (point cloud library) for handling point cloud data with a Kinect as our input.\\
 
-Additionally, we may require the use of deep learning frameworks like TensorFlow or PyTorch to train our own models given that it's unlikely there are any existing models for the problem we're trying to solve.
-To maintain code quality, we will employ tools like Flake8 for linting and Pytest for unit testing. 
-For code coverage we plan use Coverage.py to ensure thorough testing.
+Additionally, to maintain code quality, we will employ tools like CUDA for linting and GTest for unit testing. 
+For code coverage we plan to use OpenCppCoverage to ensure thorough testing.
 For CI, we will likely use GitHub Actions to automate testing and deployment.
 Collaboration and version control will be conducted through Git and GitHub. Github Projects will be used to manage opened issue tickets, and be our primary tracker for project progression.
 Performance monitoring tools such as Valgrind may be considered for optimizing critical code sections (optimizing real-time detection). 
