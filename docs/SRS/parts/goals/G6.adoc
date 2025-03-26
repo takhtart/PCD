@@ -5,13 +5,11 @@ ifdef::env-draft[]
 TIP: _Aspects that the system need not address. It states what the system will not do. This chapter addresses a key quality attribute of good requirements: the requirements must be delimited (or “scoped”). <<g6>> is not, however, the place for an analysis of risks and obstacles, which pertain to the project rather than the goals and correspondingly appears in chapter <<p6>>._  <<BM22>>
 endif::[]
 
-The project will not be focusing on the following aspects of the detection system:
+Along with the exclusions mentioned in <<E.3>>, the project will not be focusing on the following aspects of the detection system:
 
 *Fully Obscured Handling:* The system will not address scenarios where a person is completely occluded by objects or other individuals. The focus will be on detecting and estimating the 3D space occupied by partially visible people.
 
 *Non-Human Object Detection:* The system is specifically designed to detect and estimate the space occupied by humans. It will not be responsible for identifying or tracking non-human objects or animals.
-
-*Environmental Changes:* The system will only operating indoors, with adequate lighting in the environment. The system will not be operating in complete darkness.
 
 *Multiple Sensor Integration:* The project will utilize a single Kinect sensor for data collection. Integration of multiple sensors or different types of sensors is beyond the scope of this project.
 
