@@ -42,6 +42,8 @@ Depends on <<F412>>
 Real-time processing is essential for practical applications, ensuring timely detection and response. The system must be adaptable to different environments and varying numbers of people to be useful in diverse scenarios. Consistent and accurate detection is crucial for the system's effectiveness and user trust. Accurate detection and modeling are critical for the system's success and practical applications, ensuring that the system provides reliable and precise information for human-robot interactions.
 
 ==== (G.4.4) Traceability Matrix
+The following goals can be found in link:https://github.com/takhtart/PCD/blob/main/docs/ProblemStatementAndGoals/ProblemStatement.pdf[Problem Statement]
+
 
 |===
 |Requirements | Goals | Connected Requirements
@@ -63,7 +65,5 @@ Real-time processing is essential for practical applications, ensuring timely de
 |<<NF432>> |2.1 |Depends on <<F411>>, <<F414>>
 
 |<<NF433>> |2.3 |Depends on <<F412>>
-
-
 
 |===
