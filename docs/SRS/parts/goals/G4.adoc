@@ -20,14 +20,16 @@ Satisfies <<NF432>>
 
 . [[F415]] *Integration with Kinect Sensor:* The system must integrate seamlessly with the Kinect sensor for data collection. (F415)
 
+. [[F416]] *Real-Time Processing:* The system must process data in real-time with minimal latency to ensure timely detection and response in a live detection setting. (F416)
+
 ==== (G.4.2) Top Two Most Important Functional Requirements From A Business Perspective
 
 The ability to reliably detect and model humans even when partially obscured is vital for the system's success, as it directly impacts the accuracy and reliability of human-robot interactions in real-world scenarios. 3D Space Estimation will also ensure that the system can accurately identify and understand the spatial context of the area, allowing for more precise interactions and movement planning by assistive robots. 
 
 ==== (G.4.3) Non-Functional Requirements
 
-. [[NF431]] *Real-Time Processing:* The system must process data in real-time with minimal latency to ensure timely detection and response in a live detection setting. (NF431) 
-Depends on <<F411>>
+. [[NF432]] *Usability:* The system must provide an intuitive and easy to use interface. (NF432)
+Depends on <<F411>>,<<F413>>
 
 . [[NF432]] *Reliability:* The system must provide consistent and accurate detection and modeling of humans. (NF432)
 Depends on <<F411>>, <<F414>>
