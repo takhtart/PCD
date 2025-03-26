@@ -10,8 +10,8 @@ endif::[]
 . [[F411]] *Human Detection:* The system must detect humans within the sensor's field of view, even if they are partially obscured by objects or other people. (F411)
 Satisfies <<NF431>>, <<NF432>>
 
-. [[F412]] *3D Space Estimation:* The system must estimate the 3D space occupied by the detected human, identifying the head, torso, and limbs of the person within view. (F412)
-Satisfies <<NF433>>
+. [[F412]] *Location Estimation:* The system must be able to estimate the current space occupied by the detected human and provide a visual representation of that space estimation. (F412)
+Satisfies <<NF431>>, <<NF432>>
 
 . [[F413]] *Offline Processing:* The system must be able to analyze uploaded .pcd files for offline testing and validation. (F413)
 
@@ -32,7 +32,7 @@ Depends on <<F411>>
 . [[NF432]] *Reliability:* The system must provide consistent and accurate detection and modeling of humans. (NF432)
 Depends on <<F411>>, <<F414>>
 
-. [[NF433]] *Accuracy:* The system must provide accurate spatial coordinates and models of detected humans. (NF433) 
+. [[NF433]] *Accuracy:* The system must provide an accurate visualization the space occupied by detected humans. (NF433) 
 Depends on <<F412>>
 
 ===== Non-Functional Requirements Justification
