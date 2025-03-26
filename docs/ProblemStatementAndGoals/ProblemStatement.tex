@@ -49,14 +49,8 @@ The software must work in conjunction with the Microsoft Kinect in real-time. Ad
 \subsection{Identifying a Person}
 The application should be able to identify a human within a variety of different environments. This includes detecting the human even if they are partially obscured by an object.
 
-\subsection{Model Identified Person using Shapes}
-The application should be able to provide a rough model based on where it believes the person is in 3D space. A rough shape of the head, torso, and limbs will be shown on the screen to help provide an accurate location of the human on screen.
-
 \subsection{Real-time Processing}
 The application needs to be able to process the data and constantly be updating to see if a human is detected within frame. The reading and processing of the data needs to be done with minimal latency.
-
-\subsection{Location Precision}
-The application is able to provide the spatial coordinate of the person. This would help with visualizing the human within a 3D space and provide the robot with a better understanding of where the person is from its current location.
 
 \subsection{Analyze and Process offline PCD files}
 The application should be able to take uploaded Point Cloud Data files as an input rather than analyzing captured data in real-time. This allows for the testing of various controlled scenarios to ensure that the program can successfully identify a human in different scenarios. Outputs of the application can be easily compared to the expected results of the configured scenario to determine accuracy.
@@ -70,6 +64,11 @@ The application should be able to identify other objects that are present within
 \subsection{Drawing a Humanoid Outline}
 The application should be able to create a realistic outline with humanoid features for the people it identifies. A more accurate outline provides greater dimension and distinction between what is and isn’t part of the human body. This would allow for a more accurate detection and human depiction.
   
+\subsection{Model Identified Person using Shapes}
+The application should be able to provide a rough model based on where it believes the person is in 3D space. A rough shape of the head, torso, and limbs will be shown on the screen to help provide an accurate location of the human on screen.
+
+\subsection{Location Precision}
+The application is able to provide the spatial coordinate of the person. This would help with visualizing the human within a 3D space and provide the robot with a better understanding of where the person is from its current location.
 
 \section{Challenge Level and Extras}
 
