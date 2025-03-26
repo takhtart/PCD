@@ -11,7 +11,7 @@ endif::[]
 Satisfies <<NF431>>, <<NF432>>
 
 . [[F412]] *Location Estimation:* The system must be able to estimate the current space occupied by the detected human and provide a visual representation of that space estimation. (F412)
-Satisfies <<NF432>>
+Satisfies <<NF433>>
 
 . [[F413]] *Offline Processing:* The system must be able to analyze uploaded .pcd files for offline testing and validation. (F413) Satisfies <<NF431>>
 
@@ -40,3 +40,30 @@ Depends on <<F412>>
 ===== Non-Functional Requirements Justification
 
 Real-time processing is essential for practical applications, ensuring timely detection and response. The system must be adaptable to different environments and varying numbers of people to be useful in diverse scenarios. Consistent and accurate detection is crucial for the system's effectiveness and user trust. Accurate detection and modeling are critical for the system's success and practical applications, ensuring that the system provides reliable and precise information for human-robot interactions.
+
+==== (G.4.4) Traceability Matrix
+
+|===
+|Requirements | Goals | Connected Requirements
+
+|<<F411>> |2.1 |Satisfies <<NF431>>, <<NF432>> 
+
+|<<F411>> |2.3 |Satisfies <<NF432>>
+
+|<<F413>> |2.5 |Satisfies <<NF431>>
+
+|<<F414>> |2.1 |Satisfies <<NF433>>
+
+|<<F415>> |2.2 | -
+
+|<<F416>> |2.2 | -
+
+|<<NF431>> |2.4 |Depends on <<F411>>, <<F413>>
+
+|<<NF432>> |2.1 |Depends on <<F411>>, <<F414>>
+
+|<<NF433>> |2.3 |Depends on <<F412>>
+
+
+
+|===
