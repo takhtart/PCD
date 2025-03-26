@@ -35,7 +35,8 @@ September 24, 2024 & Harman Bassi and Kyen So & Initial Draft\\
 Our team aims to design a software that can reliably detect a person’s body from Point Cloud Data (PCD) even if they are blocked by another person or other objects, which existing solutions cannot reliably do so. This new technology would have a multitude of uses, of which we are particularly interested with assistive robots. These robots could be used anywhere from crisis relief efforts to household tasks. Using its ability to detect people, even when partially hidden, they would be able to perform tasks ranging from pulling people from rubble to providing household services. 
 
 \subsection{Inputs and Outputs}
-The software will take in real-time data from a Kinect sensor or uploaded Point Cloud Data (PCD) files and return the location of visible parts of a person in the coloured point cloud and an estimation of the 3D space that are occupied by the head, torso and limbs.
+The software will have the input of .pcd (point cloud data) files. These files can either be uploaded directly, i.e. in an "offline" manner, or supplied in a constant stream live through a Kinect sensor. Our application will output a visual representation of the point cloud data, highlighting the space that the person we identified occupies, as well as the hidden 3D space that we predict/estimate they could be occupying based on the acquired information. Colored boxes will be used to highlight this space estimation.
+
 
 \subsection{Stakeholders}
 Dr.Gary Bone wishes to create a solution for robots to recognize their surroundings and identify the spaces that are occupied by the people around them. This way, these assistive robots can be used to help people at their homes. Our solution could be used by robotics companies to develop their robots.
