@@ -24,7 +24,7 @@ endif::[]
 
 . [[F221]] *Locate Visible Human Parts*: The application must use the data set provided and calculate the location of the visible parts of the person in the environment. (F221)
 
-. [[F222]] *Estimate Hidden Human Parts*: The application must use the data to estimate where the non visible part of the person is.
+. [[F222]] *Estimate Hidden Human Parts*: The algorithm must use the location of visible human parts to make a general estimation of the hidden human parts. 
 
 *Non-Functional Requirements:*
 
