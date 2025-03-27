@@ -285,6 +285,7 @@ to be implemented.
 \item[Services:]Sets up the connection needed for the Kinect and handles providing
   our other modules with the continuous output of the Kinect.
 \item[Implemented By:] kinect2\_grabber
+\item[Type of Module:] Abstract Data Type
 \end{description}
 
 \subsection{Behaviour-Hiding Module}
@@ -388,7 +389,7 @@ to be implemented.
 \item[Services:] Processes command-line input, triggering actions in the Input Processing Module \mref{mIP}
   and Graphical User Interface Module \mref{mGUI}.
 \item[Implemented By:] OS
-\item[Type of Module:] Interface
+\item[Type of Module:] Abstract Data Type
 \end{description}
 
 \subsubsection{Graphical User Interface (\mref{mGUI})}
@@ -398,7 +399,7 @@ to be implemented.
 \item[Services:] Displays 3D point cloud data and allows user interaction, using structures from the Point Cloud Data Module \mref{mPCD} 
   and processed data from the Input Processing Module \mref{mIP}.
 \item[Implemented By:] PCL
-\item[Type of Module:] Library
+\item[Type of Module:] Abstract Data Type
 \end{description}
 
 \section{Traceability Matrix} \label{SecTM}
@@ -484,8 +485,49 @@ Assuming a correct path and data provided, Interactive viewer window (GUI) provi
 N/A
 
 \section{Timeline}
+\noindent{Pending and future tasks can be viewed on the Kanban board hosted on \href{https://github.com/users/takhtart/projects/3}{GitHub}.}
 
-Pending and future tasks can be viewed on the Kanban board hosted on \href{https://github.com/users/takhtart/projects/3}{GitHub}.
+\noindent{For Rev 0, the prioritization of the modules are as follows:} \\
+
+\noindent{\textbf{High Priority:}}\\
+Application Control\\
+Input Data Read\\
+Input Classifier\\
+Point Cloud Data Structures\\
+\\
+\textbf{Medium Priority:}\\
+Input Classifier Ranking\\
+Input Processing\\
+\\
+\textbf{Low Priority:}\\
+Bounding Box Display\\
+Command Line Interface\\
+Graphical User Interface\\
+\\
+\textbf{Already Implemented:}\\
+Hardware-Hiding\\
+Kinect Stream\\
+
+The modules under high priority are directly related to the performance of the human detection. Specifically, reading in the data, controlling the
+application, classifying the detection strategy, and handling the data structures are all integral to the functioning of the human detection. 
+Input Processing and Classifier Ranking are medium as they would be nice to have, but are not necessary for the application to work. Processing the input 
+to remove noise and false positives is important to have, but not integral. Finally, low priority modules are ones that are partially implemented but may
+need to be changed as the algorithm develops. We have a useable CLI and GUI, and the bounding box displays works at a rudimentary level. They will need to be 
+updated for the final submission but are passable for now. Finally, hardware-hiding and the Kinect stream are already implemented properly in our code.
+
+As there are 4 modules that make up high-priority, we will have one team member primarily focusing their time on one module. Upon completion the ones that finished
+will provide assistance to the others until all high-priority modules are completed. If there is still time after, we will divide up the remaining modules based on 
+availability.
+
+For testing of these modules, since all the high-priority modules pertain to human detection, after implementing them we will execute our person detection tests. This means 
+that we will be performing a series of manual tests to ensure that the person detection implemented is correct and reliable. These manual tests can be found in further detail in our
+VnV plan. 
+
+
+
+
+
+
 
 \bibliographystyle {plainnat}
 \bibliography{../../../refs/References}
