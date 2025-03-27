@@ -285,6 +285,7 @@ to be implemented.
 \item[Services:]Sets up the connection needed for the Kinect and handles providing
   our other modules with the continuous output of the Kinect.
 \item[Implemented By:] kinect2\_grabber
+\item[Type of Module:] Abstract Data Type
 \end{description}
 
 \subsection{Behaviour-Hiding Module}
@@ -388,7 +389,7 @@ to be implemented.
 \item[Services:] Processes command-line input, triggering actions in the Input Processing Module \mref{mIP}
   and Graphical User Interface Module \mref{mGUI}.
 \item[Implemented By:] OS
-\item[Type of Module:] Interface
+\item[Type of Module:] Abstract Data Type
 \end{description}
 
 \subsubsection{Graphical User Interface (\mref{mGUI})}
@@ -398,7 +399,7 @@ to be implemented.
 \item[Services:] Displays 3D point cloud data and allows user interaction, using structures from the Point Cloud Data Module \mref{mPCD} 
   and processed data from the Input Processing Module \mref{mIP}.
 \item[Implemented By:] PCL
-\item[Type of Module:] Library
+\item[Type of Module:] Abstract Data Type
 \end{description}
 
 \section{Traceability Matrix} \label{SecTM}
