@@ -510,7 +510,7 @@ Each subsection below covers a functional requirement of the system. All functio
 
 \textbf{Output:} The system should be detected and their head whenever it is poked out within a certain amount of time.
 
-\textbf{Test Case Derivation:} The system should be updating in real time and so it should be able to display the head outline within two frames.
+\textbf{Test Case Derivation:} The system should be updating in real time and so it should be able to display the head outline under a second.
 
 \textbf{How test will be performed:} The person would be hidden behind the objects and then would repeatedly poke their head out. The system will then outline the head whenever it is in frame.The tester will measure the time by setting up a function to see how long the system takes to outline the person (from read input to having the coordinates for outline). If the time meets the minimal requirement to be considered a real time system.
 
@@ -520,6 +520,39 @@ Each subsection below covers a functional requirement of the system. All functio
 \subsection{Tests for Nonfunctional Requirements}
 
 Each subsection below covers a nonfunctional requirement of the system. All nonfunctional requirements are accounted for and each have its own tests such that all nonfunctional requirements are met.
+
+\subsubsection{Usability}
+
+\begin{enumerate}
+
+\item{Download Required Software Test (NFT11)\label{NFT11}\\}
+  
+\textbf{Control:} Manual
+
+\textbf{Initial State:} The user unfimilar with the project and no required downloads already on PC/Laptop.
+
+\textbf{Input:} The user is given the Setup.md (link), a laptop without any necessary downloads, and the Kinect.
+
+\textbf{Output:} By the end of the test the user should have the kinect working in a live scenario with all necessary technical components.
+
+\textbf{Test Case Derivation:} The User is given all necessary technical elements to set up the software and they will be timed. A reasonable set up time would be 10-15 mins without download time being included.
+
+\textbf{How test will be performed:} The User will be given all necessary components to run the software and just told to follow a set of instructions. They will be timed during the whole process and the timer will pause between downloads.
+
+\item{Upload a File Test (NFT21)\label{NFT12}\\}
+  
+\textbf{Control:} Manual
+
+\textbf{Initial State:} The system is running in offline mode. A file with an object partially obstructing the person will be uploaded.
+
+\textbf{Input:} A .pcd file that user is uploading
+
+\textbf{Output:} The file is uploaded without errors and the system displays the expected results.
+
+\textbf{Test Case Derivation:} The process would make sure that the User understands how to operate the other setting of the software.
+
+\textbf{How test will be performed:} The user is given a file to upload into the offline mode. So they start up the software and click the offline mode and upload the file. The sytem will then display the results. 
+\end{enumerate}
 
 \subsubsection{Reliability}
 
@@ -535,7 +568,7 @@ Each subsection below covers a nonfunctional requirement of the system. All nonf
 
 \textbf{Output:} The system displays a similar outline to the other inputs.
 
-\textbf{Test Case Derivation:} Because the file is the same, uploading it multiple different times should result in the system outlining the human within the screen similarly. In the one file uploaded the human will be partially covered and so each time it is uploaded the coordinates for the outline should fit into a range that is only 5-10% off of previous upload.
+\textbf{Test Case Derivation:} Because the file is the same, uploading it multiple different times should result in the system outlining the human within the screen similarly. In the one file uploaded the human will be partially covered and so each time it is uploaded the coordinates for the outline should fit into a range that is only 5-10 percent off of previous upload.
 
 \textbf{How test will be performed:} This will be done by having a file be uploaded to the system 10 times and then copy the results into an array to then measure how off it is to its original run. 
   
