@@ -23,9 +23,9 @@ Key Dates:
 
 - **March 7, 2025** : Revision 0 V&V Report
 
-- **March 24, 2025** : Revision 1 Final Demonstration
+- **March 30, 2025** : Revision 1 Final Demonstration
 
-- **April, 2025** : EXPO Demonstration
+- **April 8, 2025** : EXPO Demonstration
 
 - **April 2, 2025** : Revision 1 Final Documentation
 

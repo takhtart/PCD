@@ -4,9 +4,6 @@
 ifdef::env-draft[]
 TIP: _Any a priori choices binding the project to specific tools, hardware, languages or other technical parameters. Not all technical choices in projects derive from a pure technical analysis; some result from company policies. While some project members may dislike non-strictly-technical decisions, they are a fact of project life and must be documented, in particular for the benefit of one of the quality factors for requirements: "requirements must be justified"._  <<BM22>>
 endif::[]
-
-- *Software to be developed using Cpass:[++]*: Due to the computational needs of analyzing PCD in realtime, the software will be developed using C++ which allow for fast executions and efficient resource usage.
-
 - *Realtime Computation*: Software must be able to perform calculations and output/display results in realtime. 
 
 - *Data gathered by Kinect sensor*: Software must be able to analyze data gathered using the Microsoft Kinect Sensor. Test data collected by a Microsoft Kinect, as well as the hardware itself, is provided for the project.

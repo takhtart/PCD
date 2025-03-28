@@ -59,8 +59,12 @@ Microsoft Teams.\\
 
 For each meeting the scheduler of the meeting will be the chair. 
 For recurring weekly meetings, the team lead will be the chair. 
-Agenda will be prepared by the chair of the meeting.
+Agenda will be prepared by the chair of the meeting.\\
 
+The structure of the meetings will follow a simple outline. The meeting will begin with the discussion of last weeks meeting actions.
+It will then cover any new issues that have risen since our last meeting, followed by a discussion of what is need to be completed this week. The meeting will end with a quick summary of next weeks actions and how the work will be divided for the following week.\\
+
+The advisor meetings will follow a similar structure, but are there to a dedicated time to answer the advisors questions and ask for help for any incompleted tasks. They will also end with a quick post of the meeting minutes from the discussion. 
 \section{Team Communication Plan}
 
 Github issues, and a regularly updated Kanban board using those issues, will be used as a means of asynchronous communication 
@@ -70,30 +74,39 @@ Discord will be used for general communications between team members. Our Adviso
 \section{Team Member Roles}
 \noindent Team Lead:\\
 Tarnveer Takhtar\\
+This role entails communication with instructors/supervisors and keeping team members on task during meetings.\\
 \\
 Approver:\\
 Matthew Bradbury\\
+This role entails reviewing the created pull requests as a final check before approving them for merge.\\
 \\
 Reviewer(s):\\
 Harman Bassi\\
 Kyen So\\
+This role entails reviewing documentation/coding changes prior to creating pull requests.\\
 \\
 Administrator:\\
 Kyen So\\
+This role entails keeping notes on meeting points discussed and issuing action items to corresponding team members.\\
 \\
 Coordinator:\\
 Harman Bassi\\
-
+This role entails planning out meeting schedules and ensuring no scheduling conflicts for team members.\\
+\\
+All members will work together to be responsible with breaking down responsibilities in terms of deliverables. Furthermore, these roles are somewhat flexible based on the availability of each team member; some member may ask another to cover their responsibilities if needed.
+Additionally, all members will be responsible for preparing the necessary background needed for this project. As mentioned in the problem statement, this is an advanced project partially due to the lack of experience each member has with computer vision. Therefore, it is the responsibility of each member to ensure that the necessary background is fulfilled.
 \section{Workflow Plan}
 
 We will be using a branch for each Revision, and separate branches for each
 major code features. Pull requests will be reserved for merging feature branches,
 while documentation changes will be manually reviewed and edited.\\
 
-Github issues will be created for any tasks as per the course outline, issues will also be created for code features.
+Github issues will be created for any tasks as per the course outline, as well as being created also for code features.
 Issue priority and classification will be designated by both deadline, and if it is a pre-requisite of other tasks.
 Issues will be assigned accordingly as discussed within our meetings. 
-If any discrepancies are found within the documentation, an issue will be made, and assigned.\\
+If any discrepancies are found within the documentation, an issue will be made, and assigned. 
+These issues will be formatted according to its type, either creation or revision. Documentation/code creation issues will provide the documentation, a brief description of the expectations, and the due date. 
+Revision issues will provide the changed section, the reason, and a description of what was changed.\\
 
 GitHub Actions will be used to handle CI/CD, triggered each time a pull request occurs for the codebase of the project. 
 A predefined linter will go over the code ensuring consistency with the chosen linter's standard. 
@@ -114,7 +127,8 @@ with priority based on deadlines provided by the course outline.
 
 \subsection*{Significant Risks}
 \begin{enumerate}
-\item Project Complexity: The primary risk is the potential complexity of the project, which may be greater than initially anticipated. 
+\item Project Complexity: The primary risk is the potential complexity of the project, which may be greater than initially anticipated. The main concern that arises is the ability to accurately detect a human. 
+The added complexity for this comes from the restriction on the use of trained models to help with human detection.
 Our team welcomes the challenges associated with this project however, we must understand the risks of taking on a project where we have no experience in the specific domain.
 
 \item Kinect Sensor Performance: Another critical concern is the performance of the provided Kinect sensor, both during the development phase and the demonstration. 
@@ -132,20 +146,18 @@ This process will also present the Kinect sensor's performance during both devel
 
 \section{Expected Technology}
 
-We plan to use Python as our primary programming language. 
-Python is well-suited for data processing and machine learning, which we will likely need for our project.
-We anticipate utilizing libraries such as Open3D for handling point cloud data with a Kinect as our input. 
-We may also use NumPy and SciPy for numerical computations, and Scikit-learn for machine learning tasks.\\
+We plan to use C++ as our primary programming language. 
+C++ is well-suited for data processing and is low-level, which we will likely need for our project to keep processing time fast.
+We anticipate utilizing libraries such as OpenCV and PCL (point cloud library) for handling point cloud data with a Kinect as our input.\\
 
-Additionally, we may require the use of deep learning frameworks like TensorFlow or PyTorch to train our own models given that it's unlikely there are any existing models for the problem we're trying to solve.
-To maintain code quality, we will employ tools like Flake8 for linting and Pytest for unit testing. 
-For code coverage we plan use Coverage.py to ensure thorough testing.
+Additionally, to maintain code quality, we will employ tools like CUDA for linting and GTest for unit testing. 
+For code coverage we plan to use OpenCppCoverage to ensure thorough testing.
 For CI, we will likely use GitHub Actions to automate testing and deployment.
 Collaboration and version control will be conducted through Git and GitHub. Github Projects will be used to manage opened issue tickets, and be our primary tracker for project progression.
 Performance monitoring tools such as Valgrind may be considered for optimizing critical code sections (optimizing real-time detection). 
 
 \section{Coding Standard}
-The coding standard we will adopt will be Pep 8. 
+The coding standard we will adopt will be C++ 20. 
 
 \newpage{}
 

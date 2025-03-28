@@ -114,9 +114,9 @@ The application takes in information from either the offline file or the kinect 
         \hline
         Component                                  & Failure Mode                            & Effects of Failure                                                                                           & Causes of Failure                                                                                                                                         & Recommended Action                                                                                                & Safety and Functional Requirement            & Ref     \\ 
         \hline
-        Human Detection Algorithm                   & Human not detected                      & Lack of Reliability, software output not accepted                                                            & Software is unable to distinguish a human from their background and the objects that partially cover them due to a computational error                    & Update algorithm and tweak it to work against various body types                                                  & {[}F221{]}                     & 4.1.1.0 \\ 
+        Human Detection Algorithm                   & Human not detected                      & Lack of Reliability, software output not accepted                                                            & Software is unable to distinguish a human from their background and the objects that partially cover them due to a computational error                    & Update algorithm and tweak it to work against various body types                                                  & {[}F221{]}{[}F222{]}                     & 4.1.1.0 \\ 
         
-                                                    & Incorrect object detected as human      & Lack of Reliability, software output not accepted                                                            & Software incorrectly identifies an object to be the body part of a human due to a computational error                                                     & Update algorithm and ensure software is able to distinguish between common objects and human body parts           & {[}F221{]}                     & 4.1.1.1 \\ 
+                                                    & Incorrect object detected as human      & Lack of Reliability, software output not accepted                                                            & Software incorrectly identifies an object to be the body part of a human due to a computational error                                                     & Update algorithm and ensure software is able to distinguish between common objects and human body parts           & {[}F221{]}{[}F222{]}                     & 4.1.1.1 \\ 
         \hline
         Human Outline Manager                       & Non-human object is outlined            & Lack of Reliability, software output not accepted                                                            & Software incorrectly identifies an object to be the body part of a human and outlines the object to display to the user due to a computational error      & Update algorithm and ensure software is able to distinguish between common objects and human body parts           & {[}F211{]}{[}F222{]}{[}F223{]} & 4.1.2.0 \\ 
         
@@ -128,25 +128,27 @@ The application takes in information from either the offline file or the kinect 
         
                                                     & Software fails to read data from Kinect & Catastrophic failure for live detection; software is unable to perform its functions and produce any outputs & Data corruption, incorrect Kinect model used, incorrect resolution received                                                                               & Error output to the user, system pauses and prompts user to check if they are using the correct version of Kinect & {[}F231{]}{[}F232{]}           & 4.1.3.1 \\ 
         
-                                                    & Unsupported file uploaded               & Software is unable to perform its functions                                                                  & User uploads a file with data that is not supported by the software                                                                                       & Error output to the user, system pauses and prompts user to reupload a .pcd file that was collected by a Kinect   & {[}F231{]}{[}F232{]}{[}SR4{]}           & 4.1.3.2 \\ 
+                                                    & Unsupported file uploaded               & Software is unable to perform its functions                                                                  & User uploads a file with data that is not supported by the software                                                                                       & Error output to the user, system pauses and prompts user to reupload a .pcd file that was collected by a Kinect   & {[}F231{]}{[}F232{]}{[}SR3{]}           & 4.1.3.2 \\ 
+
+                                                    & Uploaded file is stored                 & Lack of Privacy and Data Security, software could possible be leaked                                         & User uploads a file and it was saved by the software                                                                                                      & After data has been uploaded and the user is done with this data set, system will reset the stored data value to the starting point.  & {[}SR1{]}{[}SR2{]}           & 4.1.3.2 \\ 
         \hline
     \end{tabular}
     }
     }
+    \caption{Failure Mode and Effect Analysis} \label{TblFMEA}
 \end{table}
+
+The Functional and Non-Functional Requirements in the table can be found in the \href{https://github.com/takhtart/PCD/blob/main/docs/SRS/SRS.pdf}{SRS document}
 
 \section{Safety and Security Requirements}
 
-[SR1] The application must encrypt user entered files.\\
-\textbf{Rationale:} This is to ensure the privacy of the files uploaded by the user
-
-[SR2] The application must not store any files uploaded.\\
+[SR1] The application must not store any files uploaded.\\
 \textbf{Rationale:} This is to ensure that in case of any data breach the files will not be something an attacker could have access to.
 
-[SR3] The application must not store the .pcd files sent from the live Kinect.\\
+[SR2] The application must not store the .pcd files sent from the live Kinect.\\
 \textbf{Rationale:} To ensure that the live sensor data protects the user's privacy within the environment.
 
-[SR4] The application must reject any foreign or unexpected file formats.\\
+[SR3] The application must reject any foreign or unexpected file formats.\\
 \textbf{Rationale:} This is to ensure that our program will not have any unexpected behaviour following improper use.
 
 \section{Roadmap}

@@ -10,15 +10,17 @@ endif::[]
 . [[F411]] *Human Detection:* The system must detect humans within the sensor's field of view, even if they are partially obscured by objects or other people. (F411)
 Satisfies <<NF431>>, <<NF432>>
 
-. [[F412]] *3D Space Estimation:* The system must estimate the 3D space occupied by the detected human, identifying the head, torso, and limbs of the person within view. (F412)
+. [[F412]] *Location Estimation:* The system must be able to estimate the current space occupied by the detected human and provide a visual representation of that space estimation. (F412)
 Satisfies <<NF433>>
 
-. [[F413]] *Offline Processing:* The system must be able to analyze uploaded .pcd files for offline testing and validation. (F413)
+. [[F413]] *Offline Processing:* The system must be able to analyze uploaded .pcd files for offline testing and validation. (F413) Satisfies <<NF431>>
 
 . [[F414]] *Body Pose Variation Handling:* The system must handle a variety of body poses and orientations, and not be limited to just the human facing the sensor. (F414)
 Satisfies <<NF432>>
 
 . [[F415]] *Integration with Kinect Sensor:* The system must integrate seamlessly with the Kinect sensor for data collection. (F415)
+
+. [[F416]] *Real-Time Processing:* The system must process data in real-time with minimal latency to ensure timely detection and response in a live detection setting. (F416)
 
 ==== (G.4.2) Top Two Most Important Functional Requirements From A Business Perspective
 
@@ -26,15 +28,42 @@ The ability to reliably detect and model humans even when partially obscured is 
 
 ==== (G.4.3) Non-Functional Requirements
 
-. [[NF431]] *Real-Time Processing:* The system must process data in real-time with minimal latency to ensure timely detection and response in a live detection setting. (NF431) 
-Depends on <<F411>>
+. [[NF431]] *Usability:* The system must provide an intuitive and easy to use interface. (NF431)
+Depends on <<F411>>,<<F413>>
 
 . [[NF432]] *Reliability:* The system must provide consistent and accurate detection and modeling of humans. (NF432)
 Depends on <<F411>>, <<F414>>
 
-. [[NF433]] *Accuracy:* The system must provide accurate spatial coordinates and models of detected humans. (NF433) 
+. [[NF433]] *Accuracy:* The system must provide an accurate visualization the space occupied by detected humans. (NF433) 
 Depends on <<F412>>
 
 ===== Non-Functional Requirements Justification
 
 Real-time processing is essential for practical applications, ensuring timely detection and response. The system must be adaptable to different environments and varying numbers of people to be useful in diverse scenarios. Consistent and accurate detection is crucial for the system's effectiveness and user trust. Accurate detection and modeling are critical for the system's success and practical applications, ensuring that the system provides reliable and precise information for human-robot interactions.
+
+==== (G.4.4) Traceability Matrix
+The following goals can be found in link:https://github.com/takhtart/PCD/blob/main/docs/ProblemStatementAndGoals/ProblemStatement.pdf[Problem Statement]
+
+
+|===
+|Requirements | Goals | Connected Requirements
+
+|<<F411>> |2.1 |Satisfies <<NF431>>, <<NF432>> 
+
+|<<F411>> |2.3 |Satisfies <<NF432>>
+
+|<<F413>> |2.5 |Satisfies <<NF431>>
+
+|<<F414>> |2.1 |Satisfies <<NF433>>
+
+|<<F415>> |2.2 | -
+
+|<<F416>> |2.2 | -
+
+|<<NF431>> |2.4 |Depends on <<F411>>, <<F413>>
+
+|<<NF432>> |2.1 |Depends on <<F411>>, <<F414>>
+
+|<<NF433>> |2.3 |Depends on <<F412>>
+
+|===

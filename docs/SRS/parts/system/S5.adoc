@@ -20,13 +20,11 @@ endif::[]
 |===
 
 |Requirement ID | Requirement | MoSCoW Classification | Summary 
-| <<F221>> | Locate Human | Must have | It is important that the algorithm is able to locate the location of the hidden person in the environment.
-| <<F222>> | Create Human Outline | Must have | It is important that the algorithm is able to provide the coordinates to outline the part of the human that is visible. If a torso is visible it would outline that then the other parts of the body.
-| <<F223>> | Adjust Human Outline | Must have | It is important that the algorithm is able to better the outline or adjust based off new information.
+| <<F221>> | Locate Visible Human Parts | Must have | It is important that the algorithm is able to locate where the visible part of the human is.
+| <<F222>> | Estimate Hidden Human Parts | Must have | It is important that the algorithm is able to take the visible parts and then estimate where it believes the rest of the human would be.
 | <<NF221>> | Speed and Latency | Must have | It must be able to calculate everything in real time to present the newest location and outline.
 | <<NF222>> | Accuracy | Must have | It must give an accurate location and outline.
 | <<NF223>> | Reliability | Must have | It must have an algorithm that has a low failure rate and make sure that the latest, most accurate data is shown.
-| <<NF224>> | Fault Tolerance | Could have | It could have a preventative measure to restart from the previous stable state.
 
 |===
 

@@ -9,7 +9,7 @@ endif::[]
 
 *Functional Requirements:*
 
-. [[F211]] *Display the human outline*:  The application displays the real time data as a 3D point cloud and showcases the outline of the human on top of the data set. (F211)
+. [[F211]] *Display the human outline*:  The application displays the real time data as a 3D point cloud and showcases the location of the human within the data set. (F211)
 
 *Non-Functional Requirements:*
 
@@ -22,11 +22,9 @@ endif::[]
 ==== (S.2.2) Human Detection Algorithm:
 *Functional Requirements:*
 
-. [[F221]] *Locate Human*: The application must  use the data set provided and calculate the location of the person in the environment. (F221)
+. [[F221]] *Locate Visible Human Parts*: The application must use the data set provided and calculate the location of the visible parts of the person in the environment. (F221)
 
-. [[F222]] *Create Human Outline*: The algorithm must use the location of data to make an outline of the visible parts and makes general estimation of the human outline. (F222)
-
-. [[F223]] *Adjust Human Outline*: The human outline must  adjust outline to make refinements based on better data. (F223)
+. [[F222]] *Estimate Hidden Human Parts*: The algorithm must use the location of visible human parts to make a general estimation of the hidden human parts. 
 
 *Non-Functional Requirements:*
 
@@ -38,8 +36,6 @@ endif::[]
 . [[NF223]] *Reliability*: The application performs with a success rate of 90%. (NF223)
 *Rational*: The application is able to operate will a low failure rate so that the data presented is accurate
 
-. [[NF224]] *Fault Tolerance*: The application must be able to recover from error without having a loss to human detection. (NF224)
-*Rational*:  In case of error, the system should be able to go back to the previous state to reprocess the data set and continue from there.
 
 ==== (S.2.3) Kinect Manager:
 *Functional Requirements:*
