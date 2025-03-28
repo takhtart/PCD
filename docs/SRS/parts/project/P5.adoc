@@ -6,6 +6,6 @@ TIP: _External systems, hardware and software, expected to be necessary for buil
 endif::[]
 
 - *Point Cloud Library* : The point cloud library provides a library of algorithms for 3D geometry and point cloud processing. This is essential for working with point cloud data.
-- *Eigen Library* : The Eigen library provides a linear algebra framework for C++ necessary to perform required computations.
+- *Open CV Library* : The Open CV library provides a wide variety of algorithms to assist in human detection and is an industry standard when it comes to computer vision. 
 - *Microsoft Kinect* : The microsoft Kinect is necessary for producing usable data that can be analyzed. 
 - *Kinect2Grabber* : Kinect2Grabber is a provided tool that retrieves point cloud data from a Kinect v2 into PCL.

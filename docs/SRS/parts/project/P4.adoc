@@ -17,8 +17,8 @@ endif::[]
 | January 15, 2025 | Revision 0 Design Document | Updates to the design document to include all design changes during development | Updated Design Document 
 | February 3, 2025 | Revision 0 Demonstration | Demonstration of current progress in development | Received feedback from stakeholders 
 | March 7, 2025 | Revision 0 V&V Report | Updated testing plan to reflect one actually used during development | Updated V&V Report 
-| March 24, 2025 | Revision 1 Final Demonstration | Demonstration of our final working product that reflects all the requirements of the stakeholders | Final Product is working as intended
-| April, 2025 | EXPO Demonstration | Demonstration of our final product in the form of a presentation and answer any question asked by the audience| Successfully present and display our final product
+| March 30, 2025 | Revision 1 Final Demonstration | Demonstration of our final working product that reflects all the requirements of the stakeholders | Final Product is working as intended
+| April 8, 2025 | EXPO Demonstration | Demonstration of our final product in the form of a presentation and answer any question asked by the audience| Successfully present and display our final product
 | April 2, 2025 | Revision 1 Final Documentation | Final Revision of all documentation that is up to date and includes all design changes made after revision 0 | Complete final documentation 
 
 |=== 

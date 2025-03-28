@@ -9,6 +9,6 @@ The system will interact with the following external component(s)
 
 *Kinect Sensor:* This component is responsible for delivering the system live .pcd data for the detection algorithm to run on.
 
-*OpenCV:* This library will be used in our C++ detection algorithm to aid with image processing.
+*Detection Algorithm* This component will be used to handle all of the image processing related to being able to detect a person.
 
-*Point Cloud Library:* This library will be used in our code to aid the processing of .pcd files.
+*.pcd Processor* This component will be used in our code to aid the processing of .pcd files, and further help the detection algorithm in person detection.
