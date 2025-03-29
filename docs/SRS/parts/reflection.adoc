@@ -1,18 +1,38 @@
 [Reflection]
 == Reflection
 
-. What knowledge and skills will the team collectively need to acquire to successfully complete this capstone project?  Examples of possible knowledge to acquire include domain specific knowledge from the domain of your application, or software engineering knowledge, mechatronics knowledge or computer science knowledge.  Skills may be related to technology, or writing, or presentation, or team management, etc.  You should look to identify at least one item for each team member.+
+[qanda]
+
+What went well while writing this deliverable?::
+
+The work was divided up and everyone was able to complete on time. Communication between the team members was efficecnt and worked out well to help each other on the questions. Some sections overlapped so communication was very important for this assignment. 
+
+
+What pain points did you experience during this deliverable, and how did you resolve them?::
+
+The biggest pain points may have been trying to make appropriate components and also making sure that the functional and nonfunctional requirements made sense for each case. 
+
+
+How many of your requirements were inspired by speaking to your client(s) or their proxies (e.g. your peers, stakeholders, potential users)?::
+
+Majority, if not all of the functional requirements were through our meetings with Dr.Bone and our meetings. The non functional requirements were a mix of expectations for the project and past projects, plus the requirements course.
+
+Which of the courses you have taken, or are currently taking, will help your team to be successful with your capstone project?::
+
+The course that helped with building the goals and requirements has been the software requirements course. An important step when it comes to working on big projects is really understanding the project to the core before anything is done and thats what this course helped with. Another course would probably be our testing course which will really help when testing the software (unit tests and functionality tests). Finally, the multiple coding classes that were taking for example OOP that provided knowledege on how to write clean code and how to implement multiple alogorithms.
+
+What knowledge and skills will the team collectively need to acquire to successfully complete this capstone project?  Examples of possible knowledge to acquire include domain specific knowledge from the domain of your application, or software engineering knowledge, mechatronics knowledge or computer science knowledge.  Skills may be related to technology, or writing, or presentation, or team management, etc.  You should look to identify at least one item for each team member.::
 
 Every member of the group needs to acquire knowledge on Computer Vision and understanding how .pcd files operate. Overall these are big topics and so the basics should be acquired by every member, but some specifics would be broken down to different parts for each member. Tarnveer and Matthew would be assigned to understanding how to track people on screen and map them on the screen. Harman and Kyen would be working on reading in the .pcd files and understanding the PCL. The PCL will explore on aspects of boxing the points on screen. Tarnveer would also be responsible for understanding the real time coding aspect in c++. Matthew would also be assigned to acquire knowledge on improving the human outline based on better data. Harman will be assigned to understanding how to cancel out noise from the data set. Kyen will have to understand how to find the person based off the pcd and understand how to properly read the files.
 
-. For each of the knowledge areas and skills identified in the previous question, what are at least two approaches to acquiring the knowledge or mastering the skill?  Of the identified approaches, which will each team member pursue, and why did they make this choice? +
+For each of the knowledge areas and skills identified in the previous question, what are at least two approaches to acquiring the knowledge or mastering the skill?  Of the identified approaches, which will each team member pursue, and why did they make this choice?:: 
 
 One approach for acquiring the knowledge would be to use the provided documentation for the libraries (PCL and Opencv). This would provide a good fundamental understanding for the important aspects of the project. 
 
 Another approach would be to just watch videos on the specific topics and try to understand from there. This would be able to provide a more visual explanations for the topics.
 
-Tarnveer: use documentation and videos
-Matthew: use documentation and videos 
-Kyen: use documentation
+Tarnveer: use documentation and videos +
+Matthew: use documentation and videos +
+Kyen: use documentation +
 Harman: use documentation and videos
 
