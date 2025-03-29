@@ -6,4 +6,16 @@
 | _Deadline_ | _Delivered_ | _Change_ | _Date_ 
 
 | **V0** | Oct 11, 2024 | Oct 11, 2024 | Initial SRS Draft | Oct 11, 2024
+| **Rev 1** | Apr 2, 2025 | TBA | link:https://github.com/takhtart/PCD/issues/80[Revision 1] | March 26, 2025
+| **Rev 1** | Apr 2, 2025 | TBA | link:https://github.com/takhtart/PCD/issues/81[Revision 1] | March 26, 2025
+| **Rev 1** | Apr 2, 2025 | TBA | link:https://github.com/takhtart/PCD/issues/82[Revision 1] | March 26, 2025
+| **Rev 1** | Apr 2, 2025 | TBA | link:https://github.com/takhtart/PCD/issues/83[Revision 1] | March 26, 2025
+| **Rev 1** | Apr 2, 2025 | TBA | link:https://github.com/takhtart/PCD/issues/84[Revision 1] | March 26, 2025
+| **Rev 1** | Apr 2, 2025 | TBA | link:https://github.com/takhtart/PCD/issues/85[Revision 1] | March 26, 2025
+| **Rev 1** | Apr 2, 2025 | TBA | link:https://github.com/takhtart/PCD/issues/86[Revision 1] | March 26, 2025
+| **Rev 1** | Apr 2, 2025 | TBA | link:https://github.com/takhtart/PCD/issues/87[Revision 1] | March 27, 2025
+| **Rev 1** | Apr 2, 2025 | TBA | link:https://github.com/takhtart/PCD/issues/88[Revision 1] | March 27, 2025
+| **Rev 1** | Apr 2, 2025 | TBA | link:https://github.com/takhtart/PCD/issues/89[Revision 1] | March 27, 2025
+| **Rev 1** | Apr 2, 2025 | TBA | link:https://github.com/takhtart/PCD/issues/90[Revision 1] | March 26, 2025
+| **Rev 1** | Apr 2, 2025 | TBA | link:https://github.com/takhtart/PCD/issues/91[Revision 1] | March 26, 2025
 |===
