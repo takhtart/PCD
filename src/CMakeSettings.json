@@ -17,7 +17,7 @@
       "configurationType": "Release",
       "buildRoot": "${projectDir}\\out\\build\\${name}",
       "installRoot": "${projectDir}\\out\\install\\${name}",
-      "ctestCommandArgs": "",
+      "ctestCommandArgs": "Coverage",
       "inheritEnvironments": [ "msvc_x64_x64" ]
     }
   ]
