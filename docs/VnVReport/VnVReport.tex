@@ -228,9 +228,6 @@ The following section covers the functional tests related to the connection and 
   }
 \end{table}
 
-
-\section{Non-Functional Requirements Evaluation}
-
 \subsection{Realtime Processing}
 The following section covers the non-functional tests related to performance metrics.
 \begin{table}[H] % Force table to stay here
@@ -244,6 +241,31 @@ The following section covers the non-functional tests related to performance met
       NFT11 & Manual & \raggedright Realtime PCD from Kinect \par & \raggedright Software is able to update and produce an outline of the head within 1s each time the head pokes out \par & \raggedright Software is able to update and produce an outline of the head after approximately 642 ms (averaged out of 10 runs) \par & Pass \\
       \hline
       \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test means that our software meets the non-functional requirement of being a real-time system. During our test, our tester was able to measure a less than a second delay for each of the ten attempts we did. The measurement of the time delay averaged out to around 642ms. Since the test results align with the expected results, we consider this test a pass. \par} \\
+      \hline
+  \end{tabular}
+  }
+\end{table}
+
+
+\section{Non-Functional Requirements Evaluation}
+
+\subsection{Usability}
+The following section covers the non-functional tests related to usability metrics. The user in this scenario has no idea how to run the software.
+\begin{table}[H] % Force table to stay here
+  \centering
+  \renewcommand{\arraystretch}{1.4} % Adjust row height for better readability
+  \resizebox{\textwidth}{!}{ % Ensures table fits within text width
+  \begin{tabular}{|p{1.5cm}|p{2.5cm}|p{3cm}|p{4cm}|p{4cm}|p{1.8cm}|} 
+      \hline
+      \textbf{ID} & \textbf{Type} & \textbf{Input} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/Fail} \\
+      \hline
+      NFT11 & Manual & \raggedright The user is given the Setup.md (link), a laptop without any necessary downloads, and the Kinect. \par & \raggedright User is able to set up on the laptop and run the software in the live scenario using the Kinect. This is all expected to take 10-15 minutes without download times included.\par & \raggedright The user takes approximately 12 minutes to set up and get it all running. \par & Pass \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test means that our software meets the non-functional requirement of being a usable system. During our test, the user did not struggle with the set up and followed along easily with the set up documentation. They completed within the time frame given and did not have any questions during the test either. Since the test results align with the expected results, we consider this test a pass. \par} \\
+      \hline
+      NFT12 & Manual & \raggedright A .pcd file that user is uploading \par & \raggedright User is able to upload a .pcd file without any issues and have the expected outcome displayed on the screen \par & \raggedright User had zero issues and did what was expected. The user was able to run offline mode and upload a .pcd file. \par & Pass \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test means that our software meets the non-functional requirement of being a usable system. During our test, the user had zero issue uploading a file showing that the current proccess is straightforward, even when there is zero knowledge about the system. Since the test results align with the expected results, we consider this test a pass. \par} \\
       \hline
   \end{tabular}
   }
