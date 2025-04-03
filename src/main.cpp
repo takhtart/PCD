@@ -23,7 +23,6 @@ cv::Mat planeMask;
 
 // Initialize cloud mutex
 std::mutex cloud_mutex;
-std::mutex cloud_filtered_mutex;
 
 void process_cloud(PointCloudT::Ptr& cloud, PointCloudT::Ptr& cloud_filtered,
                    std::vector<pcl::PointXYZ> skinPoints) {
@@ -139,7 +138,7 @@ void live_stream() {
   bool viewer_running = true;
 
   std::thread visualizer_thread(run_visualizer, cloud_filtered, &viewer_running,
-                                &cloud_filtered_mutex, "Human Clusters");
+                                &cloud_mutex, "Human Clusters");
 
   std::thread visualizer_thread2(run_visualizer, cloud, &viewer_running,
                                  &cloud_mutex, "Original View");
@@ -152,7 +151,6 @@ void live_stream() {
       [&cloud,
        &new_cloud_available_flag](const PointCloudT::ConstPtr& input_cloud) {
         std::lock_guard<std::mutex> lock(cloud_mutex);
-        std::lock_guard<std::mutex> lock2(cloud_filtered_mutex);
         *cloud = *input_cloud;
         new_cloud_available_flag = true;
       };
@@ -178,7 +176,6 @@ void live_stream() {
     }
 
     if (new_cloud_available_flag) {
-      std::lock_guard<std::mutex> lock2(cloud_filtered_mutex);
       std::lock_guard<std::mutex> lock(cloud_mutex);
 
       process_cloudOCV(cloud, cloud_filtered);
