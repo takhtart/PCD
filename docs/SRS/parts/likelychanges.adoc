@@ -1,0 +1,9 @@
+== Likely Changes
+
+. [[LC1]] *Offline Processing* <<F413>>: The offline aspect is not an important fucntional requirement. The main focus with the software is to be able to pick up live data.
+
+. [[LC2]] *Body Pose Variation Handling* <<F414>>: There may be some poses that the system may not be able to handle and so there may need to be adjustments to this requirement.
+
+. [[LC3]] *Usability* <<NF431>>: Usability is not the main focus when it comes to the software and thus could be removed.
+
+

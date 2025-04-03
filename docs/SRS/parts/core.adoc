@@ -12,6 +12,10 @@ include::./system/index.adoc[]
 
 include::./project/index.adoc[]
 
+include::./likelychanges.adoc[]
+
+include::./unlikelychanges.adoc[]
+
 //include::./bibliography.adoc[]
 
 include::./reflection.adoc[]
