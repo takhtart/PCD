@@ -5,6 +5,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+add_definitions(-D_HAS_STD_BYTE=0)
 
 add_executable (PCD "main.cpp" "kinect2_grabber.h" "conversions.h" "definitions.h" "visualization.h" "ocv_PlaneDetect.h" "ocv_SkinDetect.h" "pcl_HelperFunctions.h" "pcl_RegionEstimation.h" "pcl_RegionGrowing.h")
 find_package(PCL 1.7 REQUIRED)
