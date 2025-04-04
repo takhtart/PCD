@@ -102,7 +102,10 @@ std::vector<pcl::PointXYZ> detectSkinAndConvertToPCL(
 
     // Convert OpenCV pixel position to PCL world coordinates
     if (cx >= 0 && cy >= 0 && cx < cloud->width && cy < cloud->height) {
-      pcl::PointXYZRGBA pclPoint = cloud->at(cx, cy);
+      int mirrored_x = cloud->width - 1 - cx;  // Fix horizontal mirroring
+      pcl::PointXYZRGBA pclPoint = cloud->at(mirrored_x, cy);
+
+	  
       detectedPoints.push_back(
           pcl::PointXYZ(pclPoint.x, pclPoint.y, pclPoint.z));
     }
