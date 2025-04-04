@@ -571,20 +571,6 @@ Each subsection below covers a nonfunctional requirement of the system. All nonf
 \textbf{Test Case Derivation:} Because the file is the same, uploading it multiple different times should result in the system predicting the the person's location within the screen similarly each time. In the one file uploaded the human will be partially covered and so each time it is uploaded the coordinates for the outline will be checked with the first run and it should fall into a range that is only 5-10 percent off of previous upload.
 
 \textbf{How test will be performed:} This will be done by having a file be uploaded to the system 10 times in a loop and then checked if the coordinates off each upload fall into the expect range for the test to be a success. 
-  
-\item{Linting (NFT22)\label{NFT22}\\}
-  
-\textbf{Control:} Automated
-
-\textbf{Initial State:} The system has a C/C++ Linter hosted on Github Actions and has the Google C++ styling clang configuration file included.
-
-\textbf{Input:} Source Code
-
-\textbf{Output:} The system indicates which files do not match the Google C++ styling if the test fails. Otherwise, the test passes.
-
-\textbf{Test Case Derivation:} The system is expected to read all of the source files with the relevant C++ extensions (.cpp, .c, .hpp, .h, etc.) and ensure it matches the Google C++ styling as defined in the configuration file. The system should return either a successful or failed result and include thorough information of the automated test in either case.
-
-\textbf{How test will be performed:} This test will run automatically when performing changes on git through a git push or a git merge.
 
 \end{enumerate}
 
@@ -607,7 +593,6 @@ Each subsection below covers a nonfunctional requirement of the system. All nonf
 \textbf{How test will be performed:} The person would hold a certain position and then the tester would manually check if the outlined area fits into a certain range by viewing the screen. The person would then change their position and the tester does the same process over again. This would be repeated 10 times to measure accuracy. Each postition will be given a rating out of 10 ( 1 - completly wrong and 10 - on the person eact location) and then the final results will all be averaged. The score should be above 80\% to be considered a pass.
   
 \end{enumerate}
-
 
 \subsection{Traceability Between Test Cases and Requirements}
 
@@ -672,7 +657,28 @@ Each subsection below covers a nonfunctional requirement of the system. All nonf
   \end{tabular}
   \end{table}
 
+\section{Code Quality Tests}
+This section is included to outline the tests that will be run to ensure that the code is of high quality and matches industry standards.
 
+\subsection{Linting}
+
+\begin{enumerate}
+
+\item{Linting (CQT11)\label{CQT11}\\}
+  
+\textbf{Control:} Automated
+
+\textbf{Initial State:} The system has a C/C++ Linter hosted on Github Actions and has the Google C++ styling clang configuration file included.
+
+\textbf{Input:} Source Code
+
+\textbf{Output:} The system indicates which files do not match the Google C++ styling if the test fails. Otherwise, the test passes.
+
+\textbf{Test Case Derivation:} The system is expected to read all of the source files with the relevant C++ extensions (.cpp, .c, .hpp, .h, etc.) and ensure it matches the Google C++ styling as defined in the configuration file. The system should return either a successful or failed result and include thorough information of the automated test in either case.
+
+\textbf{How test will be performed:} This test will run automatically when performing changes on git through a git push or a git merge.
+
+\end{enumerate}
 
 \section{Unit Test Description}
 
