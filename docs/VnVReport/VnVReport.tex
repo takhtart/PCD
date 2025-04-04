@@ -126,7 +126,7 @@ The following section covers the functional tests related to human detection giv
     }
   \end{table}
 
-\subsection{Location Prediction Test}
+\subsection{Location Prediction Test} \label{FT21} \label{FT24}
 The following section covers the functional tests related to predicting the location of obscured segments.
 \begin{table}[H] % Force table to stay here
   \centering
@@ -190,15 +190,15 @@ The following section covers the functional tests related to human detection giv
       \hline
       \textbf{ID} & \textbf{Type} & \textbf{Input} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/Fail} \\
       \hline
-      FT41 & Manual & \raggedright Realtime PCD from Kinect \par & \raggedright The outline of the human should be relatively the same when the face away from the camera \par & \raggedright The software is able to still detect the human based off the hand skin points \par & Pass \\
+      FT41 \label{FT41} & Manual & \raggedright Realtime PCD from Kinect \par & \raggedright The outline of the human should be relatively the same when the face away from the camera \par & \raggedright The software is able to still detect the human based off the hand skin points \par & Pass \\
       \hline
       \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} The test is a pass when the software is able to detect a person even if their face is hidden, but hands still visible. When running this test, when the human turned away from the sensor the software was still able to detect the human. Thus, the test was a pass showing that even if the face of the person is not in frame it is still able to detect the human. \par} \\
       \hline
-      FT42 & Manual & \raggedright Realtime PCD from Kinect \par & \raggedright The software is able to identify the human even if they are sitting. \par & \raggedright When the software was run, the software outlined the human sitting. \par & Fail \\
+      FT42 \label{FT42} & Manual & \raggedright Realtime PCD from Kinect \par & \raggedright The software is able to identify the human even if they are sitting. \par & \raggedright When the software was run, the software outlined the human sitting. \par & Fail \\
       \hline
       \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test would mean that our software is able to identify people in a variety of poses rather than just standing. In the actual test, we position a person sitting in a chair whilst facing the camera. Although the software was able to correctly cluster the person while they are sitting, it incorrectly clusters the chair along with the person in the same cluster. This does not align with the expected results, thus, we consider this test a fail. \par} \\
       \hline
-      FT43 & Manual & \raggedright Realtime PCD from Kinect \par & \raggedright The software is able to identify the human every time the face comes into frame. \par & \raggedright When ran, the software is able to identify the human when the face comes in frame. \par & Pass \\
+      FT43 \label{FT43} & Manual & \raggedright Realtime PCD from Kinect \par & \raggedright The software is able to identify the human every time the face comes into frame. \par & \raggedright When ran, the software is able to identify the human when the face comes in frame. \par & Pass \\
       \hline
       \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} The test is a pass if the system is able to detect and outline a human if it is able to see the skin points from the face and detect the partial human. During the actual test, the software was able to notice the head bobbing in and out and was able to detect a human when the head was in frame. Therefore, proving the test to be a success shows that when the system is able to see a skin point it is able to successfully detect a human in frame. \par} \\
       \hline
@@ -263,7 +263,7 @@ The following section covers the non-functional tests related to usability metri
       \hline
       \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test means that our software meets the non-functional requirement of being a usable system. During our test, the user did not struggle with the set up and followed along easily with the set up documentation. They completed within the time frame given and did not have any questions during the test either. Since the test results align with the expected results, we consider this test a pass. \par} \\
       \hline
-      NFT12 & Manual & \raggedright A .pcd file that user is uploading \par & \raggedright User is able to upload a .pcd file without any issues and have the expected outcome displayed on the screen \par & \raggedright User had zero issues and did what was expected. The user was able to run offline mode and upload a .pcd file. \par & Pass \\
+      NFT12 \label{NFT12} & Manual & \raggedright A .pcd file that user is uploading \par & \raggedright User is able to upload a .pcd file without any issues and have the expected outcome displayed on the screen \par & \raggedright User had zero issues and did what was expected. The user was able to run offline mode and upload a .pcd file. \par & Pass \\
       \hline
       \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test means that our software meets the non-functional requirement of being a usable system. During our test, the user had zero issue uploading a file showing that the current proccess is straightforward, even when there is zero knowledge about the system. Since the test results align with the expected results, we consider this test a pass. \par} \\
       \hline
@@ -330,9 +330,11 @@ The following section covers the non-functional tests related to accuracy requir
 
 \section{Changes Due to Testing}
 
-After the Dr. Bone meeting, it was established that the human body parts would not need to be identified, which made the 3D Space Estimation testing unnecessary. This would mean that this test section would no longer be needed. But, the addition of a new functional requirement of location prediction would require some tests. The location prediction is meant to predict where the human should be located based on the skin points detected. This now has four new tests, two for live and two for offline. The function has not yet been implemented for testing to occur.
+After the Dr. Bone meeting, it was established that the human body parts would not need to be identified, which made the 3D Space Estimation testing unnecessary. This would mean that this test section would no longer be needed. But, the addition of a new functional requirement of location prediction would require some tests \hyperref[FT21]{FT21}-\hyperref[FT24]{FT24}. The location prediction is meant to predict where the human should be located based on the skin points detected. This now has four new tests, two for live and two for offline. The function has not yet been implemented for testing to occur.
 
-Some of the body pose variation detection was altered slightly to match closer to the detection algorithm. After the Dr. Bone meeting, it was determined to be a good idea to use skin points to determine a human in frame. These tests are now accounting for different body poses, but with human skin points being in frame.
+Some of the body pose variation detection was altered slightly to match closer to the detection algorithm \hyperref[NFT41]{NFT41}-\hyperref[NFT43]{NFT43}. After the Dr. Bone meeting, it was determined to be a good idea to use skin points to determine a human in frame. These tests are now accounting for different body poses, but with human skin points being in frame.
+
+After doing the \hyperref[NFT12]{NFT12}  test, even though the test was a success, the user was provided with the file to upload and so now in the command line the output also says the expected file time.
 
 
 \section{Automated Testing}
