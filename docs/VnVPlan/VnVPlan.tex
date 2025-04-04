@@ -682,35 +682,17 @@ This section is included to outline the tests that will be run to ensure that th
 
 \section{Unit Test Description}
 
-\wss{This section should not be filled in until after the MIS (detailed design
-  document) has been completed.}
-
-\wss{Reference your MIS (detailed design document) and explain your overall
-philosophy for test case selection.}  
-
-\wss{To save space and time, it may be an option to provide less detail in this section.  
-For the unit tests you can potentially layout your testing strategy here.  That is, you 
-can explain how tests will be selected for each module.  For instance, your test building 
-approach could be test cases for each access program, including one test for normal behaviour 
-and as many tests as needed for edge cases.  Rather than create the details of the input 
-and output here, you could point to the unit testing code.  For this to work, you code 
-needs to be well-documented, with meaningful names for all of the tests.}
-
-
+Our testing strategy for creating our unit tests is to select modules from the MIS that have the highest priority such as Input Processing and Point Cloud Data Structures. These modules represent important logics that we must ensure is reliable. Within our modules, we created test cases for the helper functions that deal with conversions and computations. Specifically, the functions that cannot be visibly tested and thus not covered by our manual tests will be tested through unit tests. 
 
 \subsection{Unit Testing Scope}
 
-\wss{What modules are outside of the scope.  If there are modules that are
-  developed by someone else, then you would say here if you aren't planning on
-  verifying them.  There may also be modules that are part of your software, but
-  have a lower priority for verification than others.  If this is the case,
-  explain your rationale for the ranking of module importance.}
+The other modules that are not outlined below are outside of the scope of unit tests due to the size of the functions within the modules or their low priority. Furthermore, the other modules are best tested through manual testing and live observations, which has been covered by our system tests.
 
 \subsection{Tests for Functional Requirements}
 
-\subsubsection{Module 2D Filtering}
+\subsubsection{Module Input Data Read}
 
-The Test used to cover 2D Filtering is to ensure that the data transferred from the Kinect Sensor is correct to ensure that any filtering done will be done on a correct cv::Mat.
+The Test used to cover Input Data Read is to ensure that the data transferred from the Kinect Sensor is correct to ensure that any filtering done will be done on a correct cv::Mat.
 
 \begin{enumerate}
 
@@ -730,9 +712,9 @@ Type: Automatic
     
 \end{enumerate}
 
-\subsubsection{Module 3D Cluster Extraction}
+\subsubsection{Module Point Cloud Data Structure}
 
-There are two tests here that will cover the 3D Cluster Extraction module one with a valid cloud and one with an invalid cloud. These two tests will cover the main scope of the clustering to ensure the module runs as expected.
+There are two tests here that will cover the Point Cloud Data Structure module one with a valid cloud and one with an invalid cloud. These two tests will cover the main scope of the clustering to ensure the module runs as expected.
 
 \begin{enumerate}
 
@@ -766,9 +748,9 @@ Type: Automatic
 
 \end{enumerate}
 
-\subsubsection{Module 3D Filtering}
+\subsubsection{Module Input Processing}
 
-The two tests below will cover the 3D filtering module by covering the main filtering methods of the module. Testing to ensure that voxel downsampling and noise removal is functioning properly will ensure that the cloud is filtered before the subsequent processing methods are run.
+The two tests below will cover the Input Processing module by covering the main filtering methods of the module. Testing to ensure that voxel downsampling and noise removal is functioning properly will ensure that the cloud is filtered before the subsequent processing methods are run.
 
 \begin{enumerate}
 
@@ -802,53 +784,29 @@ Type: Automatic
 
 \end{enumerate}
 
-\subsection{Tests for Nonfunctional Requirements}
-
-\wss{If there is a module that needs to be independently assessed for
-  performance, those test cases can go here.  In some projects, planning for
-  nonfunctional tests of units will not be that relevant.}
-
-\wss{These tests may involve collecting performance data from previously
-  mentioned functional tests.}
-
-\subsubsection{Module ?}
-		
-\begin{enumerate}
-
-\item{test-id1\\}
-
-Type: \wss{Functional, Dynamic, Manual, Automatic, Static etc. Most will
-  be automatic}
-					
-\textbf{Initial State:} 
-					
-Input/Condition: 
-					
-Output/Result: 
-					
-\textbf{How test will be performed:} 
-					
-\item{test-id2\\}
-
-Type: Functional, Dynamic, Manual, Static etc.
-					
-\textbf{Initial State:} 
-					
-\textbf{Input:} 
-					
-\textbf{Output:} 
-					
-\textbf{How test will be performed:} 
-
-\end{enumerate}
-
-\subsubsection{Module ?}
-
-...
-
 \subsection{Traceability Between Test Cases and Modules}
 
-\wss{Provide evidence that all of the modules have been considered.}
+\begin{table}[H]
+
+  \centering
+  \caption{Module and Test Case Tracing}
+  \begin{tabular}{|l|l|l|}
+  \hline
+  \textbf{Test ID} & \textbf{Modules}\\
+  \hline
+  UT11 & M4\\
+  \hline
+  UT21 & M8\\
+  \hline
+  UT22 & M8\\
+  \hline
+  UT31 & M9\\
+  \hline
+  UT32 & M9\\
+  \hline
+  \end{tabular}
+\end{table}
+See section 7 in the \href{https://github.com/takhtart/PCD/blob/main/docs/Design/SoftArchitecture/MG.pdf}{Module Guide} for more information on the modules.
 				
 \bibliographystyle{plainnat}
 
