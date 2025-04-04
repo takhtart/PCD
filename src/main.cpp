@@ -157,6 +157,10 @@ void live_stream() {
 
   boost::signals2::connection connection = grabber->registerCallback(f);
 
+  // Performance Frame Time Analysis Variables
+  size_t total_frames_processed = 0;
+  double total_processing_time_sec = 0.0;
+
   grabber->start();
 
   while (viewer_running) {
@@ -177,14 +181,34 @@ void live_stream() {
 
     if (new_cloud_available_flag) {
       std::lock_guard<std::mutex> lock(cloud_mutex);
+      // Start timer
+      auto start_time = std::chrono::high_resolution_clock::now();
 
       process_cloudOCV(cloud, cloud_filtered);
+
+      // End timer
+      auto end_time = std::chrono::high_resolution_clock::now();
+      std::chrono::duration<double> frame_duration = end_time - start_time;
+       
+      // Accumulate stats
+      if (!debug_strings.empty()) {
+          total_frames_processed++;
+          total_processing_time_sec += frame_duration.count();
+      }
 
       if (debug && !debug_strings.empty()) {
         std::cout << "==========================================" << std::endl;
         for (const auto& debug_string : debug_strings) {
           std::cout << debug_string << std::endl;
         }
+
+        // Print timing info
+        std::cout << "Frame time: " << frame_duration.count() << " seconds" << std::endl;
+        std::cout << "Total frames: " << total_frames_processed << std::endl;
+        std::cout << "Total time: " << total_processing_time_sec << " seconds" << std::endl;
+        std::cout << "Average time per frame: "
+            << (total_processing_time_sec / total_frames_processed)
+            << " seconds" << std::endl;
 
         std::cout << "==========================================" << std::endl;
       }
@@ -204,6 +228,10 @@ void live_stream() {
 void offline_view() {
   PointCloudT::Ptr cloud(new PointCloudT);
   PointCloudT::Ptr cloud_filtered(new PointCloudT);
+
+  // Performance Frame Time Analysis Variables
+  size_t total_frames_processed = 0;
+  double total_processing_time_sec = 0.0;
 
   std::string file;
   std::cout
@@ -227,14 +255,34 @@ void offline_view() {
   while (viewer_running) {
     if (new_cloud_available_flag) {
       std::lock_guard<std::mutex> lock(cloud_mutex);
+      // Start timer
+      auto start_time = std::chrono::high_resolution_clock::now();
 
       process_cloudOCV(cloud, cloud_filtered);
+
+      // End timer
+      auto end_time = std::chrono::high_resolution_clock::now();
+      std::chrono::duration<double> frame_duration = end_time - start_time;
+
+      // Accumulate stats
+      total_frames_processed++;
+      total_processing_time_sec += frame_duration.count();
 
       std::cout << "==========================================" << std::endl;
 
       for (const auto& debug_string : debug_strings) {
         std::cout << debug_string << std::endl;
       }
+
+
+      // Print timing info
+      std::cout << "Frame time: " << frame_duration.count() << " seconds" << std::endl;
+      std::cout << "Total frames: " << total_frames_processed << std::endl;
+      std::cout << "Total time: " << total_processing_time_sec << " seconds" << std::endl;
+      std::cout << "Average time per frame: "
+          << (total_processing_time_sec / total_frames_processed)
+          << " seconds" << std::endl;
+
       debug_strings.clear();
 
       std::cout << "==========================================" << std::endl;
