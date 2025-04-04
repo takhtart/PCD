@@ -539,7 +539,7 @@ Each subsection below covers a nonfunctional requirement of the system. All nonf
 
 \textbf{How test will be performed:} The User will be given all necessary components to run the software and just told to follow a set of instructions. They will be timed during the whole process and the timer will pause between downloads.
 
-\item{Upload a File Test (NFT21)\label{NFT12}\\}
+\item{Upload a File Test (NFT12)\label{NFT12}\\}
   
 \textbf{Control:} Manual
 
@@ -572,6 +572,20 @@ Each subsection below covers a nonfunctional requirement of the system. All nonf
 
 \textbf{How test will be performed:} This will be done by having a file be uploaded to the system 10 times in a loop and then checked if the coordinates off each upload fall into the expect range for the test to be a success. 
   
+\item{Linting (NFT22)\label{NFT22}\\}
+  
+\textbf{Control:} Automated
+
+\textbf{Initial State:} The system has a C/C++ Linter hosted on Github Actions and has the Google C++ styling clang configuration file included.
+
+\textbf{Input:} Source Code
+
+\textbf{Output:} The system indicates which files do not match the Google C++ styling if the test fails. Otherwise, the test passes.
+
+\textbf{Test Case Derivation:} The system is expected to read all of the source files with the relevant C++ extensions (.cpp, .c, .hpp, .h, etc.) and ensure it matches the Google C++ styling as defined in the configuration file. The system should return either a successful or failed result and include thorough information of the automated test in either case.
+
+\textbf{How test will be performed:} This test will run automatically when performing changes on git through a git push or a git merge.
+
 \end{enumerate}
 
 \subsubsection{Accuracy}
@@ -650,6 +664,8 @@ Each subsection below covers a nonfunctional requirement of the system. All nonf
   \hyperref[NFT12]{(NFT12)} & {[}NF431{]} \\ 
   \hline
   \hyperref[NFT21]{(NFT21)} & {[}NF432{]} \\
+  \hline
+  \hyperref[NFT22]{(NFT22)} & {[}NF432{]} \\
   \hline
   \hyperref[NFT31]{(NFT31)} & {[}NF433{]} \\ 
   \hline
