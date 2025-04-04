@@ -125,32 +125,31 @@ The following section covers the functional tests related to human detection giv
     \end{tabular}
     }
   \end{table}
-
 \subsection{Location Prediction Test} \label{FT21} \label{FT24}
 The following section covers the functional tests related to predicting the location of obscured segments.
 \begin{table}[H] % Force table to stay here
   \centering
-  \renewcommand{\arraystretch}{1.4} % Adjust row height for better readability
+  \renewcommand{\arraystretch}{1.2} % Adjust row height for better readability
   \resizebox{\textwidth}{!}{ % Ensures table fits within text width
-  \begin{tabular}{|p{1.5cm}|p{2.5cm}|p{3cm}|p{4cm}|p{4cm}|p{1.8cm}|} 
+  \begin{tabular}{|p{2cm}|p{2.5cm}|p{3cm}|p{4cm}|p{4cm}|p{1.8cm}|} 
       \hline
       \textbf{ID} & \textbf{Type} & \textbf{Input} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/Fail} \\
       \hline
-      FT21 & Manual & \raggedright Realtime PCD from Kinect \par & \raggedright An arrow pointing outwards to where the person is standing \par & N/A & N/I \\
+      FT21 & Manual & \raggedright Realtime PCD from Kinect \par & \raggedright A box drawn outwards to where the person is standing \par & A box drawn away from the hand at the center off to the end of the cloud showing the human outside of frame. & Pass \\
       \hline
-      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} Actual function not implemented yet because the functional requirements were updated after a Dr. Bone meeting. So, testing at this time is not possible. \par} \\
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test would indicate that the software is able to detect the approximate location of the person if they are partially out of frame. This is important as it shows that the location estimation is able to determine if the human is partially out of the scene. The actual test resulted in the box being drawn around the center of the person out of the point cloud a bit to showcase that they are partially out of frame. Thus, the test is a pass meaning that the software is able to know when the human is out of the screen. \par} \\
       \hline
-      FT22 & Manual & \raggedright Realtime PCD from Kinect \par & \raggedright A box showing where the human's legs would be. \par & N/A & N/I \\
+      FT22 & Manual & \raggedright Realtime PCD from Kinect \par & \raggedright A box showing where the human's legs would be. \par & A box encompassing the human, drawing the box to where the legs should be as well. & Pass \\
       \hline
-      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} Actual function not implemented yet because the functional requirements were updated after a Dr. Bone meeting. So, testing at this time is not possible. \par} \\
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test would indicate that the software is able to detect people based of the given points and is able to use that to estimate the general location of where the human should be. In this specific test case the software draws a box around the human body and predicts where the legs of the body should be. This is seen in the actual tesing as well. Thus, proving that the software is able to successful predict the general location of the legs and not visble area of the human.  \par} \\
       \hline
-      FT23 & Manual & \raggedright .pcd file containing a hand of a human outside the frame \par & \raggedright An arrow pointing outwards to where the person is standing \par & N/A & N/I \\
+      FT23 & Manual & \raggedright .pcd file containing a hand of a human outside the frame \par & \raggedright A box drawn outwards to where the person is standing \par & A box drawn away from the hand at the center off to the end of the cloud showing the human outside of frame. & Pass \\
       \hline
-      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} Actual function not implemented yet because the functional requirements were updated after a Dr. Bone meeting. So, testing at this time is not possible. \par} \\
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test would indicate that the software is able to detect the approximate location of the person if they are partially out of frame given a .pcd frame. This is important as it shows that the location estimation is able to determine if the human is partially out of the scene. The actual test had the submission of the file with this scenario and resulted in the box being drawn around the center of the person out of the point cloud a bit to showcase that they are partially out of frame. Thus, the test is a pass meaning that the software is able to know when the human is out of the screen. \par} \\
       \hline
-      FT24 & Manual & \raggedright .pcd file containing a human who’s upper body is only visible \par & \raggedright A box showing where the human's legs would be. \par & N/A & N/I \\
+      FT24 & Manual & \raggedright .pcd file containing a human who’s upper body is only visible \par & \raggedright A box showing where the human's legs would be. \par & A box drawn away from the hand at the center off to the end of the cloud showing the human outside of frame. & Pass \\
       \hline
-      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} Actual function not implemented yet because the functional requirements were updated after a Dr. Bone meeting. So, testing at this time is not possible. \par} \\
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test would indicate that the software is able to detect people based of the uploaded .pcd w and is able to use that to estimate the human. In the actual test has the user upload a .pcd and the software draws a box around the human body and where the legs of the body should be. Thus, proving that the software is able to successful predict the not visble area of the human. \par} \\
       \hline
   \end{tabular}
   }
