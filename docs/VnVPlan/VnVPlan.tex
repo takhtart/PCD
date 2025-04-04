@@ -264,7 +264,7 @@ Each subsection below covers a functional requirement of the system. All functio
 
 \textbf{Initial State:} The system is running in offline mode which allows the user to upload a .pcd file.
 
-\textbf{Input:} .pcd file containing the full-body of a human unobstructed by any objects .
+\textbf{Input:} .pcd file containing the full-body of a human unobstructed by any objects. \href{https://github.com/takhtart/PCD/blob/Rev_1/test/Full%20Body%201.pcd}{(Full Body 1.pcd)}
 
 \textbf{Output:} The software recognizes that there is a human in frame
 
@@ -278,7 +278,7 @@ Each subsection below covers a functional requirement of the system. All functio
 
 \textbf{Initial State:} The system is running in offline mode which allows the user to upload a .pcd file.
 
-\textbf{Input:} .pcd file containing only the upper body of a human unobstructed by any objects .
+\textbf{Input:} .pcd file containing only the upper body of a human unobstructed by any objects. \href{https://github.com/takhtart/PCD/blob/Rev_1/test/PartiallyObstructedHalfBodyVisible.pcd}{(PartiallyObstructedHalfBodyVisible.pcd)}
 
 \textbf{Output:} The software recognizes that there is a human in frame
 
@@ -292,7 +292,7 @@ Each subsection below covers a functional requirement of the system. All functio
 
 \textbf{Initial State:} The system is running in offline mode which allows the user to upload a .pcd file.
 
-\textbf{Input:} .pcd file containing 2 humans with one human partially covering the other.
+\textbf{Input:} .pcd file containing 2 humans with one human partially covering the other. \href{https://github.com/takhtart/PCD/blob/Rev_1/test/PartiallyCoveredByAnotherHuman.pcd}{(PartiallyCoveredByAnotherHuman.pcd)}
 
 \textbf{Output:} The software correctly recognizes and distinguishes 2 humans separately
 
@@ -306,7 +306,7 @@ Each subsection below covers a functional requirement of the system. All functio
 
 \textbf{Initial State:} The system is running in offline mode which allows the user to upload a .pcd file.
 
-\textbf{Input:} .pcd file containing a human who is partially covered by an object such as a chair or a table
+\textbf{Input:} .pcd file containing a human who is partially covered by an object such as a chair or a table \href{https://github.com/takhtart/PCD/blob/Rev_1/test/PartiallyObstructedOnlyHeadVisible.pcd}{(PartiallyObstructedOnlyHeadVisible.pcd)}
 
 \textbf{Output:} The software recognizes that there is a human in frame
 
@@ -359,7 +359,7 @@ Each subsection below covers a functional requirement of the system. All functio
 
   \textbf{Initial State:} The system is running in offline mode which allows the user to upload a .pcd file.
   
-  \textbf{Input:}  A file of a human that only has their hand in frame. 
+  \textbf{Input:}  A file of a human that only has their hand in frame. \href{https://github.com/takhtart/PCD/blob/Rev_1/test/Out of Screen.pcd}{(Out of Screen.pcd)} 
 
   \textbf{Output:} The software locates where the human should be and draws an arrow point to the approximate off screen location.
   
@@ -373,7 +373,7 @@ Each subsection below covers a functional requirement of the system. All functio
 
   \textbf{Initial State:} The system is running in offline mode which allows the user to upload a .pcd file.
 
-  \textbf{Input:} File of a human that is only showing the upper body, with their legs blocked by a desk or object.
+  \textbf{Input:} File of a human that is only showing the upper body, with their legs blocked by a desk or object. \href{https://github.com/takhtart/PCD/blob/Rev_1/test/PartiallyObstructedHalfBodyVisible.pcd}{(PartiallyObstructedHalfBodyVisible.pcd)}
 
   \textbf{Output:} The software locates the human outlines the whole human, while assuming where the legs should be. 
   
@@ -393,7 +393,7 @@ Each subsection below covers a functional requirement of the system. All functio
 
 \textbf{Initial State:} The system is running in offline mode which allows the user to upload a file.
 
-\textbf{Input:} Any .pcd file
+\textbf{Input:} Any .pcd file (take from \href{https://github.com/takhtart/PCD/blob/Rev_1/test}{Test Folder})
 
 \textbf{Output:} The software is able to read and analyze the data from the uploaded .pcd file and notifies the user that the file has been successfully uploaded
 
