@@ -690,6 +690,8 @@ and as many tests as needed for edge cases.  Rather than create the details of t
 and output here, you could point to the unit testing code.  For this to work, you code 
 needs to be well-documented, with meaningful names for all of the tests.}
 
+
+
 \subsection{Unit Testing Scope}
 
 \wss{What modules are outside of the scope.  If there are modules that are
@@ -700,56 +702,99 @@ needs to be well-documented, with meaningful names for all of the tests.}
 
 \subsection{Tests for Functional Requirements}
 
-\wss{Most of the verification will be through automated unit testing.  If
-  appropriate specific modules can be verified by a non-testing based
-  technique.  That can also be documented in this section.}
+\subsubsection{Module 2D Filtering}
 
-\subsubsection{Module 1}
-
-\wss{Include a blurb here to explain why the subsections below cover the module.
-  References to the MIS would be good.  You will want tests from a black box
-  perspective and from a white box perspective.  Explain to the reader how the
-  tests were selected.}
+The Test used to cover 2D Filtering is to ensure that the data transferred from the Kinect Sensor is correct to ensure that any filtering done will be done on a correct cv::Mat.
 
 \begin{enumerate}
 
-\item{test-id1\\}
+\item{Test for convertPCLtoOpenCV (UT11)\label{UT11}\\}
 
-Type: \wss{Functional, Dynamic, Manual, Automatic, Static etc. Most will
-  be automatic}
+Type: Automatic
 					
-\textbf{Initial State:} 
+\textbf{Initial State:} The test is correctly implemented within the test suite.
 					
-\textbf{Input:} 
+\textbf{Input:} Sample PCL Point Cloud
 					
-\textbf{Output:} \wss{The expected result for the given inputs}
+\textbf{Output:} The test checks that the RGB values, Depth Values, and Cloud Size are mapped correctly between file types (one to one) and returns an OK.
 
-\textbf{Test Case Derivation:} \wss{Justify the expected value given in the Output field}
+\textbf{Test Case Derivation:} The test should be able to compare the sample cloud with the converted OpenCV image containers (cv::Mat) contaning rgb and depth values to check that the sample PCL point cloud has been properly converted to OpenCV.
 
-\textbf{How test will be performed:} 
-					
-\item{test-id2\\}
-
-Type: \wss{Functional, Dynamic, Manual, Automatic, Static etc. Most will
-  be automatic}
-					
-\textbf{Initial State:} 
-					
-\textbf{Input:} 
-					
-\textbf{Output:} \wss{The expected result for the given inputs}
-
-\textbf{Test Case Derivation:} \wss{Justify the expected value given in the Output field}
-
-\textbf{How test will be performed:} 
-
-\item{...\\}
+\textbf{How test will be performed:} Run the Unit Test suite through the unittest.cpp file and it will automatically display if the test passes through an OK output.
     
 \end{enumerate}
 
-\subsubsection{Module 2}
+\subsubsection{Module 3D Cluster Extraction}
 
-...
+There are two tests here that will cover the 3D Cluster Extraction module one with a valid cloud and one with an invalid cloud. These two tests will cover the main scope of the clustering to ensure the module runs as expected.
+
+\begin{enumerate}
+
+\item{Test for valid\_cluster (UT21)\label{UT21}\\}
+
+Type: Automatic
+
+\textbf{Initial State:} The test is correctly implemented within the test suite.
+
+\textbf{Input:} Sample PCL cloud with a valid cluster 
+
+\textbf{Output:} The test correctly assesses the cluster to be valid and returns an OK
+
+\textbf{Test Case Derivation:} The test should be able to confirm that the cluster that has been extracted is valid so that the correct human clustering can be determined.
+
+\textbf{How test will be performed:} Run the Unit Test suite through the unittest.cpp file and it will automatically display if the test passes through an OK output.
+
+\item{Test for invalid\_cluster (UT22)\label{UT22}\\}
+
+Type: Automatic
+
+\textbf{Initial State:} The test is correctly implemented within the test suite.
+
+\textbf{Input:} Sample PCL cloud with an invalid cluster
+
+\textbf{Output:} The test correctly assesses the cluster to be invalid and returns an OK
+
+\textbf{Test Case Derivation:} The test should be able to confirm that the cluster is invalid to make sure that it does not take in invalid human clustering.
+
+\textbf{How test will be performed:} Run the Unit Test suite through the unittest.cpp file and it will automatically display if the test passes through an OK output.
+
+\end{enumerate}
+
+\subsubsection{Module 3D Filtering}
+
+The two tests below will cover the 3D filtering module by covering the main filtering methods of the module. Testing to ensure that voxel downsampling and noise removal is functioning properly will ensure that the cloud is filtered before the subsequent processing methods are run.
+
+\begin{enumerate}
+
+\item{Test for voxel\_downsampling (UT31)\label{UT31}\\}
+
+Type: Automatic
+
+\textbf{Initial State:} The test is correctly implemented within the test suite.
+
+\textbf{Input:} Sample PCL cloud with predetermined points
+
+\textbf{Output:} Sample PCL cloud is downsampled and contains less points than the original cloud. The test returns an OK.
+
+\textbf{Test Case Derivation:} The test should be able to confirm that the PCL cloud was properly downsampled and contains less points than the original cloud.
+
+\textbf{How test will be performed:} Run the Unit Test suite through the unittest.cpp file and it will automatically display if the test passes through an OK output.
+
+\item{Test for removeNoise (UT32)\label{UT32}\\}
+
+Type: Automatic
+
+\textbf{Initial State:} The test is correctly implemented within the test suite.
+
+\textbf{Input:} Sample PCL cloud with noise added
+
+\textbf{Output:} The noise that was added to the sample PCL cloud is removed. The test checks that the noise has been removed and returns an OK.
+
+\textbf{Test Case Derivation:} The test should be able to confirm that the PCL cloud has had all of the added noise removed.
+
+\textbf{How test will be performed:} Run the Unit Test suite through the unittest.cpp file and it will automatically display if the test passes through an OK output.
+
+\end{enumerate}
 
 \subsection{Tests for Nonfunctional Requirements}
 
