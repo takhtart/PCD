@@ -264,7 +264,7 @@ Each subsection below covers a functional requirement of the system. All functio
 
 \textbf{Initial State:} The system is running in offline mode which allows the user to upload a .pcd file.
 
-\textbf{Input:} .pcd file containing the full-body of a human unobstructed by any objects .
+\textbf{Input:} .pcd file containing the full-body of a human unobstructed by any objects. \href{https://github.com/takhtart/PCD/blob/Rev_1/test/Full%20Body%201.pcd}{(Full Body 1.pcd)}
 
 \textbf{Output:} The software recognizes that there is a human in frame
 
@@ -278,7 +278,7 @@ Each subsection below covers a functional requirement of the system. All functio
 
 \textbf{Initial State:} The system is running in offline mode which allows the user to upload a .pcd file.
 
-\textbf{Input:} .pcd file containing only the upper body of a human unobstructed by any objects .
+\textbf{Input:} .pcd file containing only the upper body of a human unobstructed by any objects. \href{https://github.com/takhtart/PCD/blob/Rev_1/test/PartiallyObstructedHalfBodyVisible.pcd}{(PartiallyObstructedHalfBodyVisible.pcd)}
 
 \textbf{Output:} The software recognizes that there is a human in frame
 
@@ -292,7 +292,7 @@ Each subsection below covers a functional requirement of the system. All functio
 
 \textbf{Initial State:} The system is running in offline mode which allows the user to upload a .pcd file.
 
-\textbf{Input:} .pcd file containing 2 humans with one human partially covering the other.
+\textbf{Input:} .pcd file containing 2 humans with one human partially covering the other. \href{https://github.com/takhtart/PCD/blob/Rev_1/test/PartiallyCoveredByAnotherHuman.pcd}{(PartiallyCoveredByAnotherHuman.pcd)}
 
 \textbf{Output:} The software correctly recognizes and distinguishes 2 humans separately
 
@@ -306,7 +306,7 @@ Each subsection below covers a functional requirement of the system. All functio
 
 \textbf{Initial State:} The system is running in offline mode which allows the user to upload a .pcd file.
 
-\textbf{Input:} .pcd file containing a human who is partially covered by an object such as a chair or a table
+\textbf{Input:} .pcd file containing a human who is partially covered by an object such as a chair or a table \href{https://github.com/takhtart/PCD/blob/Rev_1/test/PartiallyObstructedOnlyHeadVisible.pcd}{(PartiallyObstructedOnlyHeadVisible.pcd)}
 
 \textbf{Output:} The software recognizes that there is a human in frame
 
@@ -359,7 +359,7 @@ Each subsection below covers a functional requirement of the system. All functio
 
   \textbf{Initial State:} The system is running in offline mode which allows the user to upload a .pcd file.
   
-  \textbf{Input:}  A file of a human that only has their hand in frame. 
+  \textbf{Input:}  A file of a human that only has their hand in frame. \href{https://github.com/takhtart/PCD/blob/Rev_1/test/Out of Screen.pcd}{(Out of Screen.pcd)} 
 
   \textbf{Output:} The software locates where the human should be and draws an arrow point to the approximate off screen location.
   
@@ -373,7 +373,7 @@ Each subsection below covers a functional requirement of the system. All functio
 
   \textbf{Initial State:} The system is running in offline mode which allows the user to upload a .pcd file.
 
-  \textbf{Input:} File of a human that is only showing the upper body, with their legs blocked by a desk or object.
+  \textbf{Input:} File of a human that is only showing the upper body, with their legs blocked by a desk or object. \href{https://github.com/takhtart/PCD/blob/Rev_1/test/PartiallyObstructedHalfBodyVisible.pcd}{(PartiallyObstructedHalfBodyVisible.pcd)}
 
   \textbf{Output:} The software locates the human outlines the whole human, while assuming where the legs should be. 
   
@@ -393,7 +393,7 @@ Each subsection below covers a functional requirement of the system. All functio
 
 \textbf{Initial State:} The system is running in offline mode which allows the user to upload a file.
 
-\textbf{Input:} Any .pcd file
+\textbf{Input:} Any .pcd file (take from \href{https://github.com/takhtart/PCD/blob/Rev_1/test}{Test Folder})
 
 \textbf{Output:} The software is able to read and analyze the data from the uploaded .pcd file and notifies the user that the file has been successfully uploaded
 
@@ -539,7 +539,7 @@ Each subsection below covers a nonfunctional requirement of the system. All nonf
 
 \textbf{How test will be performed:} The User will be given all necessary components to run the software and just told to follow a set of instructions. They will be timed during the whole process and the timer will pause between downloads.
 
-\item{Upload a File Test (NFT21)\label{NFT12}\\}
+\item{Upload a File Test (NFT12)\label{NFT12}\\}
   
 \textbf{Control:} Manual
 
@@ -560,18 +560,18 @@ Each subsection below covers a nonfunctional requirement of the system. All nonf
 
 \item{Same File Test (NFT21)\label{NFT21}\\}
   
-\textbf{Control:} Manual
+\textbf{Control:} Automated
 
 \textbf{Initial State:} The system is running in offline mode. A file with an object partially obstructing the person will be uploaded.
 
-\textbf{Input:} A offline file with inputted multiple times
+\textbf{Input:} A offline file with an object partially obstructing the person which will be uploaded 10 times.
 
-\textbf{Output:} The system displays a similar outline to the other inputs.
+\textbf{Output:} The system predicts the location of the human and outlines the human with only a 5-10\% difference between each run.
 
-\textbf{Test Case Derivation:} Because the file is the same, uploading it multiple different times should result in the system outlining the human within the screen similarly. In the one file uploaded the human will be partially covered and so each time it is uploaded the coordinates for the outline should fit into a range that is only 5-10 percent off of previous upload.
+\textbf{Test Case Derivation:} Because the file is the same, uploading it multiple different times should result in the system predicting the the person's location within the screen similarly each time. In the one file uploaded the human will be partially covered and so each time it is uploaded the coordinates for the outline will be checked with the first run and it should fall into a range that is only 5-10 percent off of previous upload.
 
-\textbf{How test will be performed:} This will be done by having a file be uploaded to the system 10 times and then copy the results into an array to then measure how off it is to its original run. 
-  
+\textbf{How test will be performed:} This will be done by having a file be uploaded to the system 10 times in a loop and then checked if the coordinates off each upload fall into the expect range for the test to be a success. 
+
 \end{enumerate}
 
 \subsubsection{Accuracy}
@@ -584,16 +584,15 @@ Each subsection below covers a nonfunctional requirement of the system. All nonf
 
 \textbf{Initial State:} Kinect is properly set up whilst facing an environment with an object placed that is large enough to partially obstruct the view of a person. Software is running in realtime and is detecting the person in frame.
 
-\textbf{Input:} Multiple Changed Positions
+\textbf{Input:} Multiple Changed Positions 
 
-\textbf{Output:} The system displays the outline of the human within a certain visible range.
+\textbf{Output:} The system outlines the approximate location of the human and the person testing would provide a rating from 1-10 each time. The final ratings are then averaged.
 
-\textbf{Test Case Derivation:} The system is expected to produce an outline for the human that is relatively close to what can be seen on screen. The system should only detect what is visible and detect it in a given area.
+\textbf{Test Case Derivation:} The system is expected to produce an outline for the human that is relatively close to what can be seen on screen. The system should only be able to predict the human with a given range around the person standing in frame. The average for the 10 tests should be greater than 80\%. 
 
-\textbf{How test will be performed:} The person would hold a certain position and then the tester would manually check if the outlined area fits into a certain range by viewing the screen. The person would then change their position and the tester does the same process over again. This would be repeated 10 times to measure accuracy.
+\textbf{How test will be performed:} The person would hold a certain position and then the tester would manually check if the outlined area fits into a certain range by viewing the screen. The person would then change their position and the tester does the same process over again. This would be repeated 10 times to measure accuracy. Each postition will be given a rating out of 10 ( 1 - completly wrong and 10 - on the person eact location) and then the final results will all be averaged. The score should be above 80\% to be considered a pass.
   
 \end{enumerate}
-
 
 \subsection{Traceability Between Test Cases and Requirements}
 
@@ -651,137 +650,163 @@ Each subsection below covers a nonfunctional requirement of the system. All nonf
   \hline
   \hyperref[NFT21]{(NFT21)} & {[}NF432{]} \\
   \hline
+  \hyperref[NFT22]{(NFT22)} & {[}NF432{]} \\
+  \hline
   \hyperref[NFT31]{(NFT31)} & {[}NF433{]} \\ 
   \hline
   \end{tabular}
   \end{table}
 
+\section{Code Quality Tests}
+This section is included to outline the tests that will be run to ensure that the code is of high quality and matches industry standards.
 
+\subsection{Linting}
+
+\begin{enumerate}
+
+\item{Linting (CQT11)\label{CQT11}\\}
+  
+\textbf{Control:} Automated
+
+\textbf{Initial State:} The system has a C/C++ Linter hosted on Github Actions and has the Google C++ styling clang configuration file included.
+
+\textbf{Input:} Source Code
+
+\textbf{Output:} The system indicates which files do not match the Google C++ styling if the test fails. Otherwise, the test passes.
+
+\textbf{Test Case Derivation:} The system is expected to read all of the source files with the relevant C++ extensions (.cpp, .c, .hpp, .h, etc.) and ensure it matches the Google C++ styling as defined in the configuration file. The system should return either a successful or failed result and include thorough information of the automated test in either case.
+
+\textbf{How test will be performed:} This test will run automatically when performing changes on git through a git push or a git merge.
+
+\end{enumerate}
 
 \section{Unit Test Description}
 
-\wss{This section should not be filled in until after the MIS (detailed design
-  document) has been completed.}
-
-\wss{Reference your MIS (detailed design document) and explain your overall
-philosophy for test case selection.}  
-
-\wss{To save space and time, it may be an option to provide less detail in this section.  
-For the unit tests you can potentially layout your testing strategy here.  That is, you 
-can explain how tests will be selected for each module.  For instance, your test building 
-approach could be test cases for each access program, including one test for normal behaviour 
-and as many tests as needed for edge cases.  Rather than create the details of the input 
-and output here, you could point to the unit testing code.  For this to work, you code 
-needs to be well-documented, with meaningful names for all of the tests.}
+Our testing strategy for creating our unit tests is to select modules from the MIS that have the highest priority such as Input Processing and Point Cloud Data Structures. These modules represent important logics that we must ensure is reliable. Within our modules, we created test cases for the helper functions that deal with conversions and computations. Specifically, the functions that cannot be visibly tested and thus not covered by our manual tests will be tested through unit tests. 
 
 \subsection{Unit Testing Scope}
 
-\wss{What modules are outside of the scope.  If there are modules that are
-  developed by someone else, then you would say here if you aren't planning on
-  verifying them.  There may also be modules that are part of your software, but
-  have a lower priority for verification than others.  If this is the case,
-  explain your rationale for the ranking of module importance.}
+The other modules that are not outlined below are outside of the scope of unit tests due to the size of the functions within the modules or their low priority. Furthermore, the other modules are best tested through manual testing and live observations, which has been covered by our system tests.
 
 \subsection{Tests for Functional Requirements}
 
-\wss{Most of the verification will be through automated unit testing.  If
-  appropriate specific modules can be verified by a non-testing based
-  technique.  That can also be documented in this section.}
+\subsubsection{Module Input Data Read}
 
-\subsubsection{Module 1}
-
-\wss{Include a blurb here to explain why the subsections below cover the module.
-  References to the MIS would be good.  You will want tests from a black box
-  perspective and from a white box perspective.  Explain to the reader how the
-  tests were selected.}
+The Test used to cover Input Data Read is to ensure that the data transferred from the Kinect Sensor is correct to ensure that any filtering done will be done on a correct cv::Mat.
 
 \begin{enumerate}
 
-\item{test-id1\\}
+\item{Test for convertPCLtoOpenCV (UT11)\label{UT11}\\}
 
-Type: \wss{Functional, Dynamic, Manual, Automatic, Static etc. Most will
-  be automatic}
+Type: Automatic
 					
-\textbf{Initial State:} 
+\textbf{Initial State:} The test is correctly implemented within the test suite.
 					
-\textbf{Input:} 
+\textbf{Input:} Sample PCL Point Cloud
 					
-\textbf{Output:} \wss{The expected result for the given inputs}
+\textbf{Output:} The test checks that the RGB values, Depth Values, and Cloud Size are mapped correctly between file types (one to one) and returns an OK.
 
-\textbf{Test Case Derivation:} \wss{Justify the expected value given in the Output field}
+\textbf{Test Case Derivation:} The test should be able to compare the sample cloud with the converted OpenCV image containers (cv::Mat) contaning rgb and depth values to check that the sample PCL point cloud has been properly converted to OpenCV.
 
-\textbf{How test will be performed:} 
-					
-\item{test-id2\\}
-
-Type: \wss{Functional, Dynamic, Manual, Automatic, Static etc. Most will
-  be automatic}
-					
-\textbf{Initial State:} 
-					
-\textbf{Input:} 
-					
-\textbf{Output:} \wss{The expected result for the given inputs}
-
-\textbf{Test Case Derivation:} \wss{Justify the expected value given in the Output field}
-
-\textbf{How test will be performed:} 
-
-\item{...\\}
+\textbf{How test will be performed:} Run the Unit Test suite through the unittest.cpp file and it will automatically display if the test passes through an OK output.
     
 \end{enumerate}
 
-\subsubsection{Module 2}
+\subsubsection{Module Point Cloud Data Structure}
 
-...
+There are two tests here that will cover the Point Cloud Data Structure module one with a valid cloud and one with an invalid cloud. These two tests will cover the main scope of the clustering to ensure the module runs as expected.
 
-\subsection{Tests for Nonfunctional Requirements}
-
-\wss{If there is a module that needs to be independently assessed for
-  performance, those test cases can go here.  In some projects, planning for
-  nonfunctional tests of units will not be that relevant.}
-
-\wss{These tests may involve collecting performance data from previously
-  mentioned functional tests.}
-
-\subsubsection{Module ?}
-		
 \begin{enumerate}
 
-\item{test-id1\\}
+\item{Test for valid\_cluster (UT21)\label{UT21}\\}
 
-Type: \wss{Functional, Dynamic, Manual, Automatic, Static etc. Most will
-  be automatic}
-					
-\textbf{Initial State:} 
-					
-Input/Condition: 
-					
-Output/Result: 
-					
-\textbf{How test will be performed:} 
-					
-\item{test-id2\\}
+Type: Automatic
 
-Type: Functional, Dynamic, Manual, Static etc.
-					
-\textbf{Initial State:} 
-					
-\textbf{Input:} 
-					
-\textbf{Output:} 
-					
-\textbf{How test will be performed:} 
+\textbf{Initial State:} The test is correctly implemented within the test suite.
+
+\textbf{Input:} Sample PCL cloud with a valid cluster 
+
+\textbf{Output:} The test correctly assesses the cluster to be valid and returns an OK
+
+\textbf{Test Case Derivation:} The test should be able to confirm that the cluster that has been extracted is valid so that the correct human clustering can be determined.
+
+\textbf{How test will be performed:} Run the Unit Test suite through the unittest.cpp file and it will automatically display if the test passes through an OK output.
+
+\item{Test for invalid\_cluster (UT22)\label{UT22}\\}
+
+Type: Automatic
+
+\textbf{Initial State:} The test is correctly implemented within the test suite.
+
+\textbf{Input:} Sample PCL cloud with an invalid cluster
+
+\textbf{Output:} The test correctly assesses the cluster to be invalid and returns an OK
+
+\textbf{Test Case Derivation:} The test should be able to confirm that the cluster is invalid to make sure that it does not take in invalid human clustering.
+
+\textbf{How test will be performed:} Run the Unit Test suite through the unittest.cpp file and it will automatically display if the test passes through an OK output.
 
 \end{enumerate}
 
-\subsubsection{Module ?}
+\subsubsection{Module Input Processing}
 
-...
+The two tests below will cover the Input Processing module by covering the main filtering methods of the module. Testing to ensure that voxel downsampling and noise removal is functioning properly will ensure that the cloud is filtered before the subsequent processing methods are run.
+
+\begin{enumerate}
+
+\item{Test for voxel\_downsampling (UT31)\label{UT31}\\}
+
+Type: Automatic
+
+\textbf{Initial State:} The test is correctly implemented within the test suite.
+
+\textbf{Input:} Sample PCL cloud with predetermined points
+
+\textbf{Output:} Sample PCL cloud is downsampled and contains less points than the original cloud. The test returns an OK.
+
+\textbf{Test Case Derivation:} The test should be able to confirm that the PCL cloud was properly downsampled and contains less points than the original cloud.
+
+\textbf{How test will be performed:} Run the Unit Test suite through the unittest.cpp file and it will automatically display if the test passes through an OK output.
+
+\item{Test for removeNoise (UT32)\label{UT32}\\}
+
+Type: Automatic
+
+\textbf{Initial State:} The test is correctly implemented within the test suite.
+
+\textbf{Input:} Sample PCL cloud with noise added
+
+\textbf{Output:} The noise that was added to the sample PCL cloud is removed. The test checks that the noise has been removed and returns an OK.
+
+\textbf{Test Case Derivation:} The test should be able to confirm that the PCL cloud has had all of the added noise removed.
+
+\textbf{How test will be performed:} Run the Unit Test suite through the unittest.cpp file and it will automatically display if the test passes through an OK output.
+
+\end{enumerate}
 
 \subsection{Traceability Between Test Cases and Modules}
 
-\wss{Provide evidence that all of the modules have been considered.}
+\begin{table}[H]
+
+  \centering
+  \caption{Module and Test Case Tracing}
+  \begin{tabular}{|l|l|l|}
+  \hline
+  \textbf{Test ID} & \textbf{Modules}\\
+  \hline
+  UT11 & M4\\
+  \hline
+  UT21 & M8\\
+  \hline
+  UT22 & M8\\
+  \hline
+  UT31 & M9\\
+  \hline
+  UT32 & M9\\
+  \hline
+  \end{tabular}
+\end{table}
+See section 7 in the \href{https://github.com/takhtart/PCD/blob/main/docs/Design/SoftArchitecture/MG.pdf}{Module Guide} for more information on the modules.
 				
 \bibliographystyle{plainnat}
 
@@ -805,6 +830,86 @@ Their values are defined in this section for easy maintenance.
 The information in this section will be used to evaluate the team members on the
 graduate attribute of Lifelong Learning.
 
-\input{../Reflection.tex}
+\begin{enumerate}
+  
+
+\item What went well while writing this deliverable? 
+
+The deliverable was straightforward. We had a rough idea of the main hazards within our project and 
+tried to make sure that we covered the main scope. The document writing was split between all of us.
+The document is pretty straightforward and we as a group were able to talk over the different sections
+and divide up the work.
+
+\item What pain points did you experience during this deliverable, and how
+did you resolve them?
+
+The biggest pain point was probably discussing what would be some assumptions we had to make, but we were able to come to an agreement by communicating our points of why or why not.
+
+\item Which of your listed risks had your team thought of before this
+deliverable, and which did you think of while doing this deliverable? For
+the latter ones (ones you thought of while doing the Hazard Analysis), how
+did they come about?
+
+All the risks were mainly thought of before the deliverable. We knew that we needed to ensure that the 
+offline file is the correct format and that the system needs to make sure it is working with a Kinect sensor and not something else.
+
+The privacy risk was something we thought of at the informal interview.
+
+\item Other than the risk of physical harm (some projects may not have any
+appreciable risks of this form), list at least 2 other types of risk in
+software products. Why are they important to consider?
+
+Could be some performance risks and making sure that the performance of the software meets the goals/requirements for the project.
+Another risk could be in terms of privacy. The application is capturing sensitive data and so its important on how the application handles this data.
+
+\item What went well while writing this deliverable?
+
+This deliverable was relatively painless and straightforward. We had already started thinking about testing plans
+during our SRS deliverable, specifically section S.6. In this section we detailed a brief VnV plan, including system testing
+and unit testing. This set up the basic outline for this deliverable, it being an extension of what we already wrote/thought about.
+
+\item What pain points did you experience during this deliverable, and how
+  did you resolve them?
+
+One pain point we had during this deliverable was editing requirements from the SRS. When creating the traceability matrix, we noticed
+that some of the requirements from the SRS document were overlapping or in the wrong spot. We held a meeting as a group to sort this out 
+and reach a consensus on which requirements should stay, should be changed, or should be deleted.
+
+\item What knowledge and skills will the team collectively need to acquire to
+successfully complete the verification and validation of your project?
+Examples of possible knowledge and skills include dynamic testing knowledge,
+static testing knowledge, specific tool usage, Valgrind etc.  You should look to
+identify at least one item for each team member.
+
+In order to properly complete the verification and validation of our project, some skills will need to Be
+acquired. Firstly, we will have to familiarize ourselves with cppunit, as majority of our testing knowledge from
+previous courses is in Java or Python. Additionally, because of this, we will have to learn how to use GCov in order to
+accurately figure out our code coverage. On the topic of code coverage, we will also need to brush up on our coverage 
+definitions that were learnt in our testing course. Finally, we will need to implement linters to check our code on github
+before merge.
+
+\item For each of the knowledge areas and skills identified in the previous
+question, what are at least two approaches to acquiring the knowledge or
+mastering the skill?  Of the identified approaches, which will each team
+member pursue, and why did they make this choice?
+
+For these skills, there are a few ways to approach acquiring the knowledge. With new skills, utilizing Youtube and online tutorials
+are a good way to quickly learn the basics and proper implementation of new techniques. For older skills, i.e. ones that we have learnt
+previously but haven't used in a while, we can go back to old projects/lectures and relearn the information.
+
+Matthew will find online tutorials to learn about cppunit. This is because he has no experience with creating automated testing in c++, and needs 
+to start off by learning the basics.
+
+Tarnveer will find online tutorials to learn about cppunit and c++ linters on Github. This is for the same reason as above; he has no experience
+implementing testing in c++ or adding linters to Github for PRs.
+
+Harman will go back to our old 3SO3 notes in order to relearn MC/DC coverage. This is because he had implemented MC/DC coverage and checks 
+in that course, but in Java. Since he has implemented this before, he is familiar with the content and should be relatively painless to 
+relearn the content.
+
+Kyen will find online tutorials for learning about GCov. For similar reasons as Matthew and Tarnveer, this is because he has no prior experience with 
+this specific coverage tool.
+
+\end{enumerate}
 
 \end{document}

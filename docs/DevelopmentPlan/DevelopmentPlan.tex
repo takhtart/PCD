@@ -23,6 +23,12 @@
 \textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
 \midrule
 September 24, 2024 & Tarnveer Takhtar, Matthew Bradbury & Initial Draft\\
+March 26, 2025 & Harman Bassi & \href{https://github.com/takhtart/PCD/issues/74}{Revision 1}\\
+March 26, 2025 & Matthew Bradbury & \href{https://github.com/takhtart/PCD/issues/75}{Revision 1}\\
+March 26, 2025 & Matthew Bradbury & \href{https://github.com/takhtart/PCD/issues/76}{Revision 1}\\
+March 26, 2025 & Harman Bassi & \href{https://github.com/takhtart/PCD/issues/77}{Revision 1}\\
+March 26, 2025 & Matthew Bradbury & \href{https://github.com/takhtart/PCD/issues/78}{Revision 1}\\
+March 26, 2025 & Harman Bassi & \href{https://github.com/takhtart/PCD/issues/79}{Revision 1}\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -163,7 +169,37 @@ The coding standard we will adopt will be C++ 20.
 
 \section*{Appendix --- Reflection}
 
-\input{../Reflection.tex}
+\begin{enumerate}
+    \item Why is it important to create a development plan prior to starting the
+project?\\
+
+It is important to create a development plan prior to starting the project as
+it allows most of the heavy lifting behind project planning to be done before any
+work has started. It allows for expectations and workflow to be clearly defined before
+any issues arise. It also creates a document that can be referenced at other times 
+to avoid confusion.
+
+\item In your opinion, what are the advantages and disadvantages of using
+CI/CD?\\
+
+Employing CI/CD allows for better issue tracking and rollbacks. Utilizing CI/CD gives the
+opportunity for teams to better track individual issues and commits, leading to increased 
+awareness and visibility on workflow issues. It also allows for easier time rolling back
+to a previous version in case something goes wrong. 
+Some disadvantages are with the conceptual depth and speed. Ensuring a specific workflow 
+and constant PR reviews can slow things down as contributors have to make sure that they
+are following the workflow properly and have to wait for PR reviews (when necessary). Furthermore,
+it is more effort to set up, both in the codebase and conceptually. The process has to be 
+talked through and understood by all team members.
+
+\item What disagreements did your group have in this deliverable, if any,
+and how did you resolve them?\\
+
+Our group mainly debated how to set up our GitHub workflows. Initially, we considered using individual branches for each issue, but we ultimately decided on a 
+more streamlined approach with two revision branches and separate forks. This allows us to effectively manage pull requests for merging feature changes into the codebase. 
+We reached this agreement after discussing the benefits of clarity and collaboration in our development process.
+
+\end{enumerate}
 
 \newpage{}
 

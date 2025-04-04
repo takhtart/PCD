@@ -1,0 +1,17 @@
+== Unikely Changes
+
+. [[ULC1]] *Human Detection* <<F411>>: The main requirement for this system is human detection and so this requirement will not change. 
+
+. [[ULC2]] *Location Estimation* <<F412>>: The location prediction was a newly added requirement and needs to be implemented to showcase the hidden human detection feature in the software.
+
+. [[ULC3]] *Integration with Kinect Sensor* <<F415>>: The Kinect Sensor is a constraint and so the software will need to be implemented through the data collected by the Kinect stream.
+
+. [[ULC4]] *Real-Time Processing* <<F416>>: The data needs to be processed within real time to provide that the output is useful.
+
+. [[ULC5]] *Reliability* <<NF432>>: The final product will always need to be reliable to ensure that the humans location is correctly identified.
+
+. [[ULC6]] *Accuracy:* <<NF433>>: The accuracy of the software needs to be held to a high standard to ensure that every time the user runs they expect a similar result.
+
+
+
+

@@ -54,6 +54,8 @@ urlcolor=cyan          % color of external links
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
 Jan 17, 2025 & 1.0 & Initial Draft\\
+March 27, 2025 & 2.0 & \href{https://github.com/takhtart/PCD/issues/106}{Revision 1}\\
+March 27, 2025 & 2.0 & \href{https://github.com/takhtart/PCD/issues/107}{Revision 1}\\
 \bottomrule
 \end{tabularx}
 
@@ -205,7 +207,11 @@ None
 
 \subsubsection{Environment Variables}
 
-Size of the room (affects \# of points in point cloud)
+\begin{itemize}
+  \item Size of the room (affects \# of points in point cloud)
+  \item Lighting (affects \# of points and colour of the point cloud)
+  \item Angle of the Kinect (affects layout of the points)
+\end{itemize}
 
 \subsubsection{Assumptions}
 
@@ -219,7 +225,7 @@ Size of the room (affects \# of points in point cloud)
 
 \noindent kinect():
 \begin{itemize}
-  \item output: PointCloudT::ConstPtr\& input\_cloud
+  \item output: PointCloudT::ConstPtr input\_cloud
   \item Precondition: user calls live\_stream mode
   \item Postcondition: user terminates program or selects exit 
 \end{itemize}
@@ -268,7 +274,7 @@ main & None & None & - \\
 
 \subsubsection{State Variables}
 
-None.
+PointcloudT::Ptr cloud 
 
 \subsubsection{Environment Variables}
 
@@ -284,7 +290,7 @@ Device has the processing power needed.
 
 \noindent main():
 \begin{itemize}
-\item transition:  connects the input data read module to input processing
+\item transition: connects the final filtered cloud (cloud after processing) to the GUI module to display the output.
 \end{itemize}
 
 
@@ -313,7 +319,7 @@ None.
 \hline
 \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
 \hline
-reader & - & - & - \\
+reader & std::cin user\_input  & None. & - \\
 \hline
 \end{tabular}
 \end{center}
@@ -323,14 +329,11 @@ reader & - & - & - \\
 \subsubsection{State Variables}
 
 \begin{itemize}
-  \item Choice (Integer): Choice that the user made on what mode to run the program in.
+  \item std::cin user\_input : Choice that the user made on what mode to run the program in.
 \end{itemize}
 
 \subsubsection{Environment Variables}
 
-\begin{itemize}
-  \item std::cin: Used to get the users input on what choice they want to make.
-\end{itemize}
 
 \subsubsection{Assumptions}
 
@@ -340,7 +343,7 @@ The user provides a valid input ($\mathbb{Z}$) corresponding with the correct op
 
 \noindent main():
 \begin{itemize}
-  \item transition: Converts the input data into the data structure used by the Input Processing Module \ref{}
+  \item transition: Converts the input data into the data structure used by the Input Processing Module
 \end{itemize}
 
 \subsubsection{Local Functions}
@@ -372,11 +375,11 @@ None.
 \subsubsection{Exported Access Programs}
 
 \begin{center}
-\begin{tabular}{p{2cm} p{4cm} p{4cm} p{2cm}}
+\begin{tabular}{p{2cm} p{5cm} p{4cm} p{2cm}}
 \hline
 \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
 \hline
-clssify & (PointCloudT::Ptr)cloud, (PointCloudT::Ptr) cloudfiltered & - & - \\
+classify & (PointCloudT::Ptr)cloud, (PointCloudT::Ptr) cloudfiltered & None. & - \\
 \hline
 \end{tabular}
 \end{center}
@@ -387,7 +390,7 @@ clssify & (PointCloudT::Ptr)cloud, (PointCloudT::Ptr) cloudfiltered & - & - \\
 
 \begin{itemize}
   \item *cloudFiltered = *personCloud : updated cloud value for the data set
-  \item personCloud (PointCloudT::Ptr) : the cliuster that is being identified as a human within the frame.
+  \item personCloud (PointCloudT::Ptr) : the cluster that is being identified as a human within the frame.
 \end{itemize}
 
 \subsubsection{Environment Variables}
@@ -404,6 +407,7 @@ None.
 
 \noindent classify(cloud, cloudfiltered )():
 transition: This module will take the the filtered values and filter down further to just identify the human within the frame and only leave the data points connected to that person.
+Connects the filtered point cloud to the Application Control module
 \subsubsection{Local Functions}
 
 None.
@@ -430,7 +434,7 @@ None.
 \hline
 \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
 \hline
-ranking & dataPoint($\mathbb{P}$)  & - & - \\
+ranking & dataPoint($\mathbb{P}$)  & None. & - \\
 \hline
 \end{tabular}
 \end{center}
@@ -458,7 +462,7 @@ None.
 
 \noindent ranking(dataPoint)():
 \begin{itemize}
-  \item transition: This module will take in the dataPoint and add it to the list and order it into the array.
+  \item transition: This module will take in the dataPoint and add it to the list and order it into the array. It connects the sorted array of ranking to the Input Classifier module.
 \end{itemize}
 
 \subsubsection{Local Functions}
@@ -488,13 +492,13 @@ None.
 \subsubsection{Exported Access Programs}
 
 \begin{center}
-\begin{tabular}{p{2cm} p{4cm} p{2cm} p{2cm}}
+\begin{tabular}{p{3cm} p{4cm} p{2cm} p{2cm}}
 \hline
 \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
 \hline
 boundingBox & humancloud($\mathbb{P}$),
               minpt($\mathbb{P}$),
-              maxpt($\mathbb{P}$) & - & - \\
+              maxpt($\mathbb{P}$) & None. & - \\
 \hline
 \end{tabular}
 \end{center}
@@ -516,12 +520,14 @@ None.
 
 \begin{itemize}
   \item The input cloud points are valid to provide an accurate drawing of the box.
+  \item The filtered cloud properly depicts a human.
 \end{itemize}
 
 \subsubsection{Access Routine Semantics}
 
-\noindent boundingBox(humancloud,minpt,maxpt)():
-transition: This module will take in inputed data points and add draw out a box using the max and pin points provided.
+\noindent boundingBox(humancloud,minpt,maxpt)():\\
+transition: This module will take in inputed data points and add draw out a box using the max and min points provided. 
+It connects the cloud and calculated bounding box to be presented at the GUI module.
 \subsubsection{Local Functions}
 
 None.
@@ -549,11 +555,11 @@ None.
 \subsubsection{Exported Access Programs}
 
 \begin{center}
-\begin{tabular}{p{2cm} p{4cm} p{4cm} p{2cm}}
+\begin{tabular}{p{3cm} p{4cm} p{4cm} p{2cm}}
 \hline
 \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
 \hline
-struct & None & None & - \\
+struct & None. & None. & - \\
 \hline
 \end{tabular}
 \end{center}
@@ -579,7 +585,7 @@ The point cloud data from kinect stream is valid
 
 \noindent struct():
 \begin{itemize}
-\item transition: This module is the point cloud data structure for storing point cloud data such as ones captured from the kinect and ones processed by our cloud processing algorithm
+\item transition: This module is the point cloud data structure for storing point cloud data such as ones captured from the kinect and ones processed by our cloud processing algorithm. It connects generalized data types that abstract point cloud data to the Input Processing and GUI modules.
 \end{itemize}
 
 
@@ -594,7 +600,7 @@ None.
 
 \subsection{Module}
 
-processing
+process\_cloudOCV
 
 \subsection{Uses}
 
@@ -612,11 +618,11 @@ None.
 \subsubsection{Exported Access Programs}
 
 \begin{center}
-\begin{tabular}{p{2cm} p{4cm} p{4cm} p{2cm}}
+\begin{tabular}{p{4cm} p{4cm} p{2cm} p{2cm}}
 \hline
 \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
 \hline
-processing & PointCloudT::Ptr\& cloud & PointCloudT::Ptr\& cloud\_filtered & - \\
+process\_cloudOCV & PointCloudT::Ptr cloud & None. & - \\
 \hline
 \end{tabular}
 \end{center}
@@ -637,9 +643,9 @@ Data captured by the kinect are correctly processed and stored in the point clou
 
 \subsubsection{Access Routine Semantics}
 
-\noindent process\_cloud(cloud,cloud\_filtered):
+\noindent process\_cloudOCV(cloud,cloud\_filtered):
 \begin{itemize}
-\item output: performs voxel downsampling, remove noise, and perform euclidean cluster extraction of the input cloud and return a filtered version of the point cloud 
+\item transition: it removes noise, perform plane removal, and skin point detection and transitions the detected skin points and filtered cloud to the Input Classifer module.
 \end{itemize}
 
 
@@ -697,13 +703,17 @@ None.
 
 \subsubsection{Assumptions}
 
-None.
+\begin{itemize}
+  \item Working keyboard and mouse is connected
+  \item Kinect is properly setup and connected
+  \item Proper file types are uploaded
+\end{itemize}
 
 \subsubsection{Access Routine Semantics}
 
 \noindent cmd():
 \begin{itemize}
-\item transition: Provides the interface that allows the user to select between live stream and offline mode 
+\item transition: Provides the Data Read module with the user's option of offline versus live as well as the location of the downloaded .pcd file (for offline mode).
 \end{itemize}
 
 \subsubsection{Local Functions}
@@ -731,11 +741,11 @@ None.
 \subsubsection{Exported Access Programs}
 
 \begin{center}
-\begin{tabular}{p{2cm} p{4cm} p{4cm} p{2cm}}
+\begin{tabular}{p{2cm} p{3cm} p{3cm} p{3cm}}
 \hline
 \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
 \hline
-gui & None. & None. & - \\
+gui & PointcloudT::Ptr filtered\_cloud & Visulaized Point Cloud & - \\
 \hline
 \end{tabular}
 \end{center}
@@ -744,7 +754,10 @@ gui & None. & None. & - \\
 
 \subsubsection{State Variables}
 
-None.
+\begin{itemize}
+  \item std::thread visualizer\_thread (displaying the filtered cloud)
+  \item std::thread visualizer\_thread2 (displaying the original cloud)
+\end{itemize}
 
 \subsubsection{Environment Variables}
 
@@ -761,7 +774,7 @@ Point cloud was correctly processed and stored with the point cloud data structu
 
 \noindent gui():
 \begin{itemize}
-\item transition: Uses the visualizer to deploy a GUI which displays the 3D point cloud
+\item output: Uses the visualizer to deploy a GUI which displays the 3D point clouds (filtered and original)
 \end{itemize}
 
 \subsubsection{Local Functions}
@@ -783,6 +796,35 @@ N/A
 
 \section*{Appendix --- Reflection}
 
-\input{../../Reflection.tex}
+\begin{enumerate}
+  \item What went well while writing this deliverable? 
+
+  Everyone on the team was on track with their sections of the assignment and we were able to thick of better ways to break up some modules to make more sense.
+
+\item What pain points did you experience during this deliverable, and how did you resolve them?
+
+  Getting used to the new year and so it was a slow start trying to get back into the flow, but once we started working it came back.
+
+\item Which of your design decisions stemmed from speaking to your client(s)or a proxy (e.g. your peers, stakeholders, potential users)? For those thatwere not, why, and where did they come from?
+
+  Most of the module break up comes from talking to our client becuase they helped us focus on their vision for the project but making the inputs and specific variables were all done independently.
+
+\item While creating the design doc, what parts of your other documents (e.g.
+  requirements, hazard analysis, etc), it any, needed to be changed, and why?
+
+  For now no real document had to be changed becuase the structure for this assignment was thought of before through the many client meets. This allowed for a strong structure.
+
+\item What are the limitations of your solution?  Put another way, given
+  unlimited resources, what could you do to make the project better? (LO\_ProbSolutions)
+
+  With unlimited resources the ability to capture better imaging with the kinect would allow for a faster and more precise human detection algorithm. Maybe also being able to better maximize the human detection to better fit a humaniod shape.
+\item Give a brief overview of other design solutions you considered.  What
+  are the benefits and tradeoffs of those other designs compared with the chosen
+  design?  From all the potential options, why did you select the documented design?
+  (LO\_Explores)
+
+  Other design implications would just involve taking a different approach to creating the algorithm. The issue with for example a solution that does not use hue or skin color is limiting our ability to full captalize on the fact that the sensor picks up RGB as well.
+
+\end{enumerate}
 
 \end{document}

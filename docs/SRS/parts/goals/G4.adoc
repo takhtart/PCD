@@ -50,7 +50,7 @@ The following goals can be found in link:https://github.com/takhtart/PCD/blob/ma
 
 |<<F411>> |2.1 |Satisfies <<NF431>>, <<NF432>> 
 
-|<<F411>> |2.3 |Satisfies <<NF432>>
+|<<F412>> |2.3 |Satisfies <<NF432>>
 
 |<<F413>> |2.5 |Satisfies <<NF431>>
 
