@@ -36,7 +36,11 @@
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
 2025-03-10 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+April 2, 2025 & 2.0 & \href{https://github.com/takhtart/PCD/issues/118}{Revision 1}\\
+April 2, 2025 & 2.0 & \href{https://github.com/takhtart/PCD/issues/119}{Revision 1}\\
+April 3, 2025 & 2.0 & \href{https://github.com/takhtart/PCD/issues/123}{Revision 1}\\
+April 4, 2025 & 2.0 & \href{https://github.com/takhtart/PCD/issues/122}{Revision 1}\\
+April 4, 2025 & 2.0 & \href{https://github.com/takhtart/PCD/issues/124}{Revision 1}\\
 \bottomrule
 \end{tabularx}
 
@@ -129,7 +133,7 @@ The following section covers the functional tests related to human detection giv
 The following section covers the functional tests related to predicting the location of obscured segments.
 \begin{table}[H] % Force table to stay here
   \centering
-  \renewcommand{\arraystretch}{1.2} % Adjust row height for better readability
+  \renewcommand{\arraystretch}{1.4} % Adjust row height for better readability
   \resizebox{\textwidth}{!}{ % Ensures table fits within text width
   \begin{tabular}{|p{2cm}|p{2.5cm}|p{3cm}|p{4cm}|p{4cm}|p{1.8cm}|} 
       \hline
@@ -142,6 +146,16 @@ The following section covers the functional tests related to predicting the loca
       FT22 & Manual & \raggedright Realtime PCD from Kinect \par & \raggedright A box showing where the human's legs would be. \par & A box encompassing the human, drawing the box to where the legs should be as well. & Pass \\
       \hline
       \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} A pass in this test would indicate that the software is able to detect people based of the given points and is able to use that to estimate the general location of where the human should be. In this specific test case the software draws a box around the human body and predicts where the legs of the body should be. This is seen in the actual tesing as well. Thus, proving that the software is able to successful predict the general location of the legs and not visble area of the human.  \par} \\
+      \hline
+  \end{tabular}
+  }
+\end{table}
+
+\begin{table}[H] % Force table to stay here
+  \centering
+  \renewcommand{\arraystretch}{1.4} % Adjust row height for better readability
+  \resizebox{\textwidth}{!}{ % Ensures table fits within text width
+  \begin{tabular}{|p{2cm}|p{2.5cm}|p{3cm}|p{4cm}|p{4cm}|p{1.8cm}|} 
       \hline
       FT23 & Manual & \raggedright .pcd file containing a hand of a human outside the frame \par & \raggedright A box drawn outwards to where the person is standing \par & A box drawn away from the hand at the center off to the end of the cloud showing the human outside of frame. & Pass \\
       \hline
@@ -318,20 +332,43 @@ The following section covers the non-functional tests related to accuracy requir
       \hline
       \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} ConvertPCLtoOpenCV: Converts a PCL Point Cloud to OpenCV Mat type for point cloud analysis using OpenCV. A pass means that the function correctly maps the Point Cloud values to OpenCV Mat type. The unit test passed successfully, verifying that the mapped values matched between the two types. \par} \\
       \hline
-      UT2 & Automated & \raggedright OpenCV Mat, Min Depth, Max Depth \par & \raggedright Returns an OpenCV Mat Type that includes only points within the desired depth range. \par & \raggedright Returns an OpenCV Mat Type that includes only points within the desired depth range. \par & Pass \\
+      UT2 & Automated & \raggedright Sample PCL cloud with a valid cluster \par & \raggedright The test should pass with the cluster being a valid cluster \par & \raggedright The test should pass with the cluster being a valid cluster  \par & Pass \\
       \hline
-      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} segmentDepth: This function takes an OpenCV Mat cloud and removes points outside the specified depth range. A pass indicates that only points within the given depth range remain in the returned Mat. The unit test passed, confirming correct depth segmentation. \par} \\
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} valid$\_$cluster: The function needs to be able to ensure that the cluster is valid to allow for proper human detection to occur. A pass means that the function is able to determine that the cloud is valid and thus accepted. In this case the unit test pass, meaning that the valid$\_$cluster function can determine if the cluster presented is valid or not.  \par} \\
+      \hline
+      UT3 & Automated & \raggedright Sample PCL cloud with an invalid cluster \par & \raggedright The test should pass with the cluster being an invalid cluster \par & \raggedright The test should pass with the cluster being an invalid cluster \par & Pass \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} invalid$\_$cluster: The function needs to be able to ensure that the cluster is valid to allow for proper human detection to occur. A pass means that the function is able to determine that the cloud is invalid and thus rejected. In this case the unit test pass, meaning that the valid$\_$cluster function can determine if the cluster presented is valid or not. \par} \\
+      \hline
+  \end{tabular}
+  }
+\end{table}
+
+\begin{table}[H] % Force table to stay here
+  \centering
+  \renewcommand{\arraystretch}{1.4} % Adjust row height for better readability
+  \resizebox{\textwidth}{!}{ % Ensures table fits within text width
+  \begin{tabular}{|p{1.5cm}|p{2.5cm}|p{3cm}|p{4cm}|p{4cm}|p{1.8cm}|}
+      \hline
+      UT4 & Automated & \raggedright Sample PCL cloud with predetermined points \par & \raggedright The number of PCL cloud points should be less than the original number of points (100) after the downsampling. \par & \raggedright The number of PCL cloud points should be less than the original number of points (100) after the downsampling.  \par & Pass \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} voxel$\_$downsampling: Runs the voxel downsampling to make sure the PCL cloud is downsamplied to make the cloud easier to processes. A pass means that the downsampling is correclty removing excess points to simplify the cloud. The unit test passed successfully, meaning that the fucntion is correclty downsampling the PCL cloud.   \par} \\
+      \hline
+      UT5 & Automated & \raggedright Sample PCL cloud with noise added \par & \raggedright The filtered cloud has points less than or equal to the original cloud.  \par & \raggedright There are less than or equal to 100 points in the filtered PCL cloud. \par & Pass \\
+      \hline
+      \multicolumn{6}{|p{\textwidth}|}{\raggedright \textbf{Description:} removeNoise: Runs a noise removal on the PCL cloud with the added noise points making sure that the number of points is equla to or less than the number of points in the cloud before the added noise. A pass that the function is able to correctly identify the noise added to the file and remove it leaving with a noise filtered PCL cloud with less than or equal to number of points as the original cloud. The Unit Test passed meaning the function is able to correctly identify the noise and removes it.  \par} \\
       \hline
   \end{tabular}
   }
 \end{table}
 
 
+
 \section{Changes Due to Testing}
 
 After the Dr. Bone meeting, it was established that the human body parts would not need to be identified, which made the 3D Space Estimation testing unnecessary. This would mean that this test section would no longer be needed. But, the addition of a new functional requirement of location prediction would require some tests \hyperref[FT21]{FT21}-\hyperref[FT24]{FT24}. The location prediction is meant to predict where the human should be located based on the skin points detected. This now has four new tests, two for live and two for offline. The function has not yet been implemented for testing to occur.
 
-Some of the body pose variation detection was altered slightly to match closer to the detection algorithm \hyperref[NFT41]{NFT41}-\hyperref[NFT43]{NFT43}. After the Dr. Bone meeting, it was determined to be a good idea to use skin points to determine a human in frame. These tests are now accounting for different body poses, but with human skin points being in frame.
+Some of the body pose variation detection was altered slightly to match closer to the detection algorithm \hyperref[FT41]{FT41} - \hyperref[FT43]{FT43}. After the Dr. Bone meeting, it was determined to be a good idea to use skin points to determine a human in frame. These tests are now accounting for different body poses, but with human skin points being in frame.
 
 After doing the \hyperref[NFT12]{NFT12}  test, even though the test was a success, the user was provided with the file to upload and so now in the command line the output also says the expected file time.
 

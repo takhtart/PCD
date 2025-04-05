@@ -18,4 +18,5 @@
 | **Rev 1** | Apr 2, 2025 | TBA | link:https://github.com/takhtart/PCD/issues/89[Revision 1] | March 27, 2025
 | **Rev 1** | Apr 2, 2025 | TBA | link:https://github.com/takhtart/PCD/issues/90[Revision 1] | March 26, 2025
 | **Rev 1** | Apr 2, 2025 | TBA | link:https://github.com/takhtart/PCD/issues/91[Revision 1] | March 26, 2025
+| **Rev 1** | Apr 2, 2025 | TBA | link:https://github.com/takhtart/PCD/issues/112[Revision 1] | April 2, 2025
 |===
