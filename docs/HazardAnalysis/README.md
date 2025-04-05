@@ -2,4 +2,4 @@
 
 The folders and files for this folder are as follows:
 
-Describe ...
+Hazard Analysis -  is to identify, evaluate, and mitigate potential risks associated with the system.
