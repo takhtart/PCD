@@ -86,6 +86,20 @@ Build instructions and dependency setup are documented in [src/Setup.md](src/Set
 - Point Cloud Library (PCL) installation
 - OpenCV installation
 
+### Example Usage:
+
+Live:
+
+
+![image](https://github.com/user-attachments/assets/bc310205-fd59-4795-8535-690b163af6d1)
+
+
+Offline:
+
+
+![image](https://github.com/user-attachments/assets/bec441ca-c1c8-400f-9b22-d3013c5bc5f4)
+
+
 
 ## 📦 Dependencies
 - **PCL 1.14.1** (with VTK 9.3)
