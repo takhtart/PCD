@@ -7,9 +7,9 @@
 
 ## 🎯 Project Overview  
 
-PCD (Partially Covered Detection) is a real-time 3D perception system designed to enable safe human-robot interaction by detecting partially obscured humans in point cloud data. Unlike skeleton tracking solutions, PCD reconstructs full body volumes even when people are blocked by objects or only partially visible to the sensor.  
+PCD (Partially Covered Detection) is a real-time 3D perception system designed to enable safe human-robot interaction by detecting partially obscured humans in point cloud data. Unlike skeleton tracking solutions, PCD reconstructs full body volumes and location estimates even when people are blocked by objects or only partially visible to the sensor.  
 
-Developed specifically for assistive robotics applications, this system uses deterministic geometric algorithms (no machine learning) to reliably estimate the space occupied by people's heads, torsos and limbs - critical for robots that need to navigate safely around humans in homes, hospitals, or industrial settings.  
+Developed specifically for assistive robotics applications, this system uses deterministic geometric algorithms to reliably estimate the space occupied by people's heads, torsos and limbs as well as estimate the regions in which humans lie, critical for robots that need to navigate safely around humans in homes, hospitals, or industrial settings.   
 
 Key capabilities:
 - Works with both live Kinect sensor data and offline point cloud files.
@@ -26,13 +26,12 @@ Key capabilities:
 - **Morphological Refinement**: Closes gaps in detected planes using erosion/dilation.  
 
 <div align="center">
-    <img src="docs/images/PlaneDetection.png" alt="PlaneDetection" width="100%" />
+    <img src="docs/images/PlaneDetection.png" alt="PlaneDetection" width="60%" />
 </div>
 
 
 ### 2. **Skin Region Detection**  
 - **HSV Filtering**: Isolates skin tones using hue-saturation-value thresholds.  
-- **Red Mask Exclusion**: Removes false positives from red-colored objects.  
 - **Contour-Based Centroid Extraction**: Converts 2D skin regions to 3D seed points for clustering.
 
 
@@ -82,9 +81,10 @@ Key capabilities:
 
 ## 🛠️ Installation  
 Build instructions and dependency setup are documented in [src/Setup.md](src/Setup.md). This includes:
-- Microsoft Kinect SDK 2.0 configuration
+- Visual Studio 2022 installation
+- Microsoft Kinect SDK 2.0 installation
 - Point Cloud Library (PCL) installation
-- OpenCV setup for color processing
+- OpenCV installation
 
 
 ## 📦 Dependencies
@@ -98,8 +98,11 @@ This project includes a modified version of `kinect2_grabber.h` originally devel
 The folders and files for this project are as follows:
 
 docs - Documentation for the project
+
 refs - Reference material used for the project, including papers
+
 src - Source code
+
 test - Test files for offline processing
 
 ## 📜 License  
