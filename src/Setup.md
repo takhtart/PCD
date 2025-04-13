@@ -80,9 +80,9 @@ Link to Github Releases Page: [OpenCV Releases](https://github.com/opencv/opencv
 
 ---
 
-## 5. Compile and Run `cloud_viewer.cpp`
+## 5. Compile and Run `main.cpp`
 
 1. Navigate to the **src** folder of the GitHub PCD Repository
-2. Compile and run the `cloud_viewer.cpp` file to test the setup
+2. Compile and run the `main.cpp` file to test the setup
 
 > Ensure all dependencies are correctly configured and the Kinect sensor is properly connected before running the program.
