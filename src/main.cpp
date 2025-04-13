@@ -225,6 +225,7 @@ void live_stream() {
   visualizer_thread2.join();
 }
 
+
 void offline_view() {
   PointCloudT::Ptr cloud(new PointCloudT);
   PointCloudT::Ptr cloud_filtered(new PointCloudT);
@@ -236,7 +237,13 @@ void offline_view() {
   std::string file;
   std::cout
       << "Enter the full path to the PCD file (eg. C:\\PCD Files\\file1.pcd): ";
+
   std::getline(std::cin, file);
+
+  // Remove quotes " from the file path
+  file.erase(std::remove_if(file.begin(), file.end(),
+	  [](unsigned char c) { return c == '"'; }),
+	  file.end());
 
   if (pcl::io::loadPCDFile<PointT>(file, *cloud) == -1) {
     PCL_ERROR("Couldn't read file\n");
