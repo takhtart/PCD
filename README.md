@@ -92,7 +92,8 @@ Build instructions and dependency setup are documented in [src/Setup.md](src/Set
 - **OpenCV 4.x** (with contrib modules)
 - **Microsoft Kinect SDK 2.0**
 - **CMake 3.5+**
-This project includes a modified version of `kinect2_grabber.h` originally developed by [UnaNancyOwen](https://github.com/UnaNancyOwen/KinectGrabber) under the MIT license. The file was modify to support current versions of the PCL Library (1.14.x+) for Kinect v2 data acquisition.
+
+This project includes a modified version of `kinect2_grabber.h` originally developed by [UnaNancyOwen](https://github.com/UnaNancyOwen/KinectGrabber) under the MIT license. The file was modified to support current versions of the PCL Library (1.14.x+) for Kinect v2 data acquisition.
 
 ## 📂 Project Structure
 The folders and files for this project are as follows:
